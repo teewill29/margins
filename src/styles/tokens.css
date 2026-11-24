@@ -1,0 +1,34 @@
+:root {
+  --paper: #F3EEE3;        /* app background */
+  --card: #FBF8F1;         /* index cards, pills, inputs */
+  --ink: #24232A;          /* main text, icons */
+  --ink-soft: #3E3C40;     /* card descriptions */
+  --pencil: #6B6760;       /* secondary text (passes 4.5:1 on --paper) */
+  --red: #B23A30;          /* red pencil: labels, counts, active tab, record button */
+  --margin: #E08C86;       /* the margin line */
+  --rule: #C9D6E3;         /* ruled lines */
+  --marker: #F6E27F;       /* highlighter fill for used words */
+  --marker-edge: #E3C94F;  /* border on highlighted grid cells */
+  --dash: #B9AE96;         /* dashed border on unused grid cells and chips */
+  --bar: #ECE5D6;          /* bottom bar */
+  --bar-edge: #D8CDB6;     /* bottom bar top border, input borders */
+  --tape: rgba(226, 214, 184, 0.85);
+  --dock: #24232A;         /* recording dock background */
+  --dock-edge: #5A5862;    /* dock button borders, idle meter bars */
+  --rec: #E5574B;          /* recording dot and stop button */
+
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-type: 'Courier Prime', 'Courier New', monospace;
+  --font-hand: 'Caveat', cursive;
+  --font-ui: 'Inter', system-ui, sans-serif;
+
+  --rule-gap: 30px;        /* the pad's line height; everything on the pad snaps to it */
+  --margin-x: 52px;        /* the margin line's left offset */
+  --radius-card: 4px;
+  --shadow-card: 0 1px 0 rgba(36,35,42,0.06), 0 6px 18px rgba(80,60,30,0.10);
+
+  /* App frame (not in DESIGN.md's list, derived from its rules) */
+  --app-max: 480px;
+  --bar-h: 92px;
+  --record-shadow: 0 6px 14px rgba(178, 58, 48, 0.35);
+}

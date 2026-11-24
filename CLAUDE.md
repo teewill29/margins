@@ -29,12 +29,12 @@ No paid APIs, services or subscriptions. No server code. Everything runs on the 
 - Hosting: Vercel Hobby (free), static build only. Framework preset Vite, build `npm run build`, output `dist`.
 
 ## Commands
-Fill these in once the scaffold exists:
-- `npm run dev`
-- `npm run build`
-- `npm test`
-- `npm run lint`
-- `npm run bank` (rebuilds `src/data/*.json` from `scripts/bank/` sources)
+- `npm run dev`: dev server (service worker off in dev; use `npm run build && npm run preview` to test offline)
+- `npm run build`: type-check (`tsc -b`) and build to `dist/` with the service worker and manifest
+- `npm test`: Vitest, run once. Tests run with `TZ=America/Los_Angeles` so UTC date math fails.
+- `npm run lint`: ESLint
+- `npm run icons`: renders `scripts/icon.svg` to the PNGs in `public/`. Run after changing the icon, commit the output.
+- `npm run bank` (Phase 2, not yet): rebuilds `src/data/*.json` from `scripts/bank/` sources
 
 ## How to work
 - Build one phase at a time, in the order of `docs/PHASES.md`. Don't start a phase until the previous one meets its acceptance criteria.
@@ -52,3 +52,4 @@ Fill these in once the scaffold exists:
 
 ## Progress log
 (One line per finished phase: date, phase, anything notable.)
+- 2026-11-24, Phase 0: scaffold, routes, bottom bar, PWA with offline precache (fonts included, latin subsets only). Build, test, lint pass; offline routes checked in Chromium. Still to confirm: Vercel deploy and iPhone home-screen install offline. Record button is a no-op until Phase 1. TypeScript pinned to 6.0 because typescript-eslint doesn't support 7 yet.
