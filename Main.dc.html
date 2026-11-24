@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Session: word grid</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Courier+Prime:wght@400;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#24232A;text-decoration:none}a:hover{color:#B23A30}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F3EEE3; color: #24232A; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; position: relative; overflow: hidden">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 12px 4px 4px">
+    <a href="Notebook.dc.html" aria-label="Back to notebook" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#24232A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+    </a>
+    <div style="flex-grow: 1; display: flex; flex-direction: column">
+      <span style="font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 19px; line-height: 1.2">Tuesday, Nov 24</span>
+      <span style="font-size: 13px; color: #6B6760">Word grid · 14 min</span>
+    </div>
+    <button aria-label="Session options" style="width: 44px; height: 44px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#24232A" aria-hidden="true"><circle cx="5" cy="12" r="1.7"></circle><circle cx="12" cy="12" r="1.7"></circle><circle cx="19" cy="12" r="1.7"></circle></svg>
+    </button>
+  </div>
+
+  <div style="margin: 10px 16px 0; position: relative; background: #FBF8F1; border-radius: 4px; padding: 12px 14px 12px; box-shadow: 0 1px 0 rgba(36,35,42,0.06), 0 6px 18px rgba(80,60,30,0.10); transform: rotate(-0.4deg)">
+    <div aria-hidden="true" style="position: absolute; top: -10px; left: 50%; margin-left: -38px; width: 76px; height: 20px; background: rgba(226,214,184,0.85); transform: rotate(2deg)"></div>
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px">
+      <span style="font-family: Caveat, cursive; font-weight: 700; font-size: 24px; color: #B23A30; line-height: 1">Use all 16</span>
+      <div style="display: flex; align-items: center; gap: 4px">
+        <span style="font-size: 13px; font-weight: 600">11 of 16</span>
+        <button aria-label="Shuffle grid" style="width: 44px; height: 44px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#24232A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5"></path><path d="M4 20L21 3"></path><path d="M21 16v5h-5"></path><path d="M15 15l6 6"></path><path d="M4 4l5 5"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; font-family: 'Courier Prime', monospace; font-size: 12.5px">
+      <sc-for list="{{words}}" as="w" hint-placeholder-count="16">
+        <button style="{{w.style}}" onClick="{{w.toggle}}">{{w.label}}</button>
+      </sc-for>
+    </div>
+    <div style="margin-top: 10px; font-family: Caveat, cursive; font-size: 18px; color: #6B6760; line-height: 1.2">matched: burned → burn · borrowed → borrow · swallowed → swallow</div>
+  </div>
+
+  <div style="flex-grow: 1; position: relative; margin-top: 18px; background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 29px, #C9D6E3 29px, #C9D6E3 30px); background-position: 0 6px">
+    <div aria-hidden="true" style="position: absolute; top: 0; bottom: 0; left: 52px; width: 1.5px; background: #E08C86"></div>
+    <div style="padding-top: 6px; font-family: 'Courier Prime', monospace; font-size: 14.5px">
+      <div style="height: 30px; display: flex; align-items: flex-end; padding-left: 62px; padding-bottom: 3px; box-sizing: border-box">
+        <span style="font-family: Caveat, cursive; font-weight: 700; font-size: 19px; color: #B23A30; line-height: 1">Verse 1</span>
+      </div>
+      <sc-for list="{{lines}}" as="ln" hint-placeholder-count="5">
+        <div style="height: 30px; display: flex; align-items: flex-end; padding-bottom: 5px; box-sizing: border-box">
+          <span style="width: 52px; flex-shrink: 0; text-align: center; font-family: Caveat, cursive; font-size: 18px; color: #B23A30; line-height: 1">{{ln.syl}}</span>
+          <span style="padding-left: 10px; white-space: pre; line-height: 1">
+            <sc-for list="{{ln.parts}}" as="p" hint-placeholder-count="3"><span style="{{p.style}}">{{p.t}}</span></sc-for><sc-if value="{{ln.caret}}" hint-placeholder-val="{{false}}"><span style="display: inline-block; width: 2px; height: 17px; background: #B23A30; vertical-align: -3px; margin-left: 1px"></span></sc-if>
+          </span>
+        </div>
+        <sc-if value="{{ln.memo}}" hint-placeholder-val="{{false}}">
+          <div style="height: 30px; display: flex; align-items: center; padding-left: 62px; box-sizing: border-box">
+            <button style="height: 26px; display: flex; align-items: center; gap: 6px; padding: 0 10px 0 8px; border: 1px solid #24232A; border-radius: 13px; background: #FBF8F1; font-family: Inter, sans-serif; font-size: 12.5px; color: #24232A; cursor: pointer">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#B23A30" aria-hidden="true"><path d="M7 4l13 8-13 8z"></path></svg>
+              0:38 · verse hum
+            </button>
+          </div>
+        </sc-if>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="height: 92px; flex-shrink: 0; background: #ECE5D6; border-top: 1px solid #D8CDB6; display: flex; align-items: center; justify-content: space-around; padding: 0 12px 8px">
+    <a href="Notebook.dc.html" style="width: 88px; height: 56px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 12px; font-weight: 500">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#24232A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h12a2 2 0 0 1 2 2v16H7a2 2 0 0 1-2-2z"></path><path d="M5 17a2 2 0 0 1 2-2h12"></path><path d="M9 7h6"></path></svg>
+      Notebook
+    </a>
+    <a href="ObjectWriting.dc.html" aria-label="Record a voice memo" style="width: 66px; height: 66px; border-radius: 33px; background: #B23A30; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 5px #F3EEE3, 0 0 0 6px #D8CDB6, 0 6px 14px rgba(178,58,48,0.35); margin-top: -22px">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FBF8F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0"></path><path d="M12 18v3"></path></svg>
+    </a>
+    <a href="Exercises.dc.html" style="width: 88px; height: 56px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 12px; font-weight: 500">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#24232A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg>
+      Exercises
+    </a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { used: ['headlights','porch','burn','static','rust','ladder','quarter','borrow','swallow','envelope','tide'] };
+  }
+  renderVals() {
+    const all = ['porch','gasoline','quarter','ankle','rust','borrow','ladder','static','cathedral','swallow','headlights','burn','envelope','tide','mercy','shovel'];
+    const used = this.state.used;
+    const base = 'height: 40px; border-radius: 3px; font-family: inherit; font-size: 12.5px; color: #24232A; cursor: pointer; padding: 0 2px; ';
+    const words = all.map((w) => {
+      const on = used.indexOf(w) > -1;
+      return {
+        label: w,
+        style: base + (on ? 'background: #F6E27F; border: 1px solid #E3C94F; font-weight: 700;' : 'background: #F3EEE3; border: 1px dashed #B9AE96;'),
+        toggle: () => this.setState({ used: on ? used.filter((x) => x !== w) : used.concat([w]) })
+      };
+    });
+    const hl = 'background: #F6E27F; padding: 0 1px; border-radius: 2px;';
+    const L = (syl, parts, extra) => Object.assign({ syl, memo: false, caret: false, parts: parts.map((p) => typeof p === 'string' ? { t: p, style: '' } : { t: p[0], style: hl }) }, extra || {});
+    const lines = [
+      L('7', [['Headlights'], ' crawl across the ', ['porch']]),
+      L('8', ['I ', ['burned'], ' your ', ['static'], ' for the heat'], { memo: true }),
+      L('6', [['Rust'], ' on the ', ['ladder'], ' rungs']),
+      L('8', ['A ', ['quarter'], ' I ', ['borrowed'], ' from you']),
+      L('8', ['I ', ['swallowed'], ' the ', ['envelope'], ' whole']),
+      L('4', [['Tide'], ' comes in like'], { caret: true })
+    ];
+    return { words, lines };
+  }
+}
+</script>
+</body>
+</html>

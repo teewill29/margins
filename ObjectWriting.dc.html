@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Object writing, recording</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Courier+Prime:wght@400;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#24232A;text-decoration:none}a:hover{color:#B23A30}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F3EEE3; color: #24232A; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 14px 4px 4px">
+    <a href="Notebook.dc.html" aria-label="Back to notebook" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#24232A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+    </a>
+    <div style="flex-grow: 1; display: flex; flex-direction: column">
+      <span style="font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 19px; line-height: 1.2">Object writing</span>
+      <span style="font-size: 13px; color: #6B6760">10 minute sprint</span>
+    </div>
+    <button aria-label="Pause timer, 6 minutes 42 seconds left" style="height: 44px; display: flex; align-items: center; gap: 8px; border: 0; background: transparent; cursor: pointer; font: 700 16px 'Courier Prime', monospace; color: #24232A">
+      <svg width="32" height="32" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="15" fill="none" stroke="#D8CDB6" stroke-width="3.5"></circle><circle cx="18" cy="18" r="15" fill="none" stroke="#B23A30" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="63.2 94.2" transform="rotate(-90 18 18)"></circle></svg>
+      6:42
+    </button>
+  </div>
+
+  <div style="margin: 12px 16px 0; position: relative; background: #FBF8F1; border-radius: 4px; padding: 14px 14px 14px; box-shadow: 0 1px 0 rgba(36,35,42,0.06), 0 6px 18px rgba(80,60,30,0.10); transform: rotate(0.4deg)">
+    <div aria-hidden="true" style="position: absolute; top: -10px; left: 24px; width: 70px; height: 20px; background: rgba(226,214,184,0.85); transform: rotate(-3deg)"></div>
+    <div style="display: flex; align-items: baseline; justify-content: space-between">
+      <span style="font-family: Caveat, cursive; font-weight: 700; font-size: 22px; color: #B23A30; line-height: 1">Your object</span>
+      <button style="height: 32px; border: 0; background: transparent; font: 500 13px Inter, sans-serif; color: #6B6760; cursor: pointer; padding: 0 4px">New object</button>
+    </div>
+    <div style="font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 26px; line-height: 1.1; margin-top: 4px">A motel ice bucket</div>
+    <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px">
+      <sc-for list="{{senses}}" as="s" hint-placeholder-count="7">
+        <button onClick="{{s.toggle}}" aria-pressed="{{s.pressed}}" style="{{s.style}}">{{s.label}}</button>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="flex-grow: 1; position: relative; margin-top: 18px; background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 29px, #C9D6E3 29px, #C9D6E3 30px); background-position: 0 6px">
+    <div aria-hidden="true" style="position: absolute; top: 0; bottom: 0; left: 52px; width: 1.5px; background: #E08C86"></div>
+    <p style="margin: 0; padding: 12px 18px 0 62px; font-family: 'Courier Prime', monospace; font-size: 14.5px; line-height: 30px">Plastic sweating on the dresser. The hum down the hall holds a B flat that never resolves. Cold bites my fingers like a dare. It smells like chlorine and somebody else&#39;s vacation. The ice settles when nobody&#39;s looking<span style="display: inline-block; width: 2px; height: 17px; background: #B23A30; vertical-align: -3px; margin-left: 1px"></span></p>
+  </div>
+
+  <div style="flex-shrink: 0; background: #24232A; color: #FBF8F1; padding: 14px 18px 22px; border-radius: 16px 16px 0 0; display: flex; flex-direction: column; gap: 12px">
+    <div style="display: flex; align-items: center; justify-content: space-between">
+      <span style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600">
+        <span style="width: 10px; height: 10px; border-radius: 5px; background: #E5574B"></span>
+        Recording
+      </span>
+      <span style="font: 700 16px 'Courier Prime', monospace">0:14</span>
+    </div>
+    <div aria-hidden="true" style="height: 40px; display: flex; align-items: center; gap: 3px">
+      <sc-for list="{{bars}}" as="b" hint-placeholder-count="40">
+        <span style="{{b.style}}"></span>
+      </sc-for>
+    </div>
+    <div style="display: flex; align-items: center; justify-content: space-between">
+      <button aria-label="Discard recording" style="width: 88px; height: 44px; border: 1px solid #5A5862; border-radius: 22px; background: transparent; color: #FBF8F1; font: 500 13.5px Inter, sans-serif; cursor: pointer">Discard</button>
+      <a href="Main.dc.html" aria-label="Stop and save recording" style="width: 64px; height: 64px; border-radius: 32px; background: #E5574B; display: flex; align-items: center; justify-content: center">
+        <span style="width: 20px; height: 20px; border-radius: 4px; background: #FBF8F1"></span>
+      </a>
+      <button onClick="{{togglePin}}" aria-pressed="{{pinned}}" style="{{pinStyle}}">{{pinLabel}}</button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { on: ['Sight', 'Sound', 'Smell', 'Touch'], pinned: true };
+  }
+  renderVals() {
+    const on = this.state.on;
+    const senses = ['Sight', 'Sound', 'Smell', 'Taste', 'Touch', 'Body', 'Motion'].map((l) => {
+      const a = on.indexOf(l) > -1;
+      return {
+        label: (a ? '✓ ' : '') + l,
+        pressed: a ? 'true' : 'false',
+        toggle: () => this.setState({ on: a ? on.filter((x) => x !== l) : on.concat([l]) }),
+        style: 'height: 32px; padding: 0 12px; border-radius: 16px; font: 500 13px Inter, sans-serif; cursor: pointer; ' + (a ? 'background: #F6E27F; border: 1px solid #E3C94F; color: #24232A;' : 'background: transparent; border: 1px dashed #B9AE96; color: #3E3C40;')
+      };
+    });
+    const h = [8,14,22,12,30,26,18,34,20,10,16,28,36,24,14,8,12,20,32,38,26,16,22,30,18,12,24,34,28,14,10,18,26,20,12,8,6,6,4,4];
+    const bars = h.map((v, i) => ({ style: 'flex: 1 1 0; height: ' + v + 'px; border-radius: 2px; background: ' + (i < 34 ? '#F6E27F' : '#5A5862') + ';' }));
+    const p = this.state.pinned;
+    return {
+      senses, bars,
+      pinned: p ? 'true' : 'false',
+      pinLabel: p ? 'Pinned: line 4' : 'Pin to line',
+      togglePin: () => this.setState({ pinned: !p }),
+      pinStyle: 'width: 112px; height: 44px; border-radius: 22px; font: 500 13px Inter, sans-serif; cursor: pointer; ' + (p ? 'background: #F6E27F; color: #24232A; border: 1px solid #F6E27F;' : 'background: transparent; color: #FBF8F1; border: 1px solid #5A5862;')
+    };
+  }
+}
+</script>
+</body>
+</html>
