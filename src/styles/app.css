@@ -902,3 +902,15 @@ input, textarea, select { font-size: 16px; } /* 16px so iOS doesn't zoom */
   -webkit-tap-highlight-color: transparent;
 }
 .char-part:active { background: var(--marker); }
+/* Word ladder */
+.ladder { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px; }
+.ladder__col { display: flex; flex-direction: column; gap: 6px; }
+.ladder__col-head { display: flex; align-items: center; justify-content: space-between; margin: -4px -8px -4px 0; }
+.ladder__col-title { font: 700 18px/1 var(--font-hand); color: var(--ink-soft); }
+.ladder__word { min-height: 40px; text-align: left; padding: 0 10px; }
+.ladder__word--picked { outline: 2px solid var(--ink); outline-offset: 1px; }
+.pairs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--dash); }
+.pairs__label { width: 100%; font: 700 18px/1 var(--font-hand); color: var(--red); }
+.pair { display: inline-flex; align-items: center; border: 1px solid var(--ink); border-radius: 18px; background: var(--card); }
+.pair__text { min-height: 36px; padding: 0 4px 0 12px; border: 0; background: transparent; font: 400 13.5px var(--font-type); color: var(--ink); cursor: pointer; }
+.pair__remove { width: 32px; height: 36px; border: 0; background: transparent; color: var(--pencil); cursor: pointer; display: flex; align-items: center; justify-content: center; }

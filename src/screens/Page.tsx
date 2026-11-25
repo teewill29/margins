@@ -11,6 +11,7 @@ import { TitlePanel } from '../components/TitlePanel';
 import { LinePanel } from '../components/LinePanel';
 import { DicePanel } from '../components/DicePanel';
 import { CharacterPanel } from '../components/CharacterPanel';
+import { LadderPanel } from '../components/LadderPanel';
 import { loadDice, loadTitles, useContent, type DiceBank, type TitleItem } from '../data/content';
 import { chorusLines, titleInChorus, titleWords } from '../lib/titles';
 import { useBank, type Bank } from '../data/bank';
@@ -18,7 +19,7 @@ import { PromptSheet, Sheet, SheetButton } from '../components/Sheet';
 import { TopBar } from '../components/TopBar';
 import { db } from '../db/db';
 import { renamePage, setArchived, setPageLevel, setShowSyllables } from '../db/pages';
-import type { CharacterState, DiceState, GridState, Level, LineState, Memo, ObjectState, Page as PageRow, TitleState } from '../db/types';
+import type { CharacterState, DiceState, GridState, LadderState, Level, LineState, Memo, ObjectState, Page as PageRow, TitleState } from '../db/types';
 import { detect, detectWord, type WordResult } from '../lib/detect';
 import { useActiveTime } from '../hooks/useActiveTime';
 import { useAudioUrls } from '../state/player';
@@ -52,7 +53,15 @@ const LEVELS: [Level, string, string][] = [
   ['loose', 'Loose', 'Also near misses: rusty for rust, porchlight for porch.'],
 ];
 
-const DETECTS = new Set(['grid', 'title']);
+const DETECTS = new Set(['grid', 'ladder', 'title']);
+
+/** A ladder's 16 words and overrides, shaped like a grid's for detection. */
+const ladderCache = new WeakMap<LadderState, { words: string[]; overrides: GridState['overrides'] }>();
+function ladderAsGrid(l: LadderState) {
+  let g = ladderCache.get(l);
+  if (!g) ladderCache.set(l, (g = { words: [...l.nouns, ...l.verbs], overrides: l.overrides }));
+  return g;
+}
 
 interface Banks {
   bank: Bank | null;
@@ -62,7 +71,7 @@ interface Banks {
 
 /** The exercise words to look for on this page, with their forms. */
 function useTargets(page: PageRow, { bank, titles, dice }: Banks) {
-  const grid = page.exercise === 'grid' ? (page.state as GridState) : null;
+  const grid = page.exercise === 'grid' ? (page.state as GridState) : page.exercise === 'ladder' ? ladderAsGrid(page.state as LadderState) : null;
   const title = page.exercise === 'title' ? (page.state as TitleState).title : null;
   const banned = page.exercise === 'dice' ? (page.state as DiceState).banned : null;
   const gridKey = grid?.words.join(',') ?? '';
@@ -94,7 +103,8 @@ function PageView({ page, memos }: { page: PageRow; memos: Memo[] }) {
   const bank = useBank();
   const titles = useContent(page.exercise === 'title' ? loadTitles : null);
   const dice = useContent(page.exercise === 'dice' ? loadDice : null);
-  const results = useDetection(page, text, { bank: page.exercise === 'grid' ? bank : null, titles, dice });
+  const usesBank = page.exercise === 'grid' || page.exercise === 'ladder';
+  const results = useDetection(page, text, { bank: usesBank ? bank : null, titles, dice });
   const chorus = useMemo(() => (page.exercise === 'title' ? chorusLines(text) : new Set<number>()), [page.exercise, text]);
   const titleWordsInChorus = results.filter((r) => r.matches.some((m) => chorus.has(m.line))).length;
   const highlights = useMemo(() => {
@@ -149,6 +159,12 @@ function PageView({ page, memos }: { page: PageRow; memos: Memo[] }) {
       {(page.exercise === 'firstLine' || page.exercise === 'lastLine') && (
         <LinePanel pageId={page.id} kind={page.exercise === 'firstLine' ? 'first' : 'last'} state={page.state as LineState} />
       )}
+      {page.exercise === 'ladder' &&
+        (bank ? (
+          <LadderPanel pageId={page.id} state={page.state as LadderState} bank={bank} results={results} />
+        ) : (
+          <div className="index-card index-card--loading" aria-busy="true" />
+        ))}
       {page.exercise === 'character' && <CharacterPanel pageId={page.id} state={page.state as CharacterState} />}
       {page.exercise === 'dice' && <DicePanel pageId={page.id} state={page.state as DiceState} bannedUses={results[0]?.matches.length ?? 0} />}
       {page.exercise === 'title' && (
@@ -202,6 +218,12 @@ function PageView({ page, memos }: { page: PageRow; memos: Memo[] }) {
       {(page.exercise === 'firstLine' || page.exercise === 'lastLine') && (
         <LinePanel pageId={page.id} kind={page.exercise === 'firstLine' ? 'first' : 'last'} state={page.state as LineState} />
       )}
+      {page.exercise === 'ladder' &&
+        (bank ? (
+          <LadderPanel pageId={page.id} state={page.state as LadderState} bank={bank} results={results} />
+        ) : (
+          <div className="index-card index-card--loading" aria-busy="true" />
+        ))}
       {page.exercise === 'character' && <CharacterPanel pageId={page.id} state={page.state as CharacterState} />}
       {page.exercise === 'dice' && <DicePanel pageId={page.id} state={page.state as DiceState} bannedUses={results[0]?.matches.length ?? 0} />}
       {page.exercise === 'title' && (

@@ -31,7 +31,7 @@ export const EXERCISES: readonly ExerciseInfo[] = [
 ];
 
 /** Exercises that can start a page right now. Grows phase by phase. */
-export const LIVE_EXERCISES: ReadonlySet<ExerciseType> = new Set(['grid', 'object', 'firstLine', 'lastLine', 'title', 'dice', 'character', 'free']);
+export const LIVE_EXERCISES: ReadonlySet<ExerciseType> = new Set(['grid', 'ladder', 'object', 'firstLine', 'lastLine', 'title', 'dice', 'character', 'free']);
 
 export function exerciseName(type: ExerciseType): string {
   return EXERCISES.find((e) => e.type === type)?.name ?? type;

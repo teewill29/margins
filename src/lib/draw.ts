@@ -232,3 +232,50 @@ export function swapInGrid({ seedBase, words, world, swapsUsed, cell, bank, stat
   next[cell] = e.w;
   return { words: next, swapsUsed: n };
 }
+
+// ---------- Word ladder (WORDS.md section 5) ----------
+
+export const LADDER_SIZE = 8;
+export const LADDER_THEMED = 6;
+
+export interface Ladder {
+  world: string;
+  nouns: string[];
+  verbs: string[];
+}
+
+function fillColumn(pos: 'noun' | 'verb', world: string, bank: readonly WordEntry[], picked: Picked, stats: Stats | undefined, rng: Rng): string[] {
+  const slots: Slot[] = Array.from({ length: LADDER_SIZE }, () => ({ pos, themed: false }));
+  shuffled(slots, rng).slice(0, LADDER_THEMED).forEach((s) => (s.themed = true));
+  return slots.map((slot) => {
+    const e = fillSlot(slot, world, bank, picked, stats, rng);
+    picked.add(e);
+    return e.w;
+  });
+}
+
+/** 8 nouns and 8 verbs from one world, Medium rules (6 themed per column), same root/rhyme/ban rules. */
+export function drawLadder({ seed, bank, stats }: { seed: string; bank: readonly WordEntry[]; stats?: Stats }): Ladder {
+  const rng = rngFor(seed);
+  const world = WORLDS[Math.floor(rng() * WORLDS.length)] as string;
+  const picked = new Picked();
+  const nouns = fillColumn('noun', world, bank, picked, stats, rng);
+  const verbs = fillColumn('verb', world, bank, picked, stats, rng);
+  return { world, nouns, verbs };
+}
+
+/** Redraws one column on its own seed (page:<id>:nouns:<n>), keeping the world and the other column. */
+export function shuffleColumn({
+  seedBase, column, n, ladder, bank, stats,
+}: { seedBase: string; column: 'nouns' | 'verbs'; n: number; ladder: Ladder; bank: readonly WordEntry[]; stats?: Stats }): string[] {
+  const { byW } = indexOf(bank);
+  const picked = new Picked();
+  const other = column === 'nouns' ? ladder.verbs : ladder.nouns;
+  for (const w of other) {
+    const e = byW.get(w);
+    if (e) picked.add(e);
+  }
+  // Never redraw the words being replaced.
+  for (const w of ladder[column]) picked.words.add(w);
+  return fillColumn(column === 'nouns' ? 'noun' : 'verb', ladder.world, bank, picked, stats, rngFor(`${seedBase}:${column}:${n}`));
+}

@@ -173,7 +173,10 @@ export function RuledPad({ pageId, initialBody, memos, audioUrls, onMemoMenu, hi
           const touched = document.activeElement === el || el.selectionStart !== 0 || el.value.length === 0;
           const start = touched ? el.selectionStart : el.value.length;
           const end = touched ? el.selectionEnd : el.value.length;
-          el.setRangeText(text, start, end, 'end');
+          // A space between an inserted phrase and the word before it.
+          const before = el.value[start - 1];
+          const glue = before && !/\s/.test(before) ? ' ' : '';
+          el.setRangeText(glue + text, start, end, 'end');
           el.dispatchEvent(new Event('input', { bubbles: true }));
           el.focus({ preventScroll: true });
         },
