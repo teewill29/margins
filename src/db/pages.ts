@@ -70,10 +70,12 @@ export async function addActiveMs(id: string, ms: number): Promise<void> {
 
 /** Removes an archived page and its memos. Only called after a confirm. */
 export async function deletePageForever(id: string): Promise<void> {
-  await db.transaction('rw', db.pages, db.memos, async () => {
+  await db.transaction('rw', [db.pages, db.memos, db.audio], async () => {
     const page = await db.pages.get(id);
     if (!page?.archived) throw new Error('Only archived pages can be deleted');
-    await db.memos.where('pageId').equals(id).delete();
+    const memoIds = await db.memos.where('pageId').equals(id).primaryKeys();
+    await db.audio.bulkDelete(memoIds);
+    await db.memos.bulkDelete(memoIds);
     await db.pages.delete(id);
   });
 }

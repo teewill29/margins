@@ -43,7 +43,7 @@ export function useMemoSheet() {
             close();
             if (player.playingId === target.memo.id) player.stop();
             const gone = await deleteMemo(target.memo.id);
-            if (gone) toast({ text: `Deleted ${gone.label}`, action: { label: 'Undo', run: () => void restoreMemo(gone) } });
+            if (gone) toast({ text: `Deleted ${gone.memo.label}`, action: { label: 'Undo', run: () => void restoreMemo(gone) } });
           }}
         >
           Delete
@@ -61,13 +61,14 @@ export function useMemoSheet() {
 
 interface PillProps {
   memo: Memo;
+  url: string | undefined;
   line: number | null;
   onMenu(memo: Memo): void;
   onRename(memo: Memo): void;
 }
 
 /** "▶ 0:38 · verse hum". The play part plays, the label renames, long-press opens the menu. */
-export function MemoPill({ memo, line, onMenu, onRename }: PillProps) {
+export function MemoPill({ memo, url, line, onMenu, onRename }: PillProps) {
   const player = usePlayer();
   const playing = player.playingId === memo.id;
   const lp = useLongPress(() => onMenu(memo));
@@ -77,7 +78,7 @@ export function MemoPill({ memo, line, onMenu, onRename }: PillProps) {
         type="button"
         className="memo-pill__play"
         aria-label={`${playing ? 'Pause' : 'Play'} ${memo.label}`}
-        onClick={() => !lp.consumeClick() && player.toggle(memo)}
+        onClick={() => !lp.consumeClick() && player.toggle(memo, url)}
       >
         {playing ? <PauseIcon /> : <PlayIcon />}
         {formatDuration(memo.durationMs)}
@@ -97,7 +98,7 @@ export function MemoPill({ memo, line, onMenu, onRename }: PillProps) {
 }
 
 /** The play button in the pad's right gutter for a pinned memo. */
-export function GutterPlay({ memo, onMenu }: { memo: Memo; onMenu(memo: Memo): void }) {
+export function GutterPlay({ memo, url, onMenu }: { memo: Memo; url: string | undefined; onMenu(memo: Memo): void }) {
   const player = usePlayer();
   const playing = player.playingId === memo.id;
   const lp = useLongPress(() => onMenu(memo));
@@ -107,7 +108,7 @@ export function GutterPlay({ memo, onMenu }: { memo: Memo; onMenu(memo: Memo): v
       className="gutter-play"
       aria-label={`${playing ? 'Pause' : 'Play'} ${memo.label}, ${formatDuration(memo.durationMs)}`}
       {...lp.handlers}
-      onClick={() => !lp.consumeClick() && player.toggle(memo)}
+      onClick={() => !lp.consumeClick() && player.toggle(memo, url)}
     >
       {playing ? <PauseIcon size={11} /> : <PlayIcon size={11} />}
     </button>

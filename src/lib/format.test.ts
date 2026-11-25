@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { activeMinutes, formatDuration, plural } from './format';
+import { activeMinutes, formatDuration, plural, timeAgo } from './format';
 
 describe('format', () => {
   it('formats memo durations', () => {
@@ -15,5 +15,16 @@ describe('format', () => {
   it('shows minutes on a page', () => {
     expect(activeMinutes(59_000)).toBeNull();
     expect(activeMinutes(14 * 60_000 + 5)).toBe('14 min');
+  });
+});
+
+describe('timeAgo', () => {
+  const now = 1_000_000_000_000;
+  const sd = () => 'Nov 21';
+  it('reads naturally', () => {
+    expect(timeAgo(now - 20_000, now, sd)).toBe('just now');
+    expect(timeAgo(now - 5 * 60_000, now, sd)).toBe('5 min ago');
+    expect(timeAgo(now - 3 * 3_600_000, now, sd)).toBe('3 h ago');
+    expect(timeAgo(now - 30 * 3_600_000, now, sd)).toBe('Nov 21');
   });
 });

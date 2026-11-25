@@ -2,6 +2,7 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import { ChevronIcon } from '../components/Icons';
+import { DropboxSection } from '../components/DropboxSection';
 import { ConfirmSheet } from '../components/Sheet';
 import { TopBar } from '../components/TopBar';
 import { exportBackup, importBackup } from '../db/backup';
@@ -14,9 +15,11 @@ import { exerciseName } from '../lib/exercises';
 import { plural } from '../lib/format';
 import { previewLines } from '../lib/pad';
 import { useToast } from '../state/toast';
+import { useDropbox } from '../sync/dropbox';
 
 export function Settings() {
   const settings = useSettings();
+  const dropbox = useDropbox();
   const archived = useLiveQuery(() => db.pages.orderBy('updatedAt').reverse().filter((p) => p.archived).toArray(), [], [] as Page[]);
   const memoCounts = useLiveQuery(async () => {
     const ids = await db.memos.orderBy('pageId').keys();
@@ -65,11 +68,13 @@ export function Settings() {
     <main className="screen screen--no-bar">
       <TopBar title="Settings" back="/" backLabel="Back to notebook" />
 
+      <DropboxSection />
+
       <section className="settings-section">
-        <h2 className="section-label">Backup</h2>
+        <h2 className="section-label">Backup file</h2>
         <p className="settings-note">
-          {last ? `Last backup: ${relativeDay(localDate(new Date(last)))}` : 'No backup yet.'}
-          {' '}Everything lives on this device. A backup is the only copy anywhere else.
+          {last ? `Last backup file: ${relativeDay(localDate(new Date(last)))}.` : 'No backup file yet.'}
+          {!dropbox?.connected && ' Everything lives on this device. A backup is the only copy anywhere else.'}
         </p>
         <div className="settings-row">
           <button type="button" className="btn btn--primary" disabled={busy !== null} onClick={() => void doExport()}>

@@ -1,6 +1,6 @@
 import type { Pin } from '../lib/pins';
 import { db } from './db';
-import type { Memo } from './types';
+import type { AudioRow, Memo } from './types';
 
 export interface NewMemo {
   pageId: string;
@@ -10,16 +10,14 @@ export interface NewMemo {
   pin: Pin | null;
 }
 
-/** The memo's audio as a Blob, whichever way it was stored. */
-export function memoBlob(m: Memo): Blob {
-  if (m.audio) return new Blob([m.audio], { type: m.mimeType });
-  return m.blob ?? new Blob([], { type: m.mimeType });
+export function audioBlob(row: AudioRow): Blob {
+  return row.data instanceof Blob ? row.data : new Blob([row.data], { type: row.mimeType });
 }
 
 export async function saveMemo(m: NewMemo): Promise<Memo> {
   // Read the bytes before the transaction: IndexedDB transactions close if they wait on anything else.
-  const audio = await m.blob.arrayBuffer();
-  return db.transaction('rw', db.memos, db.pages, async () => {
+  const data = await m.blob.arrayBuffer();
+  return db.transaction('rw', [db.memos, db.audio, db.pages], async () => {
     const count = await db.memos.where('pageId').equals(m.pageId).count();
     const memo: Memo = {
       id: crypto.randomUUID(),
@@ -28,11 +26,11 @@ export async function saveMemo(m: NewMemo): Promise<Memo> {
       label: `Memo ${count + 1}`,
       durationMs: m.durationMs,
       mimeType: m.mimeType,
-      audio,
       pinnedLine: m.pin?.line ?? null,
       pinnedText: m.pin?.text ?? null,
       tags: [],
     };
+    await db.audio.add({ id: memo.id, data, mimeType: m.mimeType });
     await db.memos.add(memo);
     await db.pages.update(m.pageId, { updatedAt: Date.now() });
     return memo;
@@ -48,13 +46,26 @@ export async function unpinMemo(id: string): Promise<void> {
   await db.memos.update(id, { pinnedLine: null, pinnedText: null });
 }
 
-/** Deletes and returns the memo so an undo can put it back with `restoreMemo`. */
-export async function deleteMemo(id: string): Promise<Memo | undefined> {
-  const memo = await db.memos.get(id);
-  if (memo) await db.memos.delete(id);
-  return memo;
+export interface DeletedMemo {
+  memo: Memo;
+  audio: AudioRow | undefined;
 }
 
-export async function restoreMemo(memo: Memo): Promise<void> {
-  await db.memos.put(memo);
+/** Deletes a memo and its audio, and returns both so an undo can put them back. */
+export async function deleteMemo(id: string): Promise<DeletedMemo | undefined> {
+  return db.transaction('rw', db.memos, db.audio, async () => {
+    const memo = await db.memos.get(id);
+    if (!memo) return undefined;
+    const audio = await db.audio.get(id);
+    await db.memos.delete(id);
+    await db.audio.delete(id);
+    return { memo, audio };
+  });
+}
+
+export async function restoreMemo({ memo, audio }: DeletedMemo): Promise<void> {
+  await db.transaction('rw', db.memos, db.audio, async () => {
+    if (audio) await db.audio.put(audio);
+    await db.memos.put(memo);
+  });
 }

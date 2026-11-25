@@ -9,6 +9,7 @@ A personal songwriting notebook. Each page pairs a writing exercise (word grid, 
 - `docs/DATA_MODEL.md`: database tables and fields
 - `docs/DESIGN.md`: tokens, fonts, components
 - `docs/PHASES.md`: build order and what "done" means for each phase
+- `docs/DROPBOX.md`: Dropbox backup setup and file layout
 - `design/mockups/*.dc.html`: visual reference for each screen. They use a canvas runtime (`support.js`) that isn't in this repo, so read them for layout, copy and styles. Don't try to run them.
 
 ## Hard rule: nothing paid
@@ -25,6 +26,7 @@ No paid APIs, services or subscriptions. No server code. Everything runs on the 
 - `syllable` for syllable counts
 - `cmu-pronouncing-dictionary`, used only by the build script that makes the word bank (rhyme keys), never shipped to the client
 - JSZip for backup export and import
+- Dropbox HTTP API, called with `fetch` (no SDK), for automatic backup to my own Dropbox. PKCE sign-in, no secret. App key in `src/config.ts`. See `docs/DROPBOX.md`.
 - Vitest for unit tests
 - Hosting: Vercel Hobby (free), static build only. Framework preset Vite, build `npm run build`, output `dist`.
 
@@ -58,3 +60,5 @@ No paid APIs, services or subscriptions. No server code. Everything runs on the 
 (One line per finished phase: date, phase, anything notable.)
 - 2026-11-24, Phase 0: scaffold, routes, bottom bar, PWA with offline precache (fonts included, latin subsets only). Build, test, lint pass; offline routes checked in Chromium. Deployed on Vercel (vercel.json pins Vite and `dist`); you confirmed the checks. TypeScript pinned to 6.0 because typescript-eslint doesn't support 7 yet.
 - 2026-11-25, Phase 1: Dexie v1 schema, notebook (search, swipe or long-press archive with undo, empty state, backup banner), free pages with the textarea-over-mirror pad, voice memos, settings with backup export/import and archived pages. Checked in Chromium with a fake mic: write, two memos (one pinned), lines moved, offline reload, export, wipe, import, audio plays. Still to check on your iPhone: recording in Safari, and that pad text lines up (an iOS 3px textarea inset is compensated but unverified). Four decisions in Open questions.
+- 2026-11-25, Phase 1 fix: iPhone recording. Audio stored as bytes (iOS refuses Blobs in IndexedDB), meter starts after the mic, unsaved recordings kept in a card with Save file. Confirmed working on iPhone.
+- 2026-11-25, Phase 1b (built, waiting on the Dropbox app key): Dexie v2 (audio table, sync table, migration tested), Dropbox backup with PKCE, conflict merge and restore. Tested in Chromium against a fake Dropbox: connect, upload once, conflict, merge, restore onto a wiped install.

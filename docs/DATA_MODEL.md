@@ -1,6 +1,6 @@
 # DATA MODEL
 
-Dexie (IndexedDB), database name `margins`. Version 1 schema below. Every schema change gets a new Dexie version with a migration; never drop user data.
+Dexie (IndexedDB), database name `margins`. Version 1 schema below, then version 2 (audio and sync tables). Every schema change gets a new Dexie version with a migration; never drop user data.
 
 IDs are `crypto.randomUUID()`. Timestamps are epoch milliseconds. Calendar dates are local `YYYY-MM-DD` strings.
 
@@ -66,15 +66,29 @@ interface Memo {
   createdAt: number;
   label: string;             // "Memo 3" until renamed
   durationMs: number;
-  mimeType: string;          // from MediaRecorder
-  audio: ArrayBuffer;        // the recording's bytes. Not a Blob: iOS Safari often refuses Blobs in IndexedDB.
-  blob?: Blob;               // legacy rows only (before 2026-11-25); read audio through memoBlob()
+  mimeType: string;          // from MediaRecorder. The recording itself is in `audio` (v2).
   pinnedLine: number | null; // line index in page.body
   pinnedText: string | null; // that line's text when pinned
   tags: string[];            // empty for now; reserved for tunings and keys later
 }
 ```
 Keeping a pin attached when lines move: on load and after edits, find the first line whose text equals `pinnedText`. If found, use its index (and save it). If not, keep `pinnedLine` if that line still exists, else unpin and show the memo in the unpinned list.
+
+### `audio` (v2)
+Indexes: `id`
+```ts
+interface AudioRow {
+  id: string;                // the memo's id
+  data: ArrayBuffer | Blob;  // ArrayBuffer: iOS Safari often refuses Blobs in IndexedDB. Blob only in rows migrated from v1 on desktop.
+  mimeType: string;
+}
+```
+Kept apart from `memos` so listing memos never loads audio. Deleting a memo deletes its audio row in the same transaction (and undo restores both).
+
+### `sync` (v2)
+Key-value, device-only Dropbox state: tokens, the last `margins.json` rev, uploaded audio ids, status. Indexes: `key`. Never exported in backups.
+
+Version 2 migration: copy each memo's `audio` (ArrayBuffer) or `blob` into the `audio` table, then remove those fields from `memos`.
 
 ### `wordStats`
 Indexes: `w`
@@ -112,7 +126,7 @@ Key-value, one row per key. Indexes: `key`
 
 ## Backup format
 Zip file `margins-backup-YYYY-MM-DD.zip`:
-- `margins.json`: `{ version: 1, exportedAt, pages, memos (without audio), wordStats, userLines, settings }`
+- `margins.json`: `{ version: 1, exportedAt, pages, memos, wordStats, userLines, settings }` (no audio, no `sync`). The same file is what Dropbox holds.
 - `audio/<memoId>.<ext>`: one file per memo. Extension from MIME type: webm → `.webm`, mp4 → `.m4a`.
 
 Import merges by id. A row replaces the stored one only if its `updatedAt` (or `createdAt` for memos and user lines) is newer. Import never deletes anything.

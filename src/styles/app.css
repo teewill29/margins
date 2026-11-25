@@ -107,6 +107,7 @@ input, textarea, select { font-size: 16px; } /* 16px so iOS doesn't zoom */
 }
 
 .placeholder { padding: 20px; color: var(--pencil); font-size: 15px; }
+.placeholder p { margin: 0 0 14px; color: var(--ink); line-height: 1.4; }
 
 .list-row {
   display: flex;
@@ -632,6 +633,9 @@ input, textarea, select { font-size: 16px; } /* 16px so iOS doesn't zoom */
 }
 .settings-note { margin: 0; font-size: 13.5px; line-height: 1.4; color: var(--pencil); }
 .settings-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.settings-col { display: flex; flex-direction: column; gap: 10px; }
+.settings-note--alert { color: var(--red); }
+.btn--self-start { align-self: flex-start; }
 .archived-row { display: flex; align-items: center; gap: 8px; padding: 4px 0; border-top: 1px solid var(--bar); }
 .archived-row__text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
 .archived-row__first {

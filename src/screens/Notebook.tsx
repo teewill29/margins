@@ -12,11 +12,13 @@ import { backupBanner } from '../lib/backup';
 import { plural } from '../lib/format';
 import { matchesQuery, searchText } from '../lib/search';
 import { useToast } from '../state/toast';
+import { useDropbox } from '../sync/dropbox';
 
 export function Notebook() {
   const pages = useLiveQuery(() => db.pages.orderBy('updatedAt').reverse().filter((p) => !p.archived).toArray());
   const memos = useLiveQuery(() => db.memos.toArray());
   const settings = useSettings();
+  const dropbox = useDropbox();
   const [now] = useState(() => Date.now());
   const [query, setQuery] = useState('');
   const q = useDeferredValue(query);
@@ -40,7 +42,8 @@ export function Notebook() {
     pages && settings
       ? backupBanner({
           now,
-          lastBackupAt: settings.lastBackupAt,
+          // A Dropbox backup counts as a backup.
+          lastBackupAt: Math.max(settings.lastBackupAt ?? 0, dropbox?.state.lastSyncAt ?? 0) || null,
           dismissedAt: settings.backupBannerDismissedAt,
           pages,
         })

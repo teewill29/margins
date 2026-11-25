@@ -27,6 +27,15 @@ Build in order. A phase is done only when every acceptance item passes. Then upd
 - Export, clear site data, import: every page and memo comes back and the audio plays.
 - Recording works in Safari on iPhone and in Chrome on desktop.
 
+## Phase 1b: Dropbox backup (added 2026-11-25)
+- Dexie v2: audio moves to its own table; `sync` table for device-only Dropbox state.
+- Connect with PKCE, automatic backup, merge on conflict, restore. SPEC.md "Dropbox backup", DROPBOX.md.
+
+**Done when**
+- I've connected my Dropbox from the home screen app.
+- A new memo shows up in `Apps/<app>/audio/` and a lyric edit shows up in `margins.json` without me tapping anything.
+- On a wiped install, Restore from Dropbox brings back every page and memo, and the audio plays.
+
 ## Phase 2: Detection, syllables, word bank, word grid
 - `src/lib/detect.ts`, `src/lib/syllables.ts`, `src/lib/random.ts`, `src/lib/draw.ts`, with every test from DETECTION.md and WORDS.md written first.
 - Write the word bank source lists and `npm run bank` with its checks (WORDS.md sections 1 and 2).

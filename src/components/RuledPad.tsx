@@ -12,6 +12,7 @@ interface RuledPadProps {
   pageId: string;
   initialBody: string;
   memos: readonly Memo[];
+  audioUrls: ReadonlyMap<string, string>;
   onMemoMenu(memo: Memo): void;
 }
 
@@ -24,7 +25,7 @@ const IOS = isIOS();
  * share every font, size, padding and wrapping rule in app.css (.pad__mirror, .pad__input).
  * The mirror sets the height; the textarea fills it and never scrolls on its own.
  */
-export function RuledPad({ pageId, initialBody, memos, onMemoMenu }: RuledPadProps) {
+export function RuledPad({ pageId, initialBody, memos, audioUrls, onMemoMenu }: RuledPadProps) {
   const [text, setText] = useState(initialBody);
   const [caretLine, setCaretLine] = useState(-1);
   const input = useRef<HTMLTextAreaElement>(null);
@@ -121,7 +122,7 @@ export function RuledPad({ pageId, initialBody, memos, onMemoMenu }: RuledPadPro
               )}
               {pinned && (
                 <span className="pad__gutter">
-                  <GutterPlay memo={pinned} onMenu={onMemoMenu} />
+                  <GutterPlay memo={pinned} url={audioUrls.get(pinned.id)} onMenu={onMemoMenu} />
                 </span>
               )}
             </div>

@@ -139,9 +139,18 @@ An index card with a strip of tape, tilted slightly. It can be collapsed to a si
   - "Import backup" reads that zip and merges by id: newer `updatedAt` wins, nothing is deleted.
   - "Last backup: Nov 20". If it's been more than 7 days and there's at least one new page, the Notebook shows a dismissable banner: "Back up your notebook. Last backup 9 days ago."
 - On first launch call `navigator.storage.persist()` to ask the browser not to evict data.
+- Dropbox: see below.
+
+## Dropbox backup (added 2026-11-25)
+Automatic backup to the user's own Dropbox app folder. Backup only, not two-way sync. Setup and file layout: `DROPBOX.md`.
+- Settings > Dropbox: Connect Dropbox (PKCE sign-in, redirect to `/auth/dropbox`; fallback: paste a code). When connected: account name, status ("Backed up 5 min ago", "Backing up…", "Offline", an error), Back up now, Restore from Dropbox, Disconnect.
+- Each memo's audio uploads once and is never overwritten. `margins.json` is replaced after changes, but only over the copy this device last wrote. If Dropbox has a different copy, backups pause and Settings shows Merge with Dropbox. A dated snapshot uploads once a day; the newest 30 are kept. Nothing else is ever deleted from Dropbox.
+- Runs on launch, on reconnect, when the app is hidden, and 45 seconds after a change.
+- A Dropbox backup counts as a backup for the Notebook's 7-day banner.
+- Tokens are stored on the device only and never exported.
 
 ## Out of scope for now
-- Accounts, sync, sharing. (The daily grid gives the band a shared prompt with no server.)
+- Accounts, two-way sync, sharing. (The daily grid gives the band a shared prompt with no server. Dropbox backup is one-way.)
 - Claude-generated grids (needs a paid API).
 - Open tunings tool and riff tagging. Planned as a later add-on; keep the page and memo tables general enough that a memo can get tags later.
 - Dark theme.

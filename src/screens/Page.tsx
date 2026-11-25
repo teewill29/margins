@@ -10,6 +10,7 @@ import { db } from '../db/db';
 import { renamePage, setArchived } from '../db/pages';
 import type { Memo, Page as PageRow } from '../db/types';
 import { useActiveTime } from '../hooks/useActiveTime';
+import { useAudioUrls } from '../state/player';
 import { pageTitleDate } from '../lib/date';
 import { exerciseName } from '../lib/exercises';
 import { activeMinutes } from '../lib/format';
@@ -37,6 +38,7 @@ export function Page() {
 function PageView({ page, memos }: { page: PageRow; memos: Memo[] }) {
   const [menu, setMenu] = useState<'menu' | 'rename' | null>(null);
   const memoSheet = useMemoSheet();
+  const audioUrls = useAudioUrls(memos.map((m) => m.id));
   const toast = useToast();
   const navigate = useNavigate();
   const minutes = activeMinutes(page.activeMs);
@@ -81,13 +83,13 @@ function PageView({ page, memos }: { page: PageRow; memos: Memo[] }) {
           if (e.target === e.currentTarget) activePad()?.focusEnd();
         }}
       >
-        <RuledPad key={page.id} pageId={page.id} initialBody={page.body} memos={memos} onMemoMenu={memoSheet.openMenu} />
+        <RuledPad key={page.id} pageId={page.id} initialBody={page.body} memos={memos} audioUrls={audioUrls} onMemoMenu={memoSheet.openMenu} />
         {memos.length > 0 && (
           <section className="memo-list" aria-label="Memos">
             <h2 className="memo-list__label">Memos</h2>
             {memos.map((m) => (
               <div className="memo-list__row" key={m.id}>
-                <MemoPill memo={m} line={m.pinnedLine} onMenu={memoSheet.openMenu} onRename={memoSheet.openRename} />
+                <MemoPill memo={m} url={audioUrls.get(m.id)} line={m.pinnedLine} onMenu={memoSheet.openMenu} onRename={memoSheet.openRename} />
               </div>
             ))}
           </section>

@@ -4,6 +4,7 @@ import { BottomBar } from './components/BottomBar';
 import { MicCard, UnsavedCard } from './components/MicCard';
 import { RecordingDock } from './components/RecordingDock';
 import { requestPersistOnce } from './db/settings';
+import { DropboxAuth } from './screens/DropboxAuth';
 import { Exercises } from './screens/Exercises';
 import { Notebook } from './screens/Notebook';
 import { NotFound } from './screens/NotFound';
@@ -13,6 +14,7 @@ import { Words } from './screens/Words';
 import { PlayerProvider } from './state/player';
 import { RecorderProvider, useRecorder } from './state/recorder';
 import { ToastProvider } from './state/toast';
+import { startBackgroundSync } from './sync/dropbox';
 
 const withBar = { bar: true };
 
@@ -34,6 +36,7 @@ function Frame() {
 function Root() {
   useEffect(() => {
     void requestPersistOnce();
+    startBackgroundSync();
   }, []);
   return (
     <ToastProvider>
@@ -55,6 +58,7 @@ const router = createBrowserRouter([
       { path: '/page/:id', element: <Page />, handle: withBar },
       { path: '/settings', element: <Settings /> },
       { path: '/words', element: <Words /> },
+      { path: '/auth/dropbox', element: <DropboxAuth /> },
       { path: '*', element: <NotFound /> },
     ],
   },

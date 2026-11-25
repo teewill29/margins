@@ -59,13 +59,26 @@ export interface Memo {
   label: string;
   durationMs: number;
   mimeType: string;
-  /** The recording's bytes. Stored as an ArrayBuffer because iOS Safari often refuses Blobs in IndexedDB. */
-  audio?: ArrayBuffer;
-  /** Older rows (before 2026-11-25) hold a Blob here instead. Read audio through memoBlob(). */
-  blob?: Blob;
   pinnedLine: number | null;
   pinnedText: string | null;
   tags: string[];
+}
+
+/**
+ * A memo's recording, kept apart from `memos` so listing memos never loads audio.
+ * `data` is an ArrayBuffer (iOS Safari often refuses Blobs in IndexedDB). Rows migrated
+ * from version 1 on a desktop browser may still hold a Blob.
+ */
+export interface AudioRow {
+  id: string; // the memo's id
+  data: ArrayBuffer | Blob;
+  mimeType: string;
+}
+
+/** Device-only state for Dropbox backup. Never exported, so tokens stay on the device. */
+export interface SyncRow {
+  key: string;
+  value: unknown;
 }
 
 export interface WordStat {
