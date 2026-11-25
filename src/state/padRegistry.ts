@@ -8,6 +8,10 @@ export interface ActivePad {
   text(): string;
   flush(): Promise<void>;
   focusEnd(): void;
+  /** Replaces line 0 if it still reads `oldText`. Returns false if the user changed it. */
+  replaceFirstLine(oldText: string, newText: string): boolean;
+  /** Inserts text at the caret (or at the end if the pad was never focused). */
+  insertAtCaret(text: string): void;
 }
 
 let active: ActivePad | null = null;

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import { ChevronIcon } from '../components/Icons';
 import { DropboxSection } from '../components/DropboxSection';
+import { MyLines } from '../components/MyLines';
 import { Segmented } from '../components/Segmented';
 import { ConfirmSheet } from '../components/Sheet';
 import { TopBar } from '../components/TopBar';
@@ -144,6 +145,8 @@ export function Settings() {
           <p className="settings-note">This browser may clear storage when space runs low. Install Margins to the home screen and back up often.</p>
         )}
       </section>
+
+      <MyLines />
 
       <section className="settings-section">
         <h2 className="section-label">Archived pages</h2>

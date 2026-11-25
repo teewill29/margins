@@ -8,6 +8,7 @@ import { WordGrid } from '../components/WordGrid';
 import { ObjectPanel } from '../components/ObjectPanel';
 import { ObjectTimer } from '../components/ObjectTimer';
 import { TitlePanel } from '../components/TitlePanel';
+import { LinePanel } from '../components/LinePanel';
 import { loadTitles, useContent, type TitleItem } from '../data/content';
 import { chorusLines, titleInChorus, titleWords } from '../lib/titles';
 import { useBank, type Bank } from '../data/bank';
@@ -15,7 +16,7 @@ import { PromptSheet, Sheet, SheetButton } from '../components/Sheet';
 import { TopBar } from '../components/TopBar';
 import { db } from '../db/db';
 import { renamePage, setArchived, setPageLevel, setShowSyllables } from '../db/pages';
-import type { GridState, Level, Memo, ObjectState, Page as PageRow, TitleState } from '../db/types';
+import type { GridState, Level, LineState, Memo, ObjectState, Page as PageRow, TitleState } from '../db/types';
 import { detect, detectWord, type WordResult } from '../lib/detect';
 import { useActiveTime } from '../hooks/useActiveTime';
 import { useAudioUrls } from '../state/player';
@@ -131,6 +132,9 @@ function PageView({ page, memos }: { page: PageRow; memos: Memo[] }) {
         }
       />
       {page.exercise === 'object' && <ObjectPanel pageId={page.id} state={page.state as ObjectState} />}
+      {(page.exercise === 'firstLine' || page.exercise === 'lastLine') && (
+        <LinePanel pageId={page.id} kind={page.exercise === 'firstLine' ? 'first' : 'last'} state={page.state as LineState} />
+      )}
       {page.exercise === 'title' && (
         <TitlePanel
           pageId={page.id}
@@ -179,6 +183,9 @@ function PageView({ page, memos }: { page: PageRow; memos: Memo[] }) {
         <Sheet onClose={() => setMenu(null)}>
           <SheetButton onClick={() => setMenu('rename')}>Rename page</SheetButton>
           {page.exercise === 'object' && <ObjectPanel pageId={page.id} state={page.state as ObjectState} />}
+      {(page.exercise === 'firstLine' || page.exercise === 'lastLine') && (
+        <LinePanel pageId={page.id} kind={page.exercise === 'firstLine' ? 'first' : 'last'} state={page.state as LineState} />
+      )}
       {page.exercise === 'title' && (
         <TitlePanel
           pageId={page.id}

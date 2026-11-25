@@ -140,6 +140,24 @@ for (const t of titles) {
 }
 write('titles.json', titles.map((t) => ({ text: t.text, words: targets(t.text) })));
 
+// ---------- Lines ----------
+const MOODS = new Set(['ache', 'restless', 'tender', 'bitter', 'funny', 'eerie', 'hopeful', 'numb']);
+const TENSES = new Set(['past', 'present', 'future']);
+const lines = readList('lines.txt', 'kind').map((it) => {
+  const [mood = '', tense = ''] = (readFileSync(join(here, 'lines.txt'), 'utf8').split('\n')[Number(it.at.split(':')[1]) - 1]?.split('|')[1] ?? '').trim().split(/\s+/);
+  return { ...it, mood, tense };
+});
+checkTexts('lines', lines);
+for (const kind of ['first', 'last']) checkCount(`${kind} lines`, lines.filter((l) => l.tags.kind === kind).length, 150);
+for (const l of lines) {
+  const n = l.text.split(/\s+/).length;
+  if (n < 4 || n > 10) errors.push(`${l.at}: "${l.text}" has ${n} words (4 to 10)`);
+  if (!MOODS.has(l.mood)) errors.push(`${l.at}: unknown mood "${l.mood}"`);
+  if (!TENSES.has(l.tense)) errors.push(`${l.at}: unknown tense "${l.tense}"`);
+  if (l.tags.kind !== 'first' && l.tags.kind !== 'last') errors.push(`${l.at}: lines must be under "## first" or "## last"`);
+}
+write('lines.json', lines.map((l) => ({ text: l.text, kind: l.tags.kind, mood: l.mood, tense: l.tense })));
+
 // ---------- report ----------
 console.log('Exercise banks');
 report.forEach((r) => console.log(r));

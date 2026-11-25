@@ -853,3 +853,15 @@ input, textarea, select { font-size: 16px; } /* 16px so iOS doesn't zoom */
 .timer__over { color: var(--pencil); font-weight: 400; }
 .panel-status { margin: 10px 0 0; font: 500 18px/1.2 var(--font-hand); color: var(--pencil); }
 .panel-status--done { color: var(--red); font-weight: 700; }
+.panel-hint { margin: 2px 0 0; font-size: 13px; color: var(--pencil); }
+.end-here {
+  margin: 10px 0 0;
+  padding-top: 10px;
+  border-top: 1px dashed var(--dash);
+  font: 400 17px/1.4 var(--font-type);
+}
+.end-here__label { font: 700 20px/1 var(--font-hand); color: var(--red); margin-right: 4px; }
+.my-lines { display: flex; flex-direction: column; gap: 6px; padding-top: 6px; }
+.my-lines__head { margin: 4px 0 0; font-size: 14.5px; font-weight: 600; }
+.my-lines__row { display: flex; align-items: center; gap: 4px; border-top: 1px solid var(--bar); padding-top: 4px; }
+.my-lines__text { flex: 1; min-width: 0; font: 400 14px/1.35 var(--font-type); }

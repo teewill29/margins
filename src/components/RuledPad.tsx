@@ -155,6 +155,26 @@ export function RuledPad({ pageId, initialBody, memos, audioUrls, onMemoMenu, hi
           el.focus();
           el.setSelectionRange(el.value.length, el.value.length);
         },
+        // Edits go through the textarea and an input event, so React's onChange, autosave and
+        // pins all see them like typing.
+        replaceFirstLine: (oldText, newText) => {
+          const el = input.current;
+          const first = el?.value.split('\n')[0];
+          if (!el || first !== oldText) return false;
+          el.setRangeText(newText, 0, first.length, 'preserve');
+          el.dispatchEvent(new Event('input', { bubbles: true }));
+          return true;
+        },
+        insertAtCaret: (text) => {
+          const el = input.current;
+          if (!el) return;
+          const touched = document.activeElement === el || el.selectionStart !== 0 || el.value.length === 0;
+          const start = touched ? el.selectionStart : el.value.length;
+          const end = touched ? el.selectionEnd : el.value.length;
+          el.setRangeText(text, start, end, 'end');
+          el.dispatchEvent(new Event('input', { bubbles: true }));
+          el.focus({ preventScroll: true });
+        },
       }),
     [pageId, flush],
   );

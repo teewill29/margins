@@ -3,7 +3,7 @@ import { splitLines } from '../lib/pad';
 import { resolvePin } from '../lib/pins';
 import { db } from './db';
 import { getSetting, setSetting } from './settings';
-import type { ExerciseState, ExerciseType, GridState, ObjectState, Page, TitleState } from './types';
+import type { ExerciseState, ExerciseType, GridState, LineState, ObjectState, Page, TitleState } from './types';
 import { recordShown, statsMap } from './wordStats';
 
 async function initialState(exercise: ExerciseType, id: string, date: string): Promise<ExerciseState> {
@@ -42,6 +42,12 @@ async function initialState(exercise: ExerciseType, id: string, date: string): P
       const state: TitleState = { title: t, draws: 1 };
       return state;
     }
+    case 'firstLine':
+    case 'lastLine': {
+      const line = await drawLine(exercise === 'firstLine' ? 'first' : 'last', `page:${id}:line:1`, null);
+      const state: LineState = { line, draws: 1 };
+      return state;
+    }
     default:
       throw new Error(`${exercise} pages arrive in a later phase`);
   }
@@ -50,6 +56,7 @@ async function initialState(exercise: ExerciseType, id: string, date: string): P
 export async function createPage(exercise: ExerciseType, id: string = crypto.randomUUID()): Promise<Page> {
   const now = Date.now();
   const date = localDate();
+  const state = await initialState(exercise, id, date);
   const page: Page = {
     id,
     createdAt: now,
@@ -57,8 +64,8 @@ export async function createPage(exercise: ExerciseType, id: string = crypto.ran
     date,
     title: null,
     exercise,
-    state: await initialState(exercise, id, date),
-    body: exercise === 'title' ? '[Chorus]\n' : '',
+    state,
+    body: exercise === 'title' ? '[Chorus]\n' : exercise === 'firstLine' ? `${(state as LineState).line}\n` : '',
     level: await getSetting('level'),
     showSyllables: exercise !== 'object' && exercise !== 'cutup',
     panelCollapsed: false,
@@ -112,6 +119,20 @@ export async function deletePageForever(id: string): Promise<void> {
     await db.memos.bulkDelete(memoIds);
     await db.pages.delete(id);
   });
+}
+
+/**
+ * A first or last line from the bank plus My lines (same weight), skipping the last 20 shown
+ * and the current one. Records it as shown.
+ */
+export async function drawLine(kind: 'first' | 'last', seed: string, current: string | null): Promise<string> {
+  const [{ loadLines }, { pickText, remember }] = await Promise.all([import('../data/content'), import('../lib/pick')]);
+  const mine = await db.userLines.where('kind').equals(kind).sortBy('createdAt');
+  const pool = [...(await loadLines()).filter((l) => l.kind === kind), ...mine];
+  const recent = await getSetting('recentLines');
+  const text = pickText(seed, pool, current ? [...recent, current] : recent)?.text ?? '';
+  await setSetting('recentLines', remember(recent, text));
+  return text;
 }
 
 export async function setPageState(id: string, state: ExerciseState): Promise<void> {

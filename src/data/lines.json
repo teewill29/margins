@@ -1,0 +1,1718 @@
+[
+ {
+  "text": "The porch light has been on since June",
+  "kind": "first",
+  "mood": "ache",
+  "tense": "past"
+ },
+ {
+  "text": "My father kept his money in a coffee can",
+  "kind": "first",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "Somebody painted over the water tower again",
+  "kind": "first",
+  "mood": "restless",
+  "tense": "present"
+ },
+ {
+  "text": "There's a dog asleep in the middle of Main Street",
+  "kind": "first",
+  "mood": "numb",
+  "tense": "present"
+ },
+ {
+  "text": "The preacher's car won't start in the church lot",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "present"
+ },
+ {
+  "text": "We buried the cat under the clothesline",
+  "kind": "first",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "Your truck still smells like spearmint and gasoline",
+  "kind": "first",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "The ice machine dropped a load at three again",
+  "kind": "first",
+  "mood": "eerie",
+  "tense": "present"
+ },
+ {
+  "text": "Grandma kept a pistol in the flour bin",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "The radio only picks up one station out here",
+  "kind": "first",
+  "mood": "restless",
+  "tense": "present"
+ },
+ {
+  "text": "I found your jacket in the church closet",
+  "kind": "first",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "The feed store calendar is two years behind",
+  "kind": "first",
+  "mood": "numb",
+  "tense": "present"
+ },
+ {
+  "text": "Every screen door on this street needs oil",
+  "kind": "first",
+  "mood": "restless",
+  "tense": "present"
+ },
+ {
+  "text": "They knocked down the drive-in for a dollar store",
+  "kind": "first",
+  "mood": "bitter",
+  "tense": "past"
+ },
+ {
+  "text": "My hands still smell like the fish we cleaned",
+  "kind": "first",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "The landlord wants the key back by Friday",
+  "kind": "first",
+  "mood": "bitter",
+  "tense": "future"
+ },
+ {
+  "text": "There's sawdust in the cuffs of all my jeans",
+  "kind": "first",
+  "mood": "numb",
+  "tense": "present"
+ },
+ {
+  "text": "Mama hung the wash out even when it stormed",
+  "kind": "first",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "I'll repaint the mailbox when the weather turns",
+  "kind": "first",
+  "mood": "hopeful",
+  "tense": "future"
+ },
+ {
+  "text": "The bank put a padlock on the barn door",
+  "kind": "first",
+  "mood": "bitter",
+  "tense": "past"
+ },
+ {
+  "text": "We met in line at the county clerk",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "The neighbor's rooster crows at two in the afternoon",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "present"
+ },
+ {
+  "text": "Somebody left a casserole on our steps",
+  "kind": "first",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "The pool at the Starlite has a skin of leaves",
+  "kind": "first",
+  "mood": "eerie",
+  "tense": "present"
+ },
+ {
+  "text": "Your mother still sets a plate for you",
+  "kind": "first",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "I wore my brother's boots to his own wedding",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "The tornado siren tests every first Wednesday",
+  "kind": "first",
+  "mood": "eerie",
+  "tense": "present"
+ },
+ {
+  "text": "We used to race the train to the crossing",
+  "kind": "first",
+  "mood": "restless",
+  "tense": "past"
+ },
+ {
+  "text": "He signs his checks with a carpenter's pencil",
+  "kind": "first",
+  "mood": "tender",
+  "tense": "present"
+ },
+ {
+  "text": "There's a church van rusting behind the Legion hall",
+  "kind": "first",
+  "mood": "numb",
+  "tense": "present"
+ },
+ {
+  "text": "The cafeteria lady knew my name before I did",
+  "kind": "first",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "I counted ceiling tiles through the whole sermon",
+  "kind": "first",
+  "mood": "restless",
+  "tense": "past"
+ },
+ {
+  "text": "Her lipstick is still on the coffee mug",
+  "kind": "first",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "The motel clerk watches game shows with no sound",
+  "kind": "first",
+  "mood": "eerie",
+  "tense": "present"
+ },
+ {
+  "text": "The rest stop map has a hole where we were",
+  "kind": "first",
+  "mood": "eerie",
+  "tense": "present"
+ },
+ {
+  "text": "Daddy fixed the dryer with a butter knife",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "The snowplow came through and buried the car again",
+  "kind": "first",
+  "mood": "bitter",
+  "tense": "present"
+ },
+ {
+  "text": "The last bus out leaves at ten fifteen",
+  "kind": "first",
+  "mood": "restless",
+  "tense": "future"
+ },
+ {
+  "text": "We painted our names on the underside of the bridge",
+  "kind": "first",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "There's a pay phone ringing outside the laundromat",
+  "kind": "first",
+  "mood": "eerie",
+  "tense": "present"
+ },
+ {
+  "text": "The scarecrow's wearing my old Sunday coat",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "present"
+ },
+ {
+  "text": "I could hear the interstate from my bedroom window",
+  "kind": "first",
+  "mood": "restless",
+  "tense": "past"
+ },
+ {
+  "text": "The jukebox at the Elks still takes quarters",
+  "kind": "first",
+  "mood": "hopeful",
+  "tense": "present"
+ },
+ {
+  "text": "Somebody keeps leaving pennies on the headstone",
+  "kind": "first",
+  "mood": "eerie",
+  "tense": "present"
+ },
+ {
+  "text": "My uncle drives the hearse and the ice cream truck",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "present"
+ },
+ {
+  "text": "I sold my guitar to make rent in March",
+  "kind": "first",
+  "mood": "bitter",
+  "tense": "past"
+ },
+ {
+  "text": "The gutters are packed with maple seeds again",
+  "kind": "first",
+  "mood": "numb",
+  "tense": "present"
+ },
+ {
+  "text": "We split a cigarette behind the gym",
+  "kind": "first",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "The trailer park flooded before the river crested",
+  "kind": "first",
+  "mood": "bitter",
+  "tense": "past"
+ },
+ {
+  "text": "I'm going to learn to drive a stick this summer",
+  "kind": "first",
+  "mood": "hopeful",
+  "tense": "future"
+ },
+ {
+  "text": "The doctor's waiting room has the same magazines",
+  "kind": "first",
+  "mood": "numb",
+  "tense": "present"
+ },
+ {
+  "text": "She keeps her wedding ring on a shoelace",
+  "kind": "first",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "The high school scoreboard still says 21 to 7",
+  "kind": "first",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "There's a moth on the inside of the windshield",
+  "kind": "first",
+  "mood": "eerie",
+  "tense": "present"
+ },
+ {
+  "text": "I wrote your number on the back of my hand",
+  "kind": "first",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "The night nurse hums the same hymn every round",
+  "kind": "first",
+  "mood": "tender",
+  "tense": "present"
+ },
+ {
+  "text": "My brother taught me to swim off the dock",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "Nobody's opened the hope chest since the funeral",
+  "kind": "first",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "The pastor's wife sells hot tamales after service",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "present"
+ },
+ {
+  "text": "Dad left the truck running in the driveway",
+  "kind": "first",
+  "mood": "eerie",
+  "tense": "past"
+ },
+ {
+  "text": "I'll be the first one up the water tower",
+  "kind": "first",
+  "mood": "hopeful",
+  "tense": "future"
+ },
+ {
+  "text": "The diner coffee tastes like the pot it came from",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "present"
+ },
+ {
+  "text": "We stacked sandbags until the church bells quit",
+  "kind": "first",
+  "mood": "restless",
+  "tense": "past"
+ },
+ {
+  "text": "The town put up a stoplight nobody obeys",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "present"
+ },
+ {
+  "text": "I can't sleep with the box fan off",
+  "kind": "first",
+  "mood": "restless",
+  "tense": "present"
+ },
+ {
+  "text": "The well went dry the year your daddy left",
+  "kind": "first",
+  "mood": "bitter",
+  "tense": "past"
+ },
+ {
+  "text": "Somebody's mowing their lawn at midnight",
+  "kind": "first",
+  "mood": "eerie",
+  "tense": "present"
+ },
+ {
+  "text": "My grandfather talked to his tomato plants",
+  "kind": "first",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "The motel sign says vacancy but the lot is full",
+  "kind": "first",
+  "mood": "eerie",
+  "tense": "present"
+ },
+ {
+  "text": "I learned to dance on my father's work boots",
+  "kind": "first",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "There's still a dent where you kicked the fridge",
+  "kind": "first",
+  "mood": "bitter",
+  "tense": "present"
+ },
+ {
+  "text": "The church bell cracked the winter you were born",
+  "kind": "first",
+  "mood": "eerie",
+  "tense": "past"
+ },
+ {
+  "text": "I'll paint the shed a color you would hate",
+  "kind": "first",
+  "mood": "bitter",
+  "tense": "future"
+ },
+ {
+  "text": "The lake froze solid for the first time in years",
+  "kind": "first",
+  "mood": "hopeful",
+  "tense": "past"
+ },
+ {
+  "text": "We kept the Christmas wreath up until April",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "The cattle know a storm before the radio does",
+  "kind": "first",
+  "mood": "eerie",
+  "tense": "present"
+ },
+ {
+  "text": "My sister cut my bangs with kitchen scissors",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "The new pastor drives a motorcycle to service",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "present"
+ },
+ {
+  "text": "I've got a toolbox full of somebody else's tools",
+  "kind": "first",
+  "mood": "numb",
+  "tense": "present"
+ },
+ {
+  "text": "There's a wasp nest growing in the porch swing chain",
+  "kind": "first",
+  "mood": "restless",
+  "tense": "present"
+ },
+ {
+  "text": "We sat on the tailgate and watched the stadium empty",
+  "kind": "first",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "I keep your voicemail in a folder called taxes",
+  "kind": "first",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "The thrift store has my mother's dress in the window",
+  "kind": "first",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "Somebody spray-painted a name on the grain elevator",
+  "kind": "first",
+  "mood": "restless",
+  "tense": "present"
+ },
+ {
+  "text": "My ankle still clicks from jumping the creek",
+  "kind": "first",
+  "mood": "numb",
+  "tense": "present"
+ },
+ {
+  "text": "The power's been out since Tuesday afternoon",
+  "kind": "first",
+  "mood": "numb",
+  "tense": "present"
+ },
+ {
+  "text": "We used to steal peaches from the Henderson orchard",
+  "kind": "first",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "Our school janitor once played bass in a famous band",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "The bus driver lets me ride past my stop",
+  "kind": "first",
+  "mood": "tender",
+  "tense": "present"
+ },
+ {
+  "text": "The floodwater left a line halfway up the piano",
+  "kind": "first",
+  "mood": "numb",
+  "tense": "past"
+ },
+ {
+  "text": "I'll buy that little house with the green door",
+  "kind": "first",
+  "mood": "hopeful",
+  "tense": "future"
+ },
+ {
+  "text": "The grocery intercom calls a name I used to know",
+  "kind": "first",
+  "mood": "eerie",
+  "tense": "present"
+ },
+ {
+  "text": "We drove to the coast with a cooler, no plan",
+  "kind": "first",
+  "mood": "restless",
+  "tense": "past"
+ },
+ {
+  "text": "Mama's recipe box is in my glovebox now",
+  "kind": "first",
+  "mood": "tender",
+  "tense": "present"
+ },
+ {
+  "text": "The welder's sparks are all that moves on the block",
+  "kind": "first",
+  "mood": "eerie",
+  "tense": "present"
+ },
+ {
+  "text": "Our dog brings back a different shoe every morning",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "present"
+ },
+ {
+  "text": "I signed the lease with a borrowed pen",
+  "kind": "first",
+  "mood": "numb",
+  "tense": "past"
+ },
+ {
+  "text": "The cemetery mower runs every Thursday at noon",
+  "kind": "first",
+  "mood": "numb",
+  "tense": "present"
+ },
+ {
+  "text": "Your handwriting is still on the freezer bags",
+  "kind": "first",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "The hospital parking garage charges by the hour",
+  "kind": "first",
+  "mood": "bitter",
+  "tense": "present"
+ },
+ {
+  "text": "We'll plant the garden when the ground thaws",
+  "kind": "first",
+  "mood": "hopeful",
+  "tense": "future"
+ },
+ {
+  "text": "My grandmother read the obituaries like the funny pages",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "The shrimp boats came in empty all week",
+  "kind": "first",
+  "mood": "bitter",
+  "tense": "past"
+ },
+ {
+  "text": "The gas station clerk knows what I'm going to buy",
+  "kind": "first",
+  "mood": "numb",
+  "tense": "present"
+ },
+ {
+  "text": "Every year the carnival comes back smaller",
+  "kind": "first",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "We hid a time capsule under the old bleachers",
+  "kind": "first",
+  "mood": "hopeful",
+  "tense": "past"
+ },
+ {
+  "text": "The wind took the shingles off the chicken coop",
+  "kind": "first",
+  "mood": "restless",
+  "tense": "past"
+ },
+ {
+  "text": "I'll learn the names of all your mother's roses",
+  "kind": "first",
+  "mood": "hopeful",
+  "tense": "future"
+ },
+ {
+  "text": "My boss still calls me by my father's name",
+  "kind": "first",
+  "mood": "bitter",
+  "tense": "present"
+ },
+ {
+  "text": "The church sign misspelled resurrection again",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "present"
+ },
+ {
+  "text": "There's a snake in the pump house. I'm not going",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "present"
+ },
+ {
+  "text": "We found a wedding album at the estate sale",
+  "kind": "first",
+  "mood": "eerie",
+  "tense": "past"
+ },
+ {
+  "text": "I drive past your old place every morning",
+  "kind": "first",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "The paper mill whistle still goes off at six",
+  "kind": "first",
+  "mood": "numb",
+  "tense": "present"
+ },
+ {
+  "text": "My kid sister wants a ride to the county line",
+  "kind": "first",
+  "mood": "restless",
+  "tense": "present"
+ },
+ {
+  "text": "The motel Bible has somebody's phone number in Psalms",
+  "kind": "first",
+  "mood": "eerie",
+  "tense": "present"
+ },
+ {
+  "text": "Grandpa's hearing aid squeals during the quiet parts",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "present"
+ },
+ {
+  "text": "The basketball hoop has no net and plenty of history",
+  "kind": "first",
+  "mood": "tender",
+  "tense": "present"
+ },
+ {
+  "text": "I paid for your gas, you paid for my pie",
+  "kind": "first",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "The bridge out of town is closed for repairs again",
+  "kind": "first",
+  "mood": "restless",
+  "tense": "present"
+ },
+ {
+  "text": "There's a coyote that trots down our road every evening",
+  "kind": "first",
+  "mood": "eerie",
+  "tense": "present"
+ },
+ {
+  "text": "We wore our good clothes to the bankruptcy hearing",
+  "kind": "first",
+  "mood": "bitter",
+  "tense": "past"
+ },
+ {
+  "text": "Somebody planted sunflowers in the median",
+  "kind": "first",
+  "mood": "hopeful",
+  "tense": "present"
+ },
+ {
+  "text": "I can still hear the screen door slap behind you",
+  "kind": "first",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "The pool hall smells like chalk and somebody's cologne",
+  "kind": "first",
+  "mood": "restless",
+  "tense": "present"
+ },
+ {
+  "text": "We'll sell lemonade at the end of the gravel road",
+  "kind": "first",
+  "mood": "hopeful",
+  "tense": "future"
+ },
+ {
+  "text": "The fire escape is the only place I can think",
+  "kind": "first",
+  "mood": "restless",
+  "tense": "present"
+ },
+ {
+  "text": "My grandfather's dentures are in the sugar bowl",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "present"
+ },
+ {
+  "text": "The motel ice bucket has a crack down the side",
+  "kind": "first",
+  "mood": "numb",
+  "tense": "present"
+ },
+ {
+  "text": "I'll call your mother when I get to Amarillo",
+  "kind": "first",
+  "mood": "hopeful",
+  "tense": "future"
+ },
+ {
+  "text": "The church choir got a new alto and everybody noticed",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "present"
+ },
+ {
+  "text": "The ditch by the road is full of tadpoles",
+  "kind": "first",
+  "mood": "hopeful",
+  "tense": "present"
+ },
+ {
+  "text": "Every truck in the lot has a dog inside",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "present"
+ },
+ {
+  "text": "My first car had a hole in the floorboard",
+  "kind": "first",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "The garden hose froze to the side of the house",
+  "kind": "first",
+  "mood": "numb",
+  "tense": "present"
+ },
+ {
+  "text": "We burned the old couch in the back field",
+  "kind": "first",
+  "mood": "restless",
+  "tense": "past"
+ },
+ {
+  "text": "The lifeguard chair is empty and the flag is red",
+  "kind": "first",
+  "mood": "eerie",
+  "tense": "present"
+ },
+ {
+  "text": "There's a stack of unopened letters in the closet",
+  "kind": "first",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "My mother sang along to commercials",
+  "kind": "first",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "The guidance counselor said I'd make a fine mechanic",
+  "kind": "first",
+  "mood": "bitter",
+  "tense": "past"
+ },
+ {
+  "text": "I'm going to fix the porch steps before the baptism",
+  "kind": "first",
+  "mood": "hopeful",
+  "tense": "future"
+ },
+ {
+  "text": "The waitress writes our order on her palm",
+  "kind": "first",
+  "mood": "tender",
+  "tense": "present"
+ },
+ {
+  "text": "And I left the truck running",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "past"
+ },
+ {
+  "text": "So I paid for the coffee and walked out",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "past"
+ },
+ {
+  "text": "We never did fix that screen door",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "The radio played the whole way back",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "I put the key under the mat for you",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "present"
+ },
+ {
+  "text": "And the dog waited by the gate all summer",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "past"
+ },
+ {
+  "text": "That's why the porch swing only fits one",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "I'll leave the porch lamp burning for a while",
+  "kind": "last",
+  "mood": "hopeful",
+  "tense": "future"
+ },
+ {
+  "text": "And the water tower still has your name on it",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "present"
+ },
+ {
+  "text": "I sold the house but kept the mailbox",
+  "kind": "last",
+  "mood": "bitter",
+  "tense": "past"
+ },
+ {
+  "text": "Now I mow your yard on Saturdays",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "The ice machine dropped a load and I let it",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "past"
+ },
+ {
+  "text": "I drove back with the windows down in January",
+  "kind": "last",
+  "mood": "restless",
+  "tense": "past"
+ },
+ {
+  "text": "And the preacher never got his car to start",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "I hung your jacket back on the hook",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "past"
+ },
+ {
+  "text": "And that's the last time I let you drive",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "The rooster finally crowed at the right time",
+  "kind": "last",
+  "mood": "hopeful",
+  "tense": "past"
+ },
+ {
+  "text": "I'll be at the diner if you change your mind",
+  "kind": "last",
+  "mood": "hopeful",
+  "tense": "future"
+ },
+ {
+  "text": "And the snow covered our tracks by morning",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "past"
+ },
+ {
+  "text": "I still set two cups out by habit",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "We split the last peach at the county line",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "And the scarecrow wore my coat all winter",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "I'm keeping the cassette you left in the deck",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "present"
+ },
+ {
+  "text": "The bank can have the barn but not the dog",
+  "kind": "last",
+  "mood": "bitter",
+  "tense": "present"
+ },
+ {
+  "text": "I left a quarter in the jukebox for you",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "And nobody ever opened the hope chest again",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "past"
+ },
+ {
+  "text": "I'll paint the shed the color you hated",
+  "kind": "last",
+  "mood": "bitter",
+  "tense": "future"
+ },
+ {
+  "text": "The coffee can is empty but I kept it",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "So I signed my name and handed back the pen",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "past"
+ },
+ {
+  "text": "The church bell rang and I didn't go",
+  "kind": "last",
+  "mood": "restless",
+  "tense": "past"
+ },
+ {
+  "text": "And we never did learn to drive that stick",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "I turned the motel sign to no vacancy",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "past"
+ },
+ {
+  "text": "I'll plant the tomatoes where your truck used to park",
+  "kind": "last",
+  "mood": "hopeful",
+  "tense": "future"
+ },
+ {
+  "text": "And the mower kept running in the empty field",
+  "kind": "last",
+  "mood": "eerie",
+  "tense": "past"
+ },
+ {
+  "text": "Your mother still sets your plate. I eat off it",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "I fed the jukebox until the bartender quit",
+  "kind": "last",
+  "mood": "restless",
+  "tense": "past"
+ },
+ {
+  "text": "The tide took the sandcastle and the shovel too",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "past"
+ },
+ {
+  "text": "I wrote my number in the hymnal for you",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "And the train beat us to the crossing every time",
+  "kind": "last",
+  "mood": "restless",
+  "tense": "past"
+ },
+ {
+  "text": "I leave my boots by the door like you did",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "So we ate the wedding cake in the parking lot",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "The landlord can have the key and the cat",
+  "kind": "last",
+  "mood": "bitter",
+  "tense": "present"
+ },
+ {
+  "text": "I put the casserole dish back on your steps",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "I've still got sawdust in my cuffs",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "present"
+ },
+ {
+  "text": "The water tower's blinking like it's waiting for you",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "I kept your voicemail and changed the folder name",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "past"
+ },
+ {
+  "text": "And the creek took the bridge like it promised",
+  "kind": "last",
+  "mood": "eerie",
+  "tense": "past"
+ },
+ {
+  "text": "I'll be the one at the back of the funeral",
+  "kind": "last",
+  "mood": "bitter",
+  "tense": "future"
+ },
+ {
+  "text": "I folded the flag the way Dad showed me",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "The carnival left and took the summer with it",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "past"
+ },
+ {
+  "text": "And the cattle stood still and watched it go by",
+  "kind": "last",
+  "mood": "eerie",
+  "tense": "past"
+ },
+ {
+  "text": "So I let the phone ring out in the laundromat",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "past"
+ },
+ {
+  "text": "I gave the dog your side of the bed",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "We'll fix the porch steps after the baptism",
+  "kind": "last",
+  "mood": "hopeful",
+  "tense": "future"
+ },
+ {
+  "text": "I never told anybody about the money in the can",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "The well filled back up the year you came back",
+  "kind": "last",
+  "mood": "hopeful",
+  "tense": "past"
+ },
+ {
+  "text": "I put the ring on a shoelace too",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "The snowplow buried it all again and I let it",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "past"
+ },
+ {
+  "text": "I tipped the waitress everything I had left",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "And the moth stayed on the windshield the whole drive",
+  "kind": "last",
+  "mood": "eerie",
+  "tense": "past"
+ },
+ {
+  "text": "I'll call you from a pay phone in Amarillo",
+  "kind": "last",
+  "mood": "hopeful",
+  "tense": "future"
+ },
+ {
+  "text": "The scoreboard still says we won",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "present"
+ },
+ {
+  "text": "So I took the long way, and it took me",
+  "kind": "last",
+  "mood": "restless",
+  "tense": "past"
+ },
+ {
+  "text": "And the trailer floated off like it had plans",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "I left the gate open in case you come back",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "The hospital charged us for the parking too",
+  "kind": "last",
+  "mood": "bitter",
+  "tense": "past"
+ },
+ {
+  "text": "I bought the little house with the green door",
+  "kind": "last",
+  "mood": "hopeful",
+  "tense": "past"
+ },
+ {
+  "text": "And the pastor rode his motorcycle into the sunset",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "I'm still learning the names of your mother's roses",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "present"
+ },
+ {
+  "text": "I hid the letter in the time capsule",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "The power came back on and nothing else did",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "past"
+ },
+ {
+  "text": "I climbed the water tower and stayed a while",
+  "kind": "last",
+  "mood": "hopeful",
+  "tense": "past"
+ },
+ {
+  "text": "I bought my guitar back for twice the price",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "And the dog brought back the other shoe",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "That's the only stoplight I ever ran",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "The ditch is full of frogs singing your name",
+  "kind": "last",
+  "mood": "eerie",
+  "tense": "present"
+ },
+ {
+  "text": "I locked the motel Bible in the safe",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "And the paper mill whistle blew like nothing happened",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "past"
+ },
+ {
+  "text": "So I drove your sister to the county line",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "I parked where we used to and kept it running",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "present"
+ },
+ {
+  "text": "The welder put his mask down and walked away",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "past"
+ },
+ {
+  "text": "The bridge is fixed and I'm still here",
+  "kind": "last",
+  "mood": "bitter",
+  "tense": "present"
+ },
+ {
+  "text": "I put sunflowers in the median every spring now",
+  "kind": "last",
+  "mood": "hopeful",
+  "tense": "present"
+ },
+ {
+  "text": "And the screen door slapped shut behind nobody",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "past"
+ },
+ {
+  "text": "I took the long way past the cemetery mower",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "past"
+ },
+ {
+  "text": "The grain elevator still says your name in red",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "present"
+ },
+ {
+  "text": "And we danced in the kitchen in our work boots",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "I left the box fan running for the dog",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "So I bought the lemonade stand myself",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "And Grandpa turned his hearing aid all the way up",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "I finally opened every letter in the closet",
+  "kind": "last",
+  "mood": "hopeful",
+  "tense": "past"
+ },
+ {
+  "text": "I tied the boat to the dock and went inside",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "past"
+ },
+ {
+  "text": "The basketball hoop finally got a net",
+  "kind": "last",
+  "mood": "hopeful",
+  "tense": "past"
+ },
+ {
+  "text": "The coyote stopped at our road and turned around",
+  "kind": "last",
+  "mood": "eerie",
+  "tense": "past"
+ },
+ {
+  "text": "I'll keep your seat warm at the Legion hall",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "future"
+ },
+ {
+  "text": "We wore our good clothes back out the courthouse door",
+  "kind": "last",
+  "mood": "bitter",
+  "tense": "past"
+ },
+ {
+  "text": "I let the guidance counselor fix my car",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "I washed the fish smell off and kept the knife",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "past"
+ },
+ {
+  "text": "The night nurse hums the hymn you liked",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "present"
+ },
+ {
+  "text": "I let the sandbags stay where they were",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "past"
+ },
+ {
+  "text": "We burned the couch and roasted marshmallows on it",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "So I signed the lease and kept the borrowed pen",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "And the church sign finally spelled it right",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "The pump house snake can have the pump house",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "present"
+ },
+ {
+  "text": "I learned to swim the second time you tossed me",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "The lifeguard flag went green after you left",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "past"
+ },
+ {
+  "text": "I fixed the dryer with the same butter knife",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "I put your boots on and went to the wedding",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "past"
+ },
+ {
+  "text": "And the hearse needed new tires anyway",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "I'll leave the radio on the one station",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "future"
+ },
+ {
+  "text": "The magazines in the waiting room are new now",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "present"
+ },
+ {
+  "text": "The janitor played one more song and shut the gym",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "And the bus went on without me past my stop",
+  "kind": "last",
+  "mood": "restless",
+  "tense": "past"
+ },
+ {
+  "text": "The pistol's still in the flour bin, unloaded",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "present"
+ },
+ {
+  "text": "I brought the peaches back to the Henderson porch",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "We'll open the time capsule when the bleachers come down",
+  "kind": "last",
+  "mood": "hopeful",
+  "tense": "future"
+ },
+ {
+  "text": "I paid the fine and kept the parking ticket",
+  "kind": "last",
+  "mood": "bitter",
+  "tense": "past"
+ },
+ {
+  "text": "The fridge still has the dent. I still have you",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "present"
+ },
+ {
+  "text": "And the rooster quit crowing the day you left",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "past"
+ },
+ {
+  "text": "I'll sell the tools that were never mine anyway",
+  "kind": "last",
+  "mood": "bitter",
+  "tense": "future"
+ },
+ {
+  "text": "I tune the piano from the flood line now",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "present"
+ },
+ {
+  "text": "I let the clerk ring me up without a word",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "past"
+ },
+ {
+  "text": "The cassette finally came loose and so did I",
+  "kind": "last",
+  "mood": "restless",
+  "tense": "past"
+ },
+ {
+  "text": "I put the wedding album back where we found it",
+  "kind": "last",
+  "mood": "eerie",
+  "tense": "past"
+ },
+ {
+  "text": "The cafeteria lady still knows my name",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "present"
+ },
+ {
+  "text": "We hid the key and forgot which house",
+  "kind": "last",
+  "mood": "eerie",
+  "tense": "past"
+ },
+ {
+  "text": "And the wind put the shingles back somewhere else",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "I'll call your mother once I pull over",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "future"
+ },
+ {
+  "text": "The porch lamp burned out and I left it",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "past"
+ },
+ {
+  "text": "And the motel pool finally got filled",
+  "kind": "last",
+  "mood": "hopeful",
+  "tense": "past"
+ },
+ {
+  "text": "I set the coffee can on your headstone",
+  "kind": "last",
+  "mood": "ache",
+  "tense": "past"
+ },
+ {
+  "text": "The tow truck driver said he'd seen worse",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "I'll drive the church van till it quits",
+  "kind": "last",
+  "mood": "hopeful",
+  "tense": "future"
+ },
+ {
+  "text": "And I kept the change from the last tank",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "past"
+ },
+ {
+  "text": "I put the boat up on blocks for good",
+  "kind": "last",
+  "mood": "numb",
+  "tense": "past"
+ },
+ {
+  "text": "So we split the check and the town",
+  "kind": "last",
+  "mood": "bitter",
+  "tense": "past"
+ },
+ {
+  "text": "I mailed the key back without a note",
+  "kind": "last",
+  "mood": "bitter",
+  "tense": "past"
+ },
+ {
+  "text": "The paper boy still throws it on the roof",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "present"
+ },
+ {
+  "text": "I learned your mother's recipe by burning it twice",
+  "kind": "last",
+  "mood": "funny",
+  "tense": "past"
+ },
+ {
+  "text": "And the dog dug up the cat we buried",
+  "kind": "last",
+  "mood": "eerie",
+  "tense": "past"
+ },
+ {
+  "text": "The tomato plants are taller than I am now",
+  "kind": "last",
+  "mood": "hopeful",
+  "tense": "present"
+ },
+ {
+  "text": "I hung the wind chime back up crooked",
+  "kind": "last",
+  "mood": "tender",
+  "tense": "past"
+ },
+ {
+  "text": "We'll meet at the rest stop halfway between",
+  "kind": "last",
+  "mood": "hopeful",
+  "tense": "future"
+ },
+ {
+  "text": "And the clock on the courthouse finally stopped",
+  "kind": "last",
+  "mood": "eerie",
+  "tense": "past"
+ }
+]

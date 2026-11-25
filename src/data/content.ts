@@ -21,7 +21,15 @@ export interface TitleItem {
   words: { w: string; forms: string[] }[];
 }
 
+export interface LineItem {
+  text: string;
+  kind: 'first' | 'last';
+  mood: string;
+  tense: string;
+}
+
 export const loadObjects = lazy<ObjectItem[]>('objects', () => import('./objects.json'));
+export const loadLines = lazy<LineItem[]>('lines', () => import('./lines.json'));
 export const loadTitles = lazy<TitleItem[]>('titles', () => import('./titles.json'));
 
 /** Loads a bank and returns it once ready (null until then, or if `loader` is null). */
