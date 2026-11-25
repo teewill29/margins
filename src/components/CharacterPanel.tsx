@@ -4,6 +4,7 @@ import { setPageState } from '../db/pages';
 import type { CharacterState } from '../db/types';
 import { capitalize, PARTS, rollCharacter, type CharacterPart } from '../lib/character';
 import { IndexCard } from './IndexCard';
+import { PanelLabel } from './PanelLabel';
 
 /** "Dale, 58, works overnights at a toll booth. Wants ... Keeps ..." with every part tappable. */
 export function CharacterPanel({ pageId, state }: { pageId: string; state: CharacterState }) {
@@ -40,7 +41,7 @@ export function CharacterPanel({ pageId, state }: { pageId: string; state: Chara
   return (
     <IndexCard id={pageId}>
       <div className="panel-head">
-        <span className="card-label">Character</span>
+        <PanelLabel>Character</PanelLabel>
         <button type="button" className="text-btn" onClick={() => roll()} disabled={!tables}>
           Reroll all
         </button>

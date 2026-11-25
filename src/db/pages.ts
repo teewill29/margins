@@ -163,6 +163,10 @@ export async function setPageState(id: string, state: ExerciseState): Promise<vo
   await db.pages.update(id, { state, updatedAt: Date.now() });
 }
 
+export async function setPanelCollapsed(id: string, panelCollapsed: boolean): Promise<void> {
+  await db.pages.update(id, { panelCollapsed });
+}
+
 export async function setShowSyllables(id: string, showSyllables: boolean): Promise<void> {
   await db.pages.update(id, { showSyllables });
 }

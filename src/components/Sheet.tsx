@@ -4,6 +4,8 @@ import { CloseIcon } from './Icons';
 
 interface SheetProps {
   title?: string;
+  /** Accessible name for a sheet without a visible title. */
+  label?: string;
   onClose(): void;
   children: ReactNode;
 }
@@ -12,7 +14,7 @@ interface SheetProps {
  * Bottom sheet with a backdrop. Escape, the X or a tap outside closes it. Rendered into <body>
  * through a portal: a tilted card (CSS transform) would otherwise trap the fixed backdrop inside it.
  */
-export function Sheet({ title, onClose, children }: SheetProps) {
+export function Sheet({ title, label, onClose, children }: SheetProps) {
   const panel = useRef<HTMLDivElement>(null);
   const titleId = useId();
 
@@ -22,6 +24,23 @@ export function Sheet({ title, onClose, children }: SheetProps) {
     first?.focus({ preventScroll: true });
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
+      // Keep Tab inside the sheet while it's open.
+      if (e.key === 'Tab' && panel.current) {
+        const items = [...panel.current.querySelectorAll<HTMLElement>('button:not(:disabled), input, textarea, [tabindex="0"]')];
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (!first || !last) return;
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        } else if (!panel.current.contains(document.activeElement)) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
     document.addEventListener('keydown', onKey);
     return () => {
@@ -38,6 +57,7 @@ export function Sheet({ title, onClose, children }: SheetProps) {
         role="dialog"
         aria-modal="true"
         aria-labelledby={title ? titleId : undefined}
+        aria-label={title ? undefined : (label ?? 'Options')}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="sheet__head">

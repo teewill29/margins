@@ -37,6 +37,7 @@ interface GridState {
   locked: string[];
   overrides: Record<string, Override>;
   swapsUsed: number; shuffles: number;
+  counted?: string[];                 // words this page has added to wordStats.used (so leaving twice doesn't count twice)
 }
 interface LadderState {
   seed: string; world: string;
@@ -44,6 +45,7 @@ interface LadderState {
   pairs: string[];                    // "the porch confesses"
   overrides: Record<string, Override>;
   nounShuffles: number; verbShuffles: number;
+  counted?: string[];
 }
 interface ObjectState {
   object: string; senses: string[];   // checked senses
@@ -104,6 +106,7 @@ interface WordStat {
 }
 ```
 Missing row = all zeros, false.
+`shown` goes up each time a word is drawn into a grid or ladder (draw, shuffle, swap). `used` is kept in step with pages: when a grid or ladder page is left, words newly used on it add 1 and words no longer used take 1 back, so `used` = pages that ended with the word used.
 
 ### `userLines`
 Indexes: `id, kind`

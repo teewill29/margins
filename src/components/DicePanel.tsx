@@ -3,6 +3,7 @@ import { setPageState } from '../db/pages';
 import type { DiceState } from '../db/types';
 import { DICE, rollDice, type Die } from '../lib/pick';
 import { IndexCard } from './IndexCard';
+import { PanelLabel } from './PanelLabel';
 
 const LABEL: Record<Die, string> = { pov: 'Point of view', tense: 'Tense', place: 'Place', banned: 'Banned word' };
 
@@ -19,7 +20,7 @@ export function DicePanel({ pageId, state, bannedUses }: { pageId: string; state
   return (
     <IndexCard id={pageId}>
       <div className="panel-head">
-        <span className="card-label">Constraint dice</span>
+        <PanelLabel>Constraint dice</PanelLabel>
         <button type="button" className="text-btn" onClick={() => roll()} disabled={!dice}>
           Roll all
         </button>

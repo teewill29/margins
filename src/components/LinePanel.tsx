@@ -2,6 +2,7 @@ import { drawLine, setPageState } from '../db/pages';
 import type { LineState } from '../db/types';
 import { activePad } from '../state/padRegistry';
 import { IndexCard } from './IndexCard';
+import { PanelLabel } from './PanelLabel';
 
 /** First line: the pad starts with it. Last line: shown as "End here:" to write toward. */
 export function LinePanel({ pageId, kind, state }: { pageId: string; kind: 'first' | 'last'; state: LineState }) {
@@ -17,7 +18,7 @@ export function LinePanel({ pageId, kind, state }: { pageId: string; kind: 'firs
   return (
     <IndexCard id={pageId}>
       <div className="panel-head">
-        <span className="card-label">{kind === 'first' ? 'First line' : 'Last line'}</span>
+        <PanelLabel>{kind === 'first' ? 'First line' : 'Last line'}</PanelLabel>
         <button type="button" className="text-btn" onClick={() => void another()}>
           Another
         </button>

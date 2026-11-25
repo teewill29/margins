@@ -12,6 +12,7 @@ import { activePad } from '../state/padRegistry';
 import { useToast } from '../state/toast';
 import { CloseIcon, CrossIcon, ShuffleIcon, TickIcon } from './Icons';
 import { IndexCard } from './IndexCard';
+import { PanelLabel } from './PanelLabel';
 import { ConfirmSheet, Sheet, SheetButton } from './Sheet';
 
 interface Props {
@@ -94,7 +95,7 @@ export function LadderPanel({ pageId, state, bank, results }: Props) {
   return (
     <IndexCard id={pageId}>
       <div className="grid-head">
-        <span className="card-label">Pair the odd ones</span>
+        <PanelLabel>Pair the odd ones</PanelLabel>
         <span className={usedCount === total ? 'grid-count grid-count--done' : 'grid-count'} role="status">
           {usedCount} of {total}
           {usedCount === total && ' · done'}

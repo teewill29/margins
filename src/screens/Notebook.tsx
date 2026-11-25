@@ -166,7 +166,7 @@ export function Notebook() {
       )}
 
       {menuFor && (
-        <Sheet onClose={() => setMenuFor(null)}>
+        <Sheet label="Page options" onClose={() => setMenuFor(null)}>
           <SheetButton onClick={() => archive(menuFor)}>Archive page</SheetButton>
         </Sheet>
       )}

@@ -400,10 +400,16 @@ input, textarea, select { font-size: 16px; } /* 16px so iOS doesn't zoom */
 .pad__ghost { color: transparent; }
 /* Marker: no padding or border, which would shift text away from the textarea's. */
 .pad__mark {
-  background: var(--marker);
+  background: linear-gradient(var(--marker), var(--marker)) no-repeat left / 100% 100%;
   color: inherit;
   border-radius: 2px;
   box-shadow: 0 0 0 1px var(--marker);
+  animation: marker-sweep 180ms ease-out;
+}
+/* DESIGN.md's one motion: a used word's marker sweeps in left to right. */
+@keyframes marker-sweep {
+  from { background-size: 0% 100%; box-shadow: 0 0 0 1px transparent; }
+  to { background-size: 100% 100%; box-shadow: 0 0 0 1px var(--marker); }
 }
 .pad__syl {
   position: absolute;
@@ -671,7 +677,8 @@ input, textarea, select { font-size: 16px; } /* 16px so iOS doesn't zoom */
 .archived-row__meta { font-size: 12.5px; color: var(--pencil); }
 
 @media (prefers-reduced-motion: reduce) {
-  .page-card { transition: none; }
+  .page-card, .word-cell { transition: none; }
+  .pad__mark { animation: none; }
 }
 
 /* Index card exercise panel */
@@ -720,6 +727,7 @@ input, textarea, select { font-size: 16px; } /* 16px so iOS doesn't zoom */
   -webkit-user-select: none;
   -webkit-touch-callout: none;
 }
+.word-cell { transition: background-color 180ms ease-out, border-color 180ms ease-out; }
 .word-cell--used {
   background: var(--marker);
   border: 1px solid var(--marker-edge);
@@ -939,7 +947,7 @@ input, textarea, select { font-size: 16px; } /* 16px so iOS doesn't zoom */
   text-align: left;
   cursor: pointer;
 }
-.scrap--used { color: var(--dash); box-shadow: none; background: transparent; outline: 1px dashed var(--dash); }
+.scrap--used { color: var(--pencil); box-shadow: none; background: transparent; outline: 1px dashed var(--dash); text-decoration: line-through; text-decoration-color: var(--dash); }
 .sheet__scroll { max-height: 55vh; overflow-y: auto; display: flex; flex-direction: column; }
 .surprise { padding: 14px 16px 0; }
 .surprise__btn { width: 100%; height: 48px; border-radius: 24px; }
@@ -960,3 +968,23 @@ input, textarea, select { font-size: 16px; } /* 16px so iOS doesn't zoom */
   cursor: pointer;
 }
 .filter-chip--on { background: var(--ink); border-color: var(--ink); color: var(--card); }
+.word-row { display: flex; align-items: center; gap: 8px; border-top: 1px solid var(--bar); padding-top: 4px; }
+.word-row__text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.word-row__word { font: 700 15px var(--font-type); }
+.word-row__meta { font-size: 12.5px; color: var(--pencil); }
+/* Collapsible exercise cards */
+.card-label--btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  margin: -10px 0 -10px -4px;
+  padding: 0 4px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+.card-label__chevron { color: var(--pencil); flex-shrink: 0; }
+.panel-head--collapsed { justify-content: flex-start; gap: 10px; }
+.panel-summary { flex: 1; min-width: 0; font-size: 13.5px; color: var(--pencil); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

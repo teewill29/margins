@@ -13,6 +13,7 @@ import { useLongPress } from '../hooks/useLongPress';
 import { useToast } from '../state/toast';
 import { CrossIcon, GearIcon, LockIcon, ShuffleIcon, TickIcon } from './Icons';
 import { IndexCard } from './IndexCard';
+import { PanelLabel } from './PanelLabel';
 import { Segmented } from './Segmented';
 import { ConfirmSheet, Sheet, SheetButton } from './Sheet';
 
@@ -91,7 +92,7 @@ export function WordGrid({ pageId, date, state, bank, results }: Props) {
   return (
     <IndexCard id={pageId}>
       <div className="grid-head">
-        <span className="card-label">{state.daily ? `Daily grid · ${shortDate(date)}` : `Use all ${state.words.length}`}</span>
+        <PanelLabel>{state.daily ? `Daily grid · ${shortDate(date)}` : `Use all ${state.words.length}`}</PanelLabel>
         <div className="grid-head__right">
           <span className={done ? 'grid-count grid-count--done' : 'grid-count'} role="status">
             {usedCount} of {state.words.length}

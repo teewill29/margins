@@ -75,13 +75,19 @@ function marked(line: string, ranges: readonly Range[] | undefined): string | (s
   if (!ranges?.length) return line || '\u200b';
   const sorted = [...ranges].sort((a, b) => a.start - b.start);
   const out: (string | ReactElement)[] = [];
+  const seen = new Map<string, number>();
   let at = 0;
-  sorted.forEach((r, i) => {
+  sorted.forEach((r) => {
     if (r.start < at) return;
     if (r.start > at) out.push(line.slice(at, r.start));
+    const word = line.slice(r.start, r.end);
+    // Keyed by the word (and its count so far), so marks keep their identity while the line is
+    // edited around them, and only a newly used word plays the marker sweep.
+    const n = (seen.get(word) ?? 0) + 1;
+    seen.set(word, n);
     out.push(
-      <mark key={i} className={r.kind === 'banned' ? 'pad__banned' : 'pad__mark'}>
-        {line.slice(r.start, r.end)}
+      <mark key={`${word}#${n}`} className={r.kind === 'banned' ? 'pad__banned' : 'pad__mark'}>
+        {word}
       </mark>,
     );
     at = r.end;

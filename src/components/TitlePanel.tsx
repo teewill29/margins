@@ -4,6 +4,7 @@ import { getSetting, setSetting } from '../db/settings';
 import type { TitleState } from '../db/types';
 import { pickText, remember } from '../lib/pick';
 import { IndexCard } from './IndexCard';
+import { PanelLabel } from './PanelLabel';
 
 interface Props {
   pageId: string;
@@ -30,7 +31,7 @@ export function TitlePanel({ pageId, state, inChorus, total }: Props) {
   return (
     <IndexCard id={pageId}>
       <div className="panel-head">
-        <span className="card-label">Your title</span>
+        <PanelLabel>Your title</PanelLabel>
         <button type="button" className="text-btn" onClick={() => void another()} disabled={!titles}>
           Another
         </button>

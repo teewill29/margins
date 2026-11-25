@@ -3,6 +3,7 @@ import { setPageState } from '../db/pages';
 import type { ObjectState } from '../db/types';
 import { pickIndex } from '../lib/pick';
 import { IndexCard } from './IndexCard';
+import { PanelLabel } from './PanelLabel';
 
 export const SENSES = ['Sight', 'Sound', 'Smell', 'Taste', 'Touch', 'Body', 'Motion'] as const;
 
@@ -25,7 +26,7 @@ export function ObjectPanel({ pageId, state }: { pageId: string; state: ObjectSt
   return (
     <IndexCard id={pageId}>
       <div className="panel-head">
-        <span className="card-label">Your object</span>
+        <PanelLabel>Your object</PanelLabel>
         <button type="button" className="text-btn" onClick={newObject} disabled={!objects}>
           New object
         </button>

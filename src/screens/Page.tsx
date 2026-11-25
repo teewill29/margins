@@ -13,16 +13,20 @@ import { DicePanel } from '../components/DicePanel';
 import { CharacterPanel } from '../components/CharacterPanel';
 import { LadderPanel } from '../components/LadderPanel';
 import { CutupPanel } from '../components/CutupPanel';
+import { IndexCard } from '../components/IndexCard';
+import { PanelCollapse, PanelLabel } from '../components/PanelLabel';
+import { promptOf } from '../lib/prompt';
 import { loadDice, loadTitles, useContent, type DiceBank, type TitleItem } from '../data/content';
 import { chorusLines, titleInChorus, titleWords } from '../lib/titles';
 import { useBank, type Bank } from '../data/bank';
 import { PromptSheet, Sheet, SheetButton } from '../components/Sheet';
 import { TopBar } from '../components/TopBar';
 import { db } from '../db/db';
-import { renamePage, setArchived, setPageLevel, setShowSyllables } from '../db/pages';
+import { renamePage, setArchived, setPageLevel, setPanelCollapsed, setShowSyllables } from '../db/pages';
 import type { CharacterState, CutupState, DiceState, GridState, LadderState, Level, LineState, Memo, ObjectState, Page as PageRow, TitleState } from '../db/types';
 import { detect, detectWord, type WordResult } from '../lib/detect';
 import { useActiveTime } from '../hooks/useActiveTime';
+import { useRecordUsed } from '../hooks/useRecordUsed';
 import { useAudioUrls } from '../state/player';
 import { pageTitleDate } from '../lib/date';
 import { exerciseName } from '../lib/exercises';
@@ -90,6 +94,22 @@ function useTargets(page: PageRow, { bank, titles, dice }: Banks) {
 
 const NO_OVERRIDES = {};
 
+/** One line for a folded exercise card. */
+function panelSummary(page: PageRow, results: readonly WordResult[]): string {
+  const used = results.filter((r) => r.used).length;
+  switch (page.exercise) {
+    case 'grid':
+    case 'ladder':
+      return `${used} of ${results.length} used`;
+    case 'title':
+      return (page.state as TitleState).title;
+    case 'cutup':
+      return (page.state as CutupState).source ? 'Scraps ready' : 'No text yet';
+    default:
+      return promptOf(page.exercise, page.state) ?? '';
+  }
+}
+
 /** Detection for the page's exercise words, recomputed as the text changes. */
 function useDetection(page: PageRow, text: string, banks: Banks): WordResult[] {
   const { words, overrides } = useTargets(page, banks);
@@ -106,8 +126,13 @@ function PageView({ page, memos }: { page: PageRow; memos: Memo[] }) {
   const dice = useContent(page.exercise === 'dice' ? loadDice : null);
   const usesBank = page.exercise === 'grid' || page.exercise === 'ladder';
   const results = useDetection(page, text, { bank: usesBank ? bank : null, titles, dice });
+  useRecordUsed(page.id, results, usesBank && bank !== null);
   const chorus = useMemo(() => (page.exercise === 'title' ? chorusLines(text) : new Set<number>()), [page.exercise, text]);
   const titleWordsInChorus = results.filter((r) => r.matches.some((m) => chorus.has(m.line))).length;
+  const collapse = useMemo(
+    () => ({ collapsed: page.panelCollapsed, toggle: () => void setPanelCollapsed(page.id, !page.panelCollapsed) }),
+    [page.id, page.panelCollapsed],
+  );
   const highlights = useMemo(() => {
     const map = new Map<number, Range[]>();
     const kind = page.exercise === 'dice' ? 'banned' : 'mark';
@@ -156,33 +181,48 @@ function PageView({ page, memos }: { page: PageRow; memos: Memo[] }) {
           </>
         }
       />
-      {page.exercise === 'object' && <ObjectPanel pageId={page.id} state={page.state as ObjectState} />}
-      {(page.exercise === 'firstLine' || page.exercise === 'lastLine') && (
-        <LinePanel pageId={page.id} kind={page.exercise === 'firstLine' ? 'first' : 'last'} state={page.state as LineState} />
+      {page.exercise !== 'free' && (
+        <PanelCollapse.Provider value={collapse}>
+          {page.panelCollapsed ? (
+            <IndexCard id={page.id}>
+              <div className="panel-head panel-head--collapsed">
+                <PanelLabel>{exerciseName(page.exercise)}</PanelLabel>
+                <span className="panel-summary">{panelSummary(page, results)}</span>
+              </div>
+            </IndexCard>
+          ) : (
+            <>
+    {page.exercise === 'object' && <ObjectPanel pageId={page.id} state={page.state as ObjectState} />}
+    {(page.exercise === 'firstLine' || page.exercise === 'lastLine') && (
+      <LinePanel pageId={page.id} kind={page.exercise === 'firstLine' ? 'first' : 'last'} state={page.state as LineState} />
+    )}
+    {page.exercise === 'ladder' &&
+      (bank ? (
+        <LadderPanel pageId={page.id} state={page.state as LadderState} bank={bank} results={results} />
+      ) : (
+        <div className="index-card index-card--loading" aria-busy="true" />
+      ))}
+    {page.exercise === 'cutup' && <CutupPanel pageId={page.id} state={page.state as CutupState} />}
+    {page.exercise === 'character' && <CharacterPanel pageId={page.id} state={page.state as CharacterState} />}
+    {page.exercise === 'dice' && <DicePanel pageId={page.id} state={page.state as DiceState} bannedUses={results[0]?.matches.length ?? 0} />}
+    {page.exercise === 'title' && (
+      <TitlePanel
+        pageId={page.id}
+        state={page.state as TitleState}
+        inChorus={titleInChorus(results, chorus) ? results.length : titleWordsInChorus}
+        total={results.length}
+      />
+    )}
+    {page.exercise === 'grid' &&
+      (bank ? (
+        <WordGrid pageId={page.id} date={page.date} state={page.state as GridState} bank={bank} results={results} />
+      ) : (
+        <div className="index-card index-card--loading" aria-busy="true" />
+      ))}
+            </>
+          )}
+        </PanelCollapse.Provider>
       )}
-      {page.exercise === 'ladder' &&
-        (bank ? (
-          <LadderPanel pageId={page.id} state={page.state as LadderState} bank={bank} results={results} />
-        ) : (
-          <div className="index-card index-card--loading" aria-busy="true" />
-        ))}
-      {page.exercise === 'cutup' && <CutupPanel pageId={page.id} state={page.state as CutupState} />}
-      {page.exercise === 'character' && <CharacterPanel pageId={page.id} state={page.state as CharacterState} />}
-      {page.exercise === 'dice' && <DicePanel pageId={page.id} state={page.state as DiceState} bannedUses={results[0]?.matches.length ?? 0} />}
-      {page.exercise === 'title' && (
-        <TitlePanel
-          pageId={page.id}
-          state={page.state as TitleState}
-          inChorus={titleInChorus(results, chorus) ? results.length : titleWordsInChorus}
-          total={results.length}
-        />
-      )}
-      {page.exercise === 'grid' &&
-        (bank ? (
-          <WordGrid pageId={page.id} date={page.date} state={page.state as GridState} bank={bank} results={results} />
-        ) : (
-          <div className="index-card index-card--loading" aria-busy="true" />
-        ))}
       <div
         className="paper"
         onClick={(e) => {
@@ -214,30 +254,9 @@ function PageView({ page, memos }: { page: PageRow; memos: Memo[] }) {
       </div>
 
       {menu === 'menu' && (
-        <Sheet onClose={() => setMenu(null)}>
+        <Sheet label="Page options" onClose={() => setMenu(null)}>
           <SheetButton onClick={() => setMenu('rename')}>Rename page</SheetButton>
-          {page.exercise === 'object' && <ObjectPanel pageId={page.id} state={page.state as ObjectState} />}
-      {(page.exercise === 'firstLine' || page.exercise === 'lastLine') && (
-        <LinePanel pageId={page.id} kind={page.exercise === 'firstLine' ? 'first' : 'last'} state={page.state as LineState} />
-      )}
-      {page.exercise === 'ladder' &&
-        (bank ? (
-          <LadderPanel pageId={page.id} state={page.state as LadderState} bank={bank} results={results} />
-        ) : (
-          <div className="index-card index-card--loading" aria-busy="true" />
-        ))}
-      {page.exercise === 'cutup' && <CutupPanel pageId={page.id} state={page.state as CutupState} />}
-      {page.exercise === 'character' && <CharacterPanel pageId={page.id} state={page.state as CharacterState} />}
-      {page.exercise === 'dice' && <DicePanel pageId={page.id} state={page.state as DiceState} bannedUses={results[0]?.matches.length ?? 0} />}
-      {page.exercise === 'title' && (
-        <TitlePanel
-          pageId={page.id}
-          state={page.state as TitleState}
-          inChorus={titleInChorus(results, chorus) ? results.length : titleWordsInChorus}
-          total={results.length}
-        />
-      )}
-      {DETECTS.has(page.exercise) && (
+          {DETECTS.has(page.exercise) && (
             <SheetButton onClick={() => setMenu('level')}>Detection level: {LEVELS.find((l) => l[0] === page.level)?.[1]}</SheetButton>
           )}
           <SheetButton

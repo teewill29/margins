@@ -13,6 +13,7 @@ export interface GridState {
   locked: string[];
   overrides: Record<string, Override>;
   swapsUsed: number; shuffles: number;
+  counted?: string[];                 // words already counted in wordStats.used for this page
 }
 export interface LadderState {
   seed: string; world: string;
@@ -20,6 +21,7 @@ export interface LadderState {
   pairs: string[];
   overrides: Record<string, Override>;
   nounShuffles: number; verbShuffles: number;
+  counted?: string[];
 }
 export interface ObjectState {
   object: string; senses: string[];

@@ -8,6 +8,7 @@ import { pageTitleDate } from '../lib/date';
 import { previewLines } from '../lib/pad';
 import { activePad } from '../state/padRegistry';
 import { IndexCard } from './IndexCard';
+import { PanelLabel } from './PanelLabel';
 import { Sheet, SheetButton } from './Sheet';
 
 export function CutupPanel({ pageId, state }: { pageId: string; state: CutupState }) {
@@ -34,7 +35,7 @@ export function CutupPanel({ pageId, state }: { pageId: string; state: CutupStat
     return (
       <IndexCard id={pageId}>
         <div className="panel-head">
-          <span className="card-label">Paste a text</span>
+          <PanelLabel>Paste a text</PanelLabel>
           <button type="button" className="text-btn" onClick={() => setPicking(true)}>
             Use a page
           </button>
@@ -82,7 +83,7 @@ export function CutupPanel({ pageId, state }: { pageId: string; state: CutupStat
   return (
     <IndexCard id={pageId}>
       <div className="panel-head">
-        <span className="card-label">Cut-up</span>
+        <PanelLabel>Cut-up</PanelLabel>
         <div>
           <button type="button" className="text-btn" onClick={() => setEditing(true)}>
             New text
