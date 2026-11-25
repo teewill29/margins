@@ -237,31 +237,6 @@
   ]
  },
  {
-  "text": "Paper Crown",
-  "words": [
-   {
-    "w": "paper",
-    "forms": [
-     "papered",
-     "papering",
-     "papers"
-    ]
-   },
-   {
-    "w": "crown",
-    "forms": [
-     "crew",
-     "crow",
-     "crowing",
-     "crowned",
-     "crowning",
-     "crowns",
-     "crows"
-    ]
-   }
-  ]
- },
- {
   "text": "Tin Roof Sermon",
   "words": [
    {
@@ -437,28 +412,6 @@
      "sainted",
      "sainting",
      "saints"
-    ]
-   }
-  ]
- },
- {
-  "text": "Small Change",
-  "words": [
-   {
-    "w": "small",
-    "forms": [
-     "smalled",
-     "smalling",
-     "smalls",
-     "smell"
-    ]
-   },
-   {
-    "w": "change",
-    "forms": [
-     "changed",
-     "changes",
-     "changing"
     ]
    }
   ]
@@ -671,28 +624,6 @@
   ]
  },
  {
-  "text": "Half a Tank",
-  "words": [
-   {
-    "w": "half",
-    "forms": [
-     "halfed",
-     "halfing",
-     "halfs",
-     "halves"
-    ]
-   },
-   {
-    "w": "tank",
-    "forms": [
-     "tanked",
-     "tanking",
-     "tanks"
-    ]
-   }
-  ]
- },
- {
   "text": "Grandpa's Pocketknife",
   "words": [
    {
@@ -844,27 +775,6 @@
      "pooled",
      "pooling",
      "pools"
-    ]
-   }
-  ]
- },
- {
-  "text": "Slow Leak",
-  "words": [
-   {
-    "w": "slow",
-    "forms": [
-     "slowed",
-     "slowing",
-     "slows"
-    ]
-   },
-   {
-    "w": "leak",
-    "forms": [
-     "leaked",
-     "leaking",
-     "leaks"
     ]
    }
   ]
@@ -1095,19 +1005,6 @@
   ]
  },
  {
-  "text": "Thunderhead",
-  "words": [
-   {
-    "w": "thunderhead",
-    "forms": [
-     "thunderheaded",
-     "thunderheading",
-     "thunderheads"
-    ]
-   }
-  ]
- },
- {
   "text": "Corn Taller Than Me",
   "words": [
    {
@@ -1297,28 +1194,6 @@
   ]
  },
  {
-  "text": "Pickup Line",
-  "words": [
-   {
-    "w": "pickup",
-    "forms": [
-     "pickuped",
-     "pickuping",
-     "pickupped",
-     "pickups"
-    ]
-   },
-   {
-    "w": "line",
-    "forms": [
-     "lined",
-     "lines",
-     "lining"
-    ]
-   }
-  ]
- },
- {
   "text": "Same Booth Every Thursday",
   "words": [
    {
@@ -1421,50 +1296,6 @@
      "bootsed",
      "bootses",
      "bootsing"
-    ]
-   }
-  ]
- },
- {
-  "text": "Grain Elevator",
-  "words": [
-   {
-    "w": "grain",
-    "forms": [
-     "grained",
-     "graining",
-     "grains"
-    ]
-   },
-   {
-    "w": "elevator",
-    "forms": [
-     "elevatored",
-     "elevatoring",
-     "elevators"
-    ]
-   }
-  ]
- },
- {
-  "text": "Shotgun Seat",
-  "words": [
-   {
-    "w": "shotgun",
-    "forms": [
-     "shotguned",
-     "shotguning",
-     "shotgunned",
-     "shotgunning",
-     "shotguns"
-    ]
-   },
-   {
-    "w": "seat",
-    "forms": [
-     "seated",
-     "seating",
-     "seats"
     ]
    }
   ]
@@ -1648,27 +1479,6 @@
      "lined",
      "lines",
      "lining"
-    ]
-   }
-  ]
- },
- {
-  "text": "Diner Coffee",
-  "words": [
-   {
-    "w": "diner",
-    "forms": [
-     "dinered",
-     "dinering",
-     "diners"
-    ]
-   },
-   {
-    "w": "coffee",
-    "forms": [
-     "coffeed",
-     "coffeeing",
-     "coffees"
     ]
    }
   ]
@@ -1978,30 +1788,6 @@
   ]
  },
  {
-  "text": "Paper Plates",
-  "words": [
-   {
-    "w": "paper",
-    "forms": [
-     "papered",
-     "papering",
-     "papers"
-    ]
-   },
-   {
-    "w": "plates",
-    "forms": [
-     "plate",
-     "plated",
-     "platesed",
-     "plateses",
-     "platesing",
-     "plating"
-    ]
-   }
-  ]
- },
- {
   "text": "Ashtray Full of Quarters",
   "words": [
    {
@@ -2197,53 +1983,6 @@
   ]
  },
  {
-  "text": "Room Fourteen",
-  "words": [
-   {
-    "w": "room",
-    "forms": [
-     "roomed",
-     "rooming",
-     "rooms"
-    ]
-   },
-   {
-    "w": "fourteen",
-    "forms": [
-     "fourteened",
-     "fourteening",
-     "fourteens"
-    ]
-   }
-  ]
- },
- {
-  "text": "Vacancy",
-  "words": [
-   {
-    "w": "vacancy",
-    "forms": [
-     "vacancied",
-     "vacancies",
-     "vacancying"
-    ]
-   }
-  ]
- },
- {
-  "text": "Do Not Disturb",
-  "words": [
-   {
-    "w": "disturb",
-    "forms": [
-     "disturbed",
-     "disturbing",
-     "disturbs"
-    ]
-   }
-  ]
- },
- {
   "text": "Check Out Time",
   "words": [
    {
@@ -2380,30 +2119,6 @@
   ]
  },
  {
-  "text": "Clean Towels",
-  "words": [
-   {
-    "w": "clean",
-    "forms": [
-     "cleaned",
-     "cleaning",
-     "cleans"
-    ]
-   },
-   {
-    "w": "towels",
-    "forms": [
-     "towel",
-     "towelled",
-     "towelling",
-     "towelsed",
-     "towelses",
-     "towelsing"
-    ]
-   }
-  ]
- },
- {
   "text": "Neon Vacancy",
   "words": [
    {
@@ -2420,56 +2135,6 @@
      "vacancied",
      "vacancies",
      "vacancying"
-    ]
-   }
-  ]
- },
- {
-  "text": "Truck Stop Shower",
-  "words": [
-   {
-    "w": "truck",
-    "forms": [
-     "trucked",
-     "trucking",
-     "trucks"
-    ]
-   },
-   {
-    "w": "stop",
-    "forms": [
-     "stopped",
-     "stopping",
-     "stops"
-    ]
-   },
-   {
-    "w": "shower",
-    "forms": [
-     "showered",
-     "showering",
-     "showers"
-    ]
-   }
-  ]
- },
- {
-  "text": "Long Haul",
-  "words": [
-   {
-    "w": "long",
-    "forms": [
-     "longed",
-     "longing",
-     "longs"
-    ]
-   },
-   {
-    "w": "haul",
-    "forms": [
-     "hauled",
-     "hauling",
-     "hauls"
     ]
    }
   ]
@@ -2499,27 +2164,6 @@
      "ninetied",
      "nineties",
      "ninetying"
-    ]
-   }
-  ]
- },
- {
-  "text": "Exit Only",
-  "words": [
-   {
-    "w": "exit",
-    "forms": [
-     "exited",
-     "exiting",
-     "exits"
-    ]
-   },
-   {
-    "w": "only",
-    "forms": [
-     "onlied",
-     "onlies",
-     "onlying"
     ]
    }
   ]
@@ -2630,27 +2274,6 @@
   ]
  },
  {
-  "text": "Toll Road",
-  "words": [
-   {
-    "w": "toll",
-    "forms": [
-     "tolled",
-     "tolling",
-     "tolls"
-    ]
-   },
-   {
-    "w": "road",
-    "forms": [
-     "roaded",
-     "roading",
-     "roads"
-    ]
-   }
-  ]
- },
- {
   "text": "Flat Tire Waltz",
   "words": [
    {
@@ -2675,80 +2298,6 @@
      "waltzed",
      "waltzes",
      "waltzing"
-    ]
-   }
-  ]
- },
- {
-  "text": "Jumper Cables",
-  "words": [
-   {
-    "w": "jumper",
-    "forms": [
-     "jumpered",
-     "jumpering",
-     "jumpers"
-    ]
-   },
-   {
-    "w": "cables",
-    "forms": [
-     "cable",
-     "cabled",
-     "cablesed",
-     "cableses",
-     "cablesing",
-     "cabling"
-    ]
-   }
-  ]
- },
- {
-  "text": "Kickstand",
-  "words": [
-   {
-    "w": "kickstand",
-    "forms": [
-     "kickstanded",
-     "kickstanding",
-     "kickstands",
-     "kickstood"
-    ]
-   }
-  ]
- },
- {
-  "text": "Ignition",
-  "words": [
-   {
-    "w": "ignition",
-    "forms": [
-     "ignitioned",
-     "ignitioning",
-     "ignitions"
-    ]
-   }
-  ]
- },
- {
-  "text": "Cruise Control",
-  "words": [
-   {
-    "w": "cruise",
-    "forms": [
-     "cruised",
-     "cruises",
-     "cruising"
-    ]
-   },
-   {
-    "w": "control",
-    "forms": [
-     "controled",
-     "controling",
-     "controlled",
-     "controlling",
-     "controls"
     ]
    }
   ]
@@ -2886,70 +2435,6 @@
      "nooned",
      "nooning",
      "noons"
-    ]
-   }
-  ]
- },
- {
-  "text": "Fence Line",
-  "words": [
-   {
-    "w": "fence",
-    "forms": [
-     "fenced",
-     "fences",
-     "fencing"
-    ]
-   },
-   {
-    "w": "line",
-    "forms": [
-     "lined",
-     "lines",
-     "lining"
-    ]
-   }
-  ]
- },
- {
-  "text": "Mud Season",
-  "words": [
-   {
-    "w": "mud",
-    "forms": [
-     "mudded",
-     "mudding",
-     "muded",
-     "muds"
-    ]
-   },
-   {
-    "w": "season",
-    "forms": [
-     "seasoned",
-     "seasoning",
-     "seasons"
-    ]
-   }
-  ]
- },
- {
-  "text": "Barn Cat",
-  "words": [
-   {
-    "w": "barn",
-    "forms": [
-     "barned",
-     "barning",
-     "barns"
-    ]
-   },
-   {
-    "w": "cat",
-    "forms": [
-     "cats",
-     "catted",
-     "catting"
     ]
    }
   ]
@@ -3110,29 +2595,6 @@
   ]
  },
  {
-  "text": "Burnt Toast",
-  "words": [
-   {
-    "w": "burnt",
-    "forms": [
-     "burn",
-     "burned",
-     "burnted",
-     "burnting",
-     "burnts"
-    ]
-   },
-   {
-    "w": "toast",
-    "forms": [
-     "toasted",
-     "toasting",
-     "toasts"
-    ]
-   }
-  ]
- },
- {
   "text": "Kitchen Table Treaty",
   "words": [
    {
@@ -3157,27 +2619,6 @@
      "treatied",
      "treaties",
      "treatying"
-    ]
-   }
-  ]
- },
- {
-  "text": "Junk Drawer",
-  "words": [
-   {
-    "w": "junk",
-    "forms": [
-     "junked",
-     "junking",
-     "junks"
-    ]
-   },
-   {
-    "w": "drawer",
-    "forms": [
-     "drawered",
-     "drawering",
-     "drawers"
     ]
    }
   ]
@@ -3215,27 +2656,6 @@
   ]
  },
  {
-  "text": "Recipe Card",
-  "words": [
-   {
-    "w": "recipe",
-    "forms": [
-     "reciped",
-     "recipes",
-     "reciping"
-    ]
-   },
-   {
-    "w": "card",
-    "forms": [
-     "carded",
-     "carding",
-     "cards"
-    ]
-   }
-  ]
- },
- {
   "text": "Dish Towel Flag",
   "words": [
    {
@@ -3262,19 +2682,6 @@
      "flagged",
      "flagging",
      "flags"
-    ]
-   }
-  ]
- },
- {
-  "text": "Skillet",
-  "words": [
-   {
-    "w": "skillet",
-    "forms": [
-     "skilleted",
-     "skilleting",
-     "skillets"
     ]
    }
   ]
@@ -3812,19 +3219,6 @@
   ]
  },
  {
-  "text": "Dartboard",
-  "words": [
-   {
-    "w": "dartboard",
-    "forms": [
-     "dartboarded",
-     "dartboarding",
-     "dartboards"
-    ]
-   }
-  ]
- },
- {
   "text": "Pool Cue Prophet",
   "words": [
    {
@@ -3872,27 +3266,6 @@
      "clocked",
      "clocking",
      "clocks"
-    ]
-   }
-  ]
- },
- {
-  "text": "Tip Jar",
-  "words": [
-   {
-    "w": "tip",
-    "forms": [
-     "tipped",
-     "tipping",
-     "tips"
-    ]
-   },
-   {
-    "w": "jar",
-    "forms": [
-     "jarred",
-     "jarring",
-     "jars"
     ]
    }
   ]
@@ -4259,48 +3632,6 @@
   ]
  },
  {
-  "text": "Lunch Pail",
-  "words": [
-   {
-    "w": "lunch",
-    "forms": [
-     "lunched",
-     "lunches",
-     "lunching"
-    ]
-   },
-   {
-    "w": "pail",
-    "forms": [
-     "pailed",
-     "pailing",
-     "pails"
-    ]
-   }
-  ]
- },
- {
-  "text": "Time Card",
-  "words": [
-   {
-    "w": "time",
-    "forms": [
-     "timed",
-     "times",
-     "timing"
-    ]
-   },
-   {
-    "w": "card",
-    "forms": [
-     "carded",
-     "carding",
-     "cards"
-    ]
-   }
-  ]
- },
- {
   "text": "Scaffold Song",
   "words": [
    {
@@ -4449,19 +3780,6 @@
   ]
  },
  {
-  "text": "Overtime",
-  "words": [
-   {
-    "w": "overtime",
-    "forms": [
-     "overtimed",
-     "overtimes",
-     "overtiming"
-    ]
-   }
-  ]
- },
- {
   "text": "Sledgehammer Waltz",
   "words": [
    {
@@ -4478,70 +3796,6 @@
      "waltzed",
      "waltzes",
      "waltzing"
-    ]
-   }
-  ]
- },
- {
-  "text": "Seagull Thief",
-  "words": [
-   {
-    "w": "seagull",
-    "forms": [
-     "seagulled",
-     "seagulling",
-     "seagulls"
-    ]
-   },
-   {
-    "w": "thief",
-    "forms": [
-     "thiefed",
-     "thiefing",
-     "thiefs",
-     "thieves"
-    ]
-   }
-  ]
- },
- {
-  "text": "Low Tide",
-  "words": [
-   {
-    "w": "low",
-    "forms": [
-     "lowed",
-     "lowing",
-     "lows"
-    ]
-   },
-   {
-    "w": "tide",
-    "forms": [
-     "tided",
-     "tides",
-     "tiding"
-    ]
-   }
-  ]
- },
- {
-  "text": "Bait Shop",
-  "words": [
-   {
-    "w": "bait",
-    "forms": [
-     "baited",
-     "baiting",
-     "baits"
-    ]
-   },
-   {
-    "w": "shop",
-    "forms": [
-     "shopped",
-     "shopping",
-     "shops"
     ]
    }
   ]
@@ -4650,19 +3904,6 @@
   ]
  },
  {
-  "text": "Undertow",
-  "words": [
-   {
-    "w": "undertow",
-    "forms": [
-     "undertowed",
-     "undertowing",
-     "undertows"
-    ]
-   }
-  ]
- },
- {
   "text": "Boardwalk Arcade",
   "words": [
    {
@@ -4738,27 +3979,6 @@
   ]
  },
  {
-  "text": "Space Heater",
-  "words": [
-   {
-    "w": "space",
-    "forms": [
-     "spaced",
-     "spaces",
-     "spacing"
-    ]
-   },
-   {
-    "w": "heater",
-    "forms": [
-     "heatered",
-     "heatering",
-     "heaters"
-    ]
-   }
-  ]
- },
- {
   "text": "Frozen Hose",
   "words": [
    {
@@ -4777,27 +3997,6 @@
      "hosed",
      "hoses",
      "hosing"
-    ]
-   }
-  ]
- },
- {
-  "text": "Rock Salt",
-  "words": [
-   {
-    "w": "rock",
-    "forms": [
-     "rocked",
-     "rocking",
-     "rocks"
-    ]
-   },
-   {
-    "w": "salt",
-    "forms": [
-     "salted",
-     "salting",
-     "salts"
     ]
    }
   ]
@@ -4845,45 +4044,6 @@
   ]
  },
  {
-  "text": "Icicle",
-  "words": [
-   {
-    "w": "icicle",
-    "forms": [
-     "icicled",
-     "icicles",
-     "icicling"
-    ]
-   }
-  ]
- },
- {
-  "text": "Thaw",
-  "words": [
-   {
-    "w": "thaw",
-    "forms": [
-     "thawed",
-     "thawing",
-     "thaws"
-    ]
-   }
-  ]
- },
- {
-  "text": "Collarbone",
-  "words": [
-   {
-    "w": "collarbone",
-    "forms": [
-     "collarboned",
-     "collarbones",
-     "collarboning"
-    ]
-   }
-  ]
- },
- {
   "text": "Knuckle Scar",
   "words": [
    {
@@ -4900,20 +4060,6 @@
      "scarred",
      "scarring",
      "scars"
-    ]
-   }
-  ]
- },
- {
-  "text": "Callus",
-  "words": [
-   {
-    "w": "callus",
-    "forms": [
-     "callu",
-     "callused",
-     "calluses",
-     "callusing"
     ]
    }
   ]
@@ -4967,32 +4113,6 @@
   ]
  },
  {
-  "text": "Splinter",
-  "words": [
-   {
-    "w": "splinter",
-    "forms": [
-     "splintered",
-     "splintering",
-     "splinters"
-    ]
-   }
-  ]
- },
- {
-  "text": "Wishbone",
-  "words": [
-   {
-    "w": "wishbone",
-    "forms": [
-     "wishboned",
-     "wishbones",
-     "wishboning"
-    ]
-   }
-  ]
- },
- {
   "text": "Freckle Map",
   "words": [
    {
@@ -5014,36 +4134,6 @@
   ]
  },
  {
-  "text": "Hiccup",
-  "words": [
-   {
-    "w": "hiccup",
-    "forms": [
-     "hiccuped",
-     "hiccuping",
-     "hiccupped",
-     "hiccups"
-    ]
-   }
-  ]
- },
- {
-  "text": "Goosebumps",
-  "words": [
-   {
-    "w": "goosebumps",
-    "forms": [
-     "goosebump",
-     "goosebumped",
-     "goosebumping",
-     "goosebumpsed",
-     "goosebumpses",
-     "goosebumpsing"
-    ]
-   }
-  ]
- },
- {
   "text": "Dog-Eared Bible",
   "words": [
    {
@@ -5060,19 +4150,6 @@
      "bibled",
      "bibles",
      "bibling"
-    ]
-   }
-  ]
- },
- {
-  "text": "Steeple",
-  "words": [
-   {
-    "w": "steeple",
-    "forms": [
-     "steepled",
-     "steeples",
-     "steepling"
     ]
    }
   ]
@@ -5260,6 +4337,981 @@
      "fourteened",
      "fourteening",
      "fourteens"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Nobody Fixed the Porch Steps",
+  "words": [
+   {
+    "w": "nobody",
+    "forms": [
+     "nobodied",
+     "nobodies",
+     "nobodying"
+    ]
+   },
+   {
+    "w": "fixed",
+    "forms": [
+     "fix",
+     "fixeded",
+     "fixeding",
+     "fixeds",
+     "fixes",
+     "fixing"
+    ]
+   },
+   {
+    "w": "porch",
+    "forms": [
+     "porched",
+     "porches",
+     "porching"
+    ]
+   },
+   {
+    "w": "steps",
+    "forms": [
+     "step",
+     "stepped",
+     "stepping",
+     "stepsed",
+     "stepses",
+     "stepsing"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Water Tower Paint Job",
+  "words": [
+   {
+    "w": "water",
+    "forms": [
+     "watered",
+     "watering",
+     "waters"
+    ]
+   },
+   {
+    "w": "tower",
+    "forms": [
+     "towered",
+     "towering",
+     "towers"
+    ]
+   },
+   {
+    "w": "paint",
+    "forms": [
+     "painted",
+     "painting",
+     "paints"
+    ]
+   },
+   {
+    "w": "job",
+    "forms": [
+     "jobbed",
+     "jobbing",
+     "jobs"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "The Dentist Plays Banjo",
+  "words": [
+   {
+    "w": "dentist",
+    "forms": [
+     "dentisted",
+     "dentisting",
+     "dentists"
+    ]
+   },
+   {
+    "w": "plays",
+    "forms": [
+     "play",
+     "played",
+     "playing",
+     "playsed",
+     "playses",
+     "playsing"
+    ]
+   },
+   {
+    "w": "banjo",
+    "forms": [
+     "banjoed",
+     "banjoes",
+     "banjoing",
+     "banjos"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Buttermilk and Bad Timing",
+  "words": [
+   {
+    "w": "buttermilk",
+    "forms": [
+     "buttermilked",
+     "buttermilking",
+     "buttermilks"
+    ]
+   },
+   {
+    "w": "bad",
+    "forms": [
+     "badded",
+     "badding",
+     "bads"
+    ]
+   },
+   {
+    "w": "timing",
+    "forms": [
+     "time",
+     "timed",
+     "times",
+     "timinged",
+     "timinging",
+     "timings"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "A Truck Named After Grandma",
+  "words": [
+   {
+    "w": "truck",
+    "forms": [
+     "trucked",
+     "trucking",
+     "trucks"
+    ]
+   },
+   {
+    "w": "named",
+    "forms": [
+     "name",
+     "nameded",
+     "nameding",
+     "nameds",
+     "names",
+     "naming"
+    ]
+   },
+   {
+    "w": "after",
+    "forms": [
+     "aftered",
+     "aftering",
+     "afters"
+    ]
+   },
+   {
+    "w": "grandma",
+    "forms": [
+     "grandmaed",
+     "grandmaing",
+     "grandmas"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Dimes in the Collection Plate",
+  "words": [
+   {
+    "w": "dimes",
+    "forms": [
+     "dime",
+     "dimed",
+     "dimesed",
+     "dimeses",
+     "dimesing",
+     "diming"
+    ]
+   },
+   {
+    "w": "collection",
+    "forms": [
+     "collectioned",
+     "collectioning",
+     "collections"
+    ]
+   },
+   {
+    "w": "plate",
+    "forms": [
+     "plated",
+     "plates",
+     "plating"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "The Preacher's Riding Mower",
+  "words": [
+   {
+    "w": "preacher",
+    "forms": [
+     "preachered",
+     "preachering",
+     "preachers"
+    ]
+   },
+   {
+    "w": "riding",
+    "forms": [
+     "ridden",
+     "ride",
+     "rides",
+     "ridinged",
+     "ridinging",
+     "ridings",
+     "rode"
+    ]
+   },
+   {
+    "w": "mower",
+    "forms": [
+     "mowered",
+     "mowering",
+     "mowers"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Leftover Fireworks in March",
+  "words": [
+   {
+    "w": "leftover",
+    "forms": [
+     "leftovered",
+     "leftovering",
+     "leftovers"
+    ]
+   },
+   {
+    "w": "fireworks",
+    "forms": [
+     "firework",
+     "fireworked",
+     "fireworking",
+     "fireworksed",
+     "fireworkses",
+     "fireworksing"
+    ]
+   },
+   {
+    "w": "march",
+    "forms": [
+     "marched",
+     "marches",
+     "marching"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Somebody Keeps Moving the Mailbox",
+  "words": [
+   {
+    "w": "somebody",
+    "forms": [
+     "somebodied",
+     "somebodies",
+     "somebodying"
+    ]
+   },
+   {
+    "w": "keeps",
+    "forms": [
+     "keep",
+     "keeping",
+     "keepsed",
+     "keepses",
+     "keepsing",
+     "kept"
+    ]
+   },
+   {
+    "w": "moving",
+    "forms": [
+     "move",
+     "moved",
+     "moves",
+     "movinged",
+     "movinging",
+     "movings"
+    ]
+   },
+   {
+    "w": "mailbox",
+    "forms": [
+     "mailboxed",
+     "mailboxes",
+     "mailboxing"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Ferris Wheel for Sale",
+  "words": [
+   {
+    "w": "ferris",
+    "forms": [
+     "ferrare",
+     "ferrbeing",
+     "ferri",
+     "ferrised",
+     "ferrises",
+     "ferrising",
+     "ferrwas"
+    ]
+   },
+   {
+    "w": "wheel",
+    "forms": [
+     "wheeled",
+     "wheeling",
+     "wheels",
+     "whelt"
+    ]
+   },
+   {
+    "w": "sale",
+    "forms": [
+     "saled",
+     "sales",
+     "saling"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Tuesday at the Feed Store",
+  "words": [
+   {
+    "w": "tuesday",
+    "forms": [
+     "tuesdayed",
+     "tuesdaying",
+     "tuesdays"
+    ]
+   },
+   {
+    "w": "feed",
+    "forms": [
+     "fed",
+     "feeded",
+     "feeding",
+     "feeds"
+    ]
+   },
+   {
+    "w": "store",
+    "forms": [
+     "stored",
+     "stores",
+     "storing"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Hymn Number Eleven Again",
+  "words": [
+   {
+    "w": "hymn",
+    "forms": [
+     "hymned",
+     "hymning",
+     "hymns"
+    ]
+   },
+   {
+    "w": "number",
+    "forms": [
+     "numbered",
+     "numbering",
+     "numbers"
+    ]
+   },
+   {
+    "w": "eleven",
+    "forms": [
+     "elevened",
+     "elevening",
+     "elevens"
+    ]
+   },
+   {
+    "w": "again",
+    "forms": [
+     "agained",
+     "againing",
+     "agains"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Borrowed Truck, Borrowed Time",
+  "words": [
+   {
+    "w": "borrowed",
+    "forms": [
+     "borrow",
+     "borroweded",
+     "borroweding",
+     "borroweds",
+     "borrowing",
+     "borrows"
+    ]
+   },
+   {
+    "w": "truck",
+    "forms": [
+     "trucked",
+     "trucking",
+     "trucks"
+    ]
+   },
+   {
+    "w": "time",
+    "forms": [
+     "timed",
+     "times",
+     "timing"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Your Cousin's Swimming Pool",
+  "words": [
+   {
+    "w": "cousin",
+    "forms": [
+     "cousined",
+     "cousining",
+     "cousinned",
+     "cousinning",
+     "cousins"
+    ]
+   },
+   {
+    "w": "swimming",
+    "forms": [
+     "swam",
+     "swim",
+     "swimminged",
+     "swimminging",
+     "swimmings",
+     "swims",
+     "swum"
+    ]
+   },
+   {
+    "w": "pool",
+    "forms": [
+     "pooled",
+     "pooling",
+     "pools"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Gravel Under the Wedding Dress",
+  "words": [
+   {
+    "w": "gravel",
+    "forms": [
+     "graveled",
+     "graveling",
+     "gravelled",
+     "gravelling",
+     "gravels"
+    ]
+   },
+   {
+    "w": "wedding",
+    "forms": [
+     "wed",
+     "wedded",
+     "weddinged",
+     "weddinging",
+     "weddings",
+     "weds",
+     "wet"
+    ]
+   },
+   {
+    "w": "dress",
+    "forms": [
+     "dressed",
+     "dresses",
+     "dressing"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Ten Miles Past Bait",
+  "words": [
+   {
+    "w": "ten",
+    "forms": [
+     "tened",
+     "tening",
+     "tenned",
+     "tenning",
+     "tens"
+    ]
+   },
+   {
+    "w": "miles",
+    "forms": [
+     "mile",
+     "miled",
+     "milesed",
+     "mileses",
+     "milesing",
+     "miling"
+    ]
+   },
+   {
+    "w": "past",
+    "forms": [
+     "pasted",
+     "pasting",
+     "pasts"
+    ]
+   },
+   {
+    "w": "bait",
+    "forms": [
+     "baited",
+     "baiting",
+     "baits"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Motel Ice Machine Lullaby",
+  "words": [
+   {
+    "w": "motel",
+    "forms": [
+     "moteled",
+     "moteling",
+     "motelled",
+     "motelling",
+     "motels"
+    ]
+   },
+   {
+    "w": "ice",
+    "forms": [
+     "iced",
+     "ices",
+     "icing"
+    ]
+   },
+   {
+    "w": "machine",
+    "forms": [
+     "machined",
+     "machines",
+     "machining"
+    ]
+   },
+   {
+    "w": "lullaby",
+    "forms": [
+     "lullabied",
+     "lullabies",
+     "lullabying"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Pecans on the Roof",
+  "words": [
+   {
+    "w": "pecans",
+    "forms": [
+     "pecan",
+     "pecanned",
+     "pecanning",
+     "pecansed",
+     "pecanses",
+     "pecansing"
+    ]
+   },
+   {
+    "w": "roof",
+    "forms": [
+     "roofed",
+     "roofing",
+     "roofs"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Bingo at the Legion Hall",
+  "words": [
+   {
+    "w": "bingo",
+    "forms": [
+     "bingoed",
+     "bingoes",
+     "bingoing",
+     "bingos",
+     "binwent"
+    ]
+   },
+   {
+    "w": "legion",
+    "forms": [
+     "legioned",
+     "legioning",
+     "legions"
+    ]
+   },
+   {
+    "w": "hall",
+    "forms": [
+     "halled",
+     "halling",
+     "halls",
+     "hell"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "The Combine Needs a Part",
+  "words": [
+   {
+    "w": "combine",
+    "forms": [
+     "combined",
+     "combines",
+     "combining"
+    ]
+   },
+   {
+    "w": "needs",
+    "forms": [
+     "need",
+     "needed",
+     "needing",
+     "needsed",
+     "needses",
+     "needsing"
+    ]
+   },
+   {
+    "w": "part",
+    "forms": [
+     "parted",
+     "parting",
+     "parts"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Nickel Under the Jukebox",
+  "words": [
+   {
+    "w": "nickel",
+    "forms": [
+     "nickeled",
+     "nickeling",
+     "nickelled",
+     "nickelling",
+     "nickels"
+    ]
+   },
+   {
+    "w": "jukebox",
+    "forms": [
+     "jukeboxed",
+     "jukeboxes",
+     "jukeboxing"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "A Sweater Older Than Me",
+  "words": [
+   {
+    "w": "sweater",
+    "forms": [
+     "sweatered",
+     "sweatering",
+     "sweaters"
+    ]
+   },
+   {
+    "w": "older",
+    "forms": [
+     "oldered",
+     "oldering",
+     "olders"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Laundromat on a Holiday",
+  "words": [
+   {
+    "w": "laundromat",
+    "forms": [
+     "laundromated",
+     "laundromating",
+     "laundromats",
+     "laundromatted",
+     "laundromatting"
+    ]
+   },
+   {
+    "w": "holiday",
+    "forms": [
+     "holidayed",
+     "holidaying",
+     "holidays"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Watermelon Seeds in the Gutter",
+  "words": [
+   {
+    "w": "watermelon",
+    "forms": [
+     "watermeloned",
+     "watermeloning",
+     "watermelons"
+    ]
+   },
+   {
+    "w": "seeds",
+    "forms": [
+     "seed",
+     "seeded",
+     "seeding",
+     "seedsed",
+     "seedses",
+     "seedsing"
+    ]
+   },
+   {
+    "w": "gutter",
+    "forms": [
+     "guttered",
+     "guttering",
+     "gutters"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Grandma Won the Raffle Again",
+  "words": [
+   {
+    "w": "grandma",
+    "forms": [
+     "grandmaed",
+     "grandmaing",
+     "grandmas"
+    ]
+   },
+   {
+    "w": "won",
+    "forms": [
+     "win",
+     "winning",
+     "wins",
+     "wonned",
+     "wonning",
+     "wons"
+    ]
+   },
+   {
+    "w": "raffle",
+    "forms": [
+     "raffled",
+     "raffles",
+     "raffling"
+    ]
+   },
+   {
+    "w": "again",
+    "forms": [
+     "agained",
+     "againing",
+     "agains"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Five Dollars of Gas",
+  "words": [
+   {
+    "w": "five",
+    "forms": [
+     "fived",
+     "fives",
+     "fiving"
+    ]
+   },
+   {
+    "w": "dollars",
+    "forms": [
+     "dollar",
+     "dollarred",
+     "dollarring",
+     "dollarsed",
+     "dollarses",
+     "dollarsing"
+    ]
+   },
+   {
+    "w": "gas",
+    "forms": [
+     "ga",
+     "gases",
+     "gassed",
+     "gasses",
+     "gassing"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "The Mule Outlived Everybody",
+  "words": [
+   {
+    "w": "mule",
+    "forms": [
+     "muled",
+     "mules",
+     "muling"
+    ]
+   },
+   {
+    "w": "outlived",
+    "forms": [
+     "outlive",
+     "outliveded",
+     "outliveding",
+     "outliveds",
+     "outlives",
+     "outliving"
+    ]
+   },
+   {
+    "w": "everybody",
+    "forms": [
+     "everybodied",
+     "everybodies",
+     "everybodying"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Rust Spots on the Tailgate",
+  "words": [
+   {
+    "w": "rust",
+    "forms": [
+     "rusted",
+     "rusting",
+     "rusts"
+    ]
+   },
+   {
+    "w": "spots",
+    "forms": [
+     "spot",
+     "spotsed",
+     "spotses",
+     "spotsing",
+     "spotted",
+     "spotting"
+    ]
+   },
+   {
+    "w": "tailgate",
+    "forms": [
+     "tailgated",
+     "tailgates",
+     "tailgating"
+    ]
+   }
+  ]
+ },
+ {
+  "text": "Somebody Else's Wedding Band",
+  "words": [
+   {
+    "w": "somebody",
+    "forms": [
+     "somebodied",
+     "somebodies",
+     "somebodying"
+    ]
+   },
+   {
+    "w": "else",
+    "forms": [
+     "elsed",
+     "elses",
+     "elsing"
+    ]
+   },
+   {
+    "w": "wedding",
+    "forms": [
+     "wed",
+     "wedded",
+     "weddinged",
+     "weddinging",
+     "weddings",
+     "weds",
+     "wet"
+    ]
+   },
+   {
+    "w": "band",
+    "forms": [
+     "banded",
+     "banding",
+     "bands"
     ]
    }
   ]

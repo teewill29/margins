@@ -31,8 +31,18 @@ export const EXERCISES: readonly ExerciseInfo[] = [
 ];
 
 /** Exercises that can start a page right now. Grows phase by phase. */
-export const LIVE_EXERCISES: ReadonlySet<ExerciseType> = new Set(['grid', 'ladder', 'object', 'firstLine', 'lastLine', 'title', 'dice', 'character', 'free']);
+export const LIVE_EXERCISES: ReadonlySet<ExerciseType> = new Set<ExerciseType>(EXERCISES.map((e) => e.type));
 
 export function exerciseName(type: ExerciseType): string {
   return EXERCISES.find((e) => e.type === type)?.name ?? type;
+}
+
+/** The latest page date per exercise type. */
+export function lastUsed(pages: readonly { exercise: ExerciseType; date: string }[]): Map<ExerciseType, string> {
+  const out = new Map<ExerciseType, string>();
+  for (const p of pages) {
+    const cur = out.get(p.exercise);
+    if (!cur || p.date > cur) out.set(p.exercise, p.date);
+  }
+  return out;
 }

@@ -10,6 +10,7 @@ import { setSetting, useSettings } from '../db/settings';
 import type { Page } from '../db/types';
 import { backupBanner } from '../lib/backup';
 import { plural } from '../lib/format';
+import { EXERCISES, type ExerciseType } from '../lib/exercises';
 import { matchesQuery, searchText } from '../lib/search';
 import { useToast } from '../state/toast';
 import { useDropbox } from '../sync/dropbox';
@@ -21,6 +22,7 @@ export function Notebook() {
   const dropbox = useDropbox();
   const [now] = useState(() => Date.now());
   const [query, setQuery] = useState('');
+  const [filter, setFilter] = useState<ExerciseType | 'all'>('all');
   const q = useDeferredValue(query);
   const [menuFor, setMenuFor] = useState<Page | null>(null);
   const toast = useToast();
@@ -32,9 +34,15 @@ export function Notebook() {
     return map;
   }, [memos]);
 
+  // One chip per exercise that has at least one page. A filter whose pages are gone falls back to All.
+  const types = useMemo(() => EXERCISES.filter((e) => pages?.some((p) => p.exercise === e.type)), [pages]);
+  const active = types.some((t) => t.type === filter) ? filter : 'all';
   const shown = useMemo(
-    () => (pages ?? []).filter((p) => matchesQuery(searchText(p, byPage.get(p.id) ?? []), q)),
-    [pages, byPage, q],
+    () =>
+      (pages ?? []).filter(
+        (p) => (active === 'all' || p.exercise === active) && matchesQuery(searchText(p, byPage.get(p.id) ?? []), q),
+      ),
+    [pages, byPage, q, active],
   );
 
   const memoTotal = (pages ?? []).reduce((n, p) => n + (byPage.get(p.id)?.length ?? 0), 0);
@@ -110,6 +118,23 @@ export function Notebook() {
               onChange={(e) => setQuery(e.target.value)}
             />
           </label>
+        </div>
+      )}
+
+      {types.length > 1 && (
+        <div className="filters" role="radiogroup" aria-label="Filter by exercise">
+          {[{ type: 'all' as const, name: 'All' }, ...types].map((t) => (
+            <button
+              key={t.type}
+              type="button"
+              role="radio"
+              aria-checked={active === t.type}
+              className={active === t.type ? 'filter-chip filter-chip--on' : 'filter-chip'}
+              onClick={() => setFilter(t.type)}
+            >
+              {t.name}
+            </button>
+          ))}
         </div>
       )}
 
