@@ -26,6 +26,8 @@ interface WordEntry {
   syl: number;        // syllables, from the CMU dictionary, else the `syllable` package
   worlds: string[];   // 1 or 2 world ids from the list below; [] allowed
   rhyme: string;      // rhyme key, computed by the build script
+  forms: string[];    // every other form (formsOf, DETECTION.md), computed by the build script.
+                      // The app reads these, so compromise never ships to the phone.
 }
 ```
 

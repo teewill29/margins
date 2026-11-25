@@ -1,0 +1,201 @@
+# Abstract: ideas you can't hold. Defaults: conc 1, common 4. One per grid at most.
+@pos abstract
+@default conc=1 common=4
+
+## church
+mercy
+grace
+faith
+sin
+guilt
+shame
+penance m3
+salvation
+redemption
+prayer c2
+blessing c2
+pardon
+vow c2
+promise
+
+## small-town
+rumor
+reputation
+pride
+nostalgia
+boredom
+habit
+tradition
+loyalty
+scandal
+
+## bar
+regret
+temptation
+luck
+debt
+credit
+bargain
+wager c2
+grudge
+excuse
+alibi
+
+## hospital
+recovery
+diagnosis
+patience
+pain c2
+relief
+fear
+hope
+doubt
+worry
+
+## school
+lesson
+memory
+history
+grade c2
+truth
+lie
+theory
+rule
+
+## job-site
+labor
+overtime
+wages c2
+union
+pension
+seniority m3
+progress
+
+## motel
+secret
+escape
+silence
+privacy
+distance
+absence
+
+## night
+insomnia
+dread
+hunger
+craving
+longing
+solitude
+mystery
+
+## farm
+patience
+weather c2
+fortune
+
+## winter
+loneliness
+stillness
+
+## -
+debt
+luck
+rumor
+patience
+mercy
+envy
+jealousy
+spite
+revenge
+justice
+honor
+duty
+courage
+nerve
+stubbornness
+pride
+greed
+charity
+kindness
+cruelty
+sympathy
+pity
+gratitude
+apology
+forgiveness
+blame
+fault
+mistake
+accident
+chance
+fate
+risk
+danger
+trouble
+truth
+honesty
+trust
+betrayal
+loyalty
+friendship
+marriage
+divorce
+inheritance
+legacy
+grief
+sorrow
+mourning
+comfort
+peace
+quiet
+noise
+rhythm
+melody
+harmony
+silence
+time
+moment
+history
+future
+past
+youth
+childhood
+retirement
+ambition
+failure
+success
+victory
+defeat
+surrender
+rebellion
+temper
+mood
+humor
+wisdom
+innocence
+curiosity
+wonder
+awe
+boredom
+restlessness
+hesitation
+instinct
+madness
+chaos
+order
+shame
+scandal
+silence
+poverty
+wealth
+debt
+tax c2
+paperwork c2
+deadline
+promise
+threat
+warning
+mercy
+sacrifice
+loss
+gain

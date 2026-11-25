@@ -1,4 +1,4 @@
-import JSZip from 'jszip';
+import type JSZipType from 'jszip';
 import { BACKUP_VERSION, backupFileName, extForMime, rowsToImport } from '../lib/backup';
 import { localDate } from '../lib/date';
 import { isIOS } from '../platform';
@@ -34,7 +34,10 @@ export function audioPath(memo: Pick<Memo, 'id' | 'mimeType'>): string {
 }
 
 /** Builds the backup zip: margins.json plus one audio file per memo. */
+const loadZip = async () => (await import('jszip')).default;
+
 export async function buildBackup(): Promise<File> {
+  const JSZip = await loadZip();
   const zip = new JSZip();
   const json = await buildBackupJson();
   const mimes = new Map(json.memos.map((m) => [m.id, m.mimeType]));
@@ -144,7 +147,8 @@ export async function mergeBackup(
 
 /** Reads a backup zip and merges it in. */
 export async function importBackup(file: Blob): Promise<ImportResult> {
-  let zip: JSZip;
+  const JSZip = await loadZip();
+  let zip: JSZipType;
   try {
     zip = await JSZip.loadAsync(file);
   } catch {

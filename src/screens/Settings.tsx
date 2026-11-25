@@ -3,12 +3,13 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import { ChevronIcon } from '../components/Icons';
 import { DropboxSection } from '../components/DropboxSection';
+import { Segmented } from '../components/Segmented';
 import { ConfirmSheet } from '../components/Sheet';
 import { TopBar } from '../components/TopBar';
 import { exportBackup, importBackup } from '../db/backup';
 import { db } from '../db/db';
 import { deletePageForever, setArchived } from '../db/pages';
-import { useSettings } from '../db/settings';
+import { setSetting, useSettings } from '../db/settings';
 import type { Page } from '../db/types';
 import { localDate, pageTitleDate, relativeDay } from '../lib/date';
 import { exerciseName } from '../lib/exercises';
@@ -69,6 +70,41 @@ export function Settings() {
       <TopBar title="Settings" back="/" backLabel="Back to notebook" />
 
       <DropboxSection />
+
+      {settings && (
+        <section className="settings-section">
+          <h2 className="section-label">New pages</h2>
+          <div className="settings-field">
+            <span className="settings-field__label">Grid difficulty</span>
+            <Segmented
+              label="Grid difficulty"
+              value={settings.difficulty}
+              options={[['loose', 'Loose'], ['medium', 'Medium'], ['wild', 'Wild']]}
+              onChange={(v) => void setSetting('difficulty', v)}
+            />
+          </div>
+          <div className="settings-field">
+            <span className="settings-field__label">Daily grid</span>
+            <Segmented
+              label="Daily grid"
+              value={settings.dailyGrid ? 'on' : 'off'}
+              options={[['off', 'Off'], ['on', 'On']]}
+              onChange={(v) => void setSetting('dailyGrid', v === 'on')}
+            />
+            <span className="settings-note">On: every new grid is the day's shared grid.</span>
+          </div>
+          <div className="settings-field">
+            <span className="settings-field__label">Detection level</span>
+            <Segmented
+              label="Detection level"
+              value={settings.level}
+              options={[['exact', 'Exact'], ['root', 'Root'], ['loose', 'Loose']]}
+              onChange={(v) => void setSetting('level', v)}
+            />
+            <span className="settings-note">Root counts burned for burn. Loose also counts rusty for rust.</span>
+          </div>
+        </section>
+      )}
 
       <section className="settings-section">
         <h2 className="section-label">Backup file</h2>

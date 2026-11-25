@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { deleteMemo, renameMemo, restoreMemo, unpinMemo } from '../db/memos';
 import type { Memo } from '../db/types';
 import { formatDuration } from '../lib/format';
@@ -52,11 +52,9 @@ export function useMemoSheet() {
     )
   );
 
-  return {
-    sheet,
-    openMenu: (memo: Memo) => setTarget({ memo, mode: 'menu' }),
-    openRename: (memo: Memo) => setTarget({ memo, mode: 'rename' }),
-  };
+  const openMenu = useCallback((memo: Memo) => setTarget({ memo, mode: 'menu' }), []);
+  const openRename = useCallback((memo: Memo) => setTarget({ memo, mode: 'rename' }), []);
+  return { sheet, openMenu, openRename };
 }
 
 interface PillProps {

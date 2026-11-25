@@ -1,0 +1,282 @@
+# Places. Defaults: conc 5, common 4.
+@pos place
+@default conc=5 common=4
+
+## road
+overpass
+interstate
+highway
+underpass
+truckstop
+crossroads
+on-ramp m3
+tollroad m3
+junkyard
+carwash
+drive-in m3
+roadhouse
+parkway
+backroad
+causeway m3
+
+## kitchen
+pantry
+kitchen
+diner
+bakery
+cafe
+countertop
+smokehouse m3
+cannery m3
+
+## church
+cathedral
+chapel
+sanctuary
+graveyard
+cemetery
+belfry m3
+vestry m3
+crypt
+parsonage m3
+mission
+
+## small-town
+courthouse
+barbershop
+feedstore m3
+drugstore
+ballfield
+dugout
+bleachers
+library
+schoolyard
+
+## weather
+floodplain m3
+riverbank
+creekbed
+ditch
+lowland m3
+ridge
+hilltop
+valley
+canyon
+prairie
+plains
+
+## body
+bathroom
+sickbed m3
+
+## night
+alley
+graveyard
+streetcorner m3
+backseat
+drive-thru
+nightclub
+lookout
+campground
+
+## coast
+pier
+boardwalk
+lighthouse
+harbor
+marina
+beach
+shoreline
+seawall
+sandbar
+lagoon
+bayou
+inlet
+cove
+reef
+shipyard
+wharf
+estuary m3
+tidepool
+
+## winter
+cabin
+lodge
+woodshed
+mudroom
+mountain
+tundra m3
+igloo
+
+## school
+cafeteria
+gymnasium
+gym
+hallway
+classroom
+playground
+auditorium
+library
+bleachers
+dugout
+schoolyard
+homeroom
+field
+
+## job-site
+warehouse
+lumberyard
+quarry
+foundry m3
+factory
+mill
+sawmill
+shipyard
+basement
+attic
+crawlspace
+scaffolding
+refinery m3
+mine
+
+## bar
+saloon
+tavern
+pub
+taproom m3
+honky-tonk m3
+dancehall
+lounge
+backroom
+barroom m3
+nightclub
+speakeasy
+
+## bedroom
+bedroom
+attic
+guestroom m3
+loft
+bunkhouse m3
+dormitory
+dorm
+
+## garage
+garage
+toolshed
+shed
+driveway
+carport
+basement
+junkyard
+
+## farm
+barn
+henhouse
+coop
+orchard
+hayfield m3
+stable
+pigpen
+farmhouse
+farmstand m3
+creek
+pond
+vineyard
+greenhouse
+meadow
+field
+
+## city
+alley
+apartment
+tunnel
+bridge
+laundromat
+bodega
+lobby
+tenement m3
+plaza
+boulevard
+avenue
+pawnshop
+newsroom
+office
+deli
+pizzeria
+museum
+theater
+
+## motel
+motel
+lobby
+poolside m3
+room
+hallway
+stairwell
+balcony
+truckstop
+inn
+hotel
+
+## hospital
+hospital
+pharmacy
+morgue
+clinic
+ward
+infirmary
+chapel
+
+## -
+attic
+basement
+backyard
+garden
+orchard
+woods
+forest
+swamp
+marsh
+desert
+river
+creek
+lake
+pond
+waterfall
+canyon
+cliff
+cave
+hillside
+mountainside
+riverbed
+dam
+levee
+bridge
+railroad
+train
+boxcar
+airport
+backseat
+cabin
+campsite
+cul-de-sac m3
+downtown
+crossroads
+border
+wheatfield m3
+cottonfield m3
+jailhouse
+jail
+prison
+firehouse
+pawnshop
+arcade
+drive-in
+ballpark
+stadium
+racetrack
+rodeo
+museum
+stage
+backstage

@@ -1,0 +1,1445 @@
+# Nouns. Defaults: conc 5, common 4. "## world" starts a section; a word listed under two
+# worlds gets both. Modifiers after a word: cN = concreteness, mN = commonness (1-5).
+@pos noun
+@default conc=5 common=4
+
+## road
+headlights
+tailgate
+windshield
+odometer m3
+milepost m3
+guardrail
+billboard
+gasoline
+dipstick m3
+tollbooth m3
+roadkill
+hubcap
+bumper
+ignition
+dashboard
+glovebox m3
+atlas
+thermos
+trucker
+pickup
+minivan
+sedan
+hatchback m3
+convertible
+motorcycle
+helmet
+mirror
+wiper
+muffler
+exhaust c4
+tire
+jack
+detour c4
+pothole
+roadblock
+ticket
+cassette
+radio
+antenna
+visor
+keychain
+seatbelt
+airbag
+cupholder m3
+ashtray
+receipt
+jerky
+hitchhiker
+duffel m3
+cooler
+license
+speedometer
+horn
+siren
+blinker
+brake
+clutch
+gearshift m3
+pedal
+mudflap m3
+trailer
+camper
+roadmap
+compass
+postcard
+souvenir
+bobblehead m3
+coffee
+key
+toll c4
+taillight
+hood
+trunk
+
+## kitchen
+skillet
+colander m3
+spatula
+ladle
+whisk
+kettle
+teapot
+mug
+saucer
+cupboard
+drawer
+dishrag
+sponge
+apron
+oven
+stove
+burner
+toaster
+blender
+microwave
+fridge
+freezer
+icebox m3
+magnet
+lunchbox
+casserole
+biscuit
+gravy
+molasses
+sugar
+flour
+butter
+lard m3
+honey
+jelly
+pickle
+onion
+garlic
+potato
+tomato
+peach
+lemon
+cornbread
+pie
+crust
+dough
+breadbox m3
+crumb
+napkin
+placemat m3
+tablecloth
+saltshaker m3
+pepper
+cinnamon
+eggshell
+yolk
+faucet
+drain
+dishwater
+dishwasher
+linoleum
+corkscrew
+jar
+lid
+fork
+spoon
+knife
+plate
+bowl
+skillet
+griddle
+timer
+matchbook
+stool
+pitcher
+tumbler
+toast
+recipe c4
+coffee
+
+## church
+pew
+hymnal
+steeple
+bell
+organ
+candle
+altar
+pulpit
+choir
+robe
+offering
+usher
+deacon m3
+preacher
+sermon c4
+bulletin
+potluck
+casserole
+rosary
+crucifix
+chalice m3
+wafer
+incense
+headstone
+tombstone
+wreath
+lily
+funeral c4
+casket
+hearse
+pallbearer m3
+eulogy c4
+psalm
+bible
+hymn
+kneeler m2
+cushion
+fan
+nursery
+revival c4
+tent
+tambourine
+piano
+banner
+vestment m2
+cassock m2
+chime
+hymnbook m3
+bishop
+nun
+priest
+candlestick
+lectern m3
+temple
+baptism c4
+collar
+offertory m2
+pamphlet
+pastor
+steeplejack m2
+bellrope m2
+belltower
+congregation c4
+widow
+
+## small-town
+parade
+float
+bandstand m3
+mailbox
+porch
+swing
+lawnmower
+sprinkler
+hose
+picket
+fence
+flagpole
+flag
+statue
+gazebo
+awning
+storefront
+curb
+hydrant
+popsicle
+snowcone m3
+lemonade
+carnival
+pageant
+crown
+sash
+tractor
+pickup
+newspaper
+obituary
+postmark m3
+stamp
+payphone
+laundry
+clothesline
+clothespin
+rocker
+quilt
+pie
+sheriff
+deputy
+mayor
+mailman
+paperboy m3
+bicycle
+trophy
+pennant
+streetlamp
+sidewalk
+bench
+watertank m2
+corndog
+cotton
+fairground
+ribbon
+pickup
+caboose m3
+depot
+handshake
+grandstand
+churchyard m3
+gossip c4
+tricycle
+wagon
+scarecrow
+pinwheel
+fiddle
+
+## weather
+thunder
+lightning
+hail
+sleet
+drizzle
+fog
+mist
+haze
+cloud
+thunderhead m3
+tornado
+twister
+funnel
+siren
+barometer m3
+weathervane
+umbrella
+raincoat
+galoshes m3
+puddle
+gutter
+downspout m3
+drainpipe
+forecast c4
+radar
+storm
+squall m3
+gust
+breeze
+draft
+hurricane
+monsoon m3
+drought
+dust
+heatwave
+rainbow
+dew
+frost
+windsock m3
+cellar
+shutters
+sandbag
+flood
+floodwater
+rooftop
+weatherman
+almanac m3
+thermometer
+kite
+pinwheel
+smog
+pollen
+cyclone
+whirlwind
+dewdrop
+raindrop
+drip
+sundown
+dawn
+dusk
+puddle
+mud
+tarp
+
+## body
+ankle
+elbow
+knuckle
+wrist
+collarbone
+shoulder
+spine
+rib
+ribcage
+lung
+kidney
+liver
+stomach
+belly
+navel
+hip
+knee
+kneecap
+shin
+calf
+heel
+toe
+toenail
+fingernail
+thumb
+palm
+fist
+jaw
+chin
+cheek
+lip
+tooth
+tongue
+throat
+neck
+nape m3
+scalp
+eyebrow
+eyelash
+freckle
+mole
+scar
+bruise
+blister
+callus
+pulse
+vein
+artery
+bone
+skull
+skin
+ponytail
+braid
+sideburns
+beard
+mustache
+dimple
+wrinkle
+birthmark
+tattoo
+earlobe
+nostril
+temple
+forehead
+eyelid
+thigh
+hiccup
+sneeze
+yawn
+goosebumps
+stitches
+sweat
+backbone
+fingerprint
+shoulderblade m2
+
+## night
+moth
+lantern
+moon
+crescent
+owl
+cricket
+bat
+raccoon
+possum
+coyote
+midnight
+headlamp
+bonfire
+silhouette
+shadow c4
+satellite
+comet
+telescope
+constellation
+planet
+taxi
+alarm
+clock
+radio
+static
+dial
+headlights
+dumpster
+sleepwalker
+lullaby
+whisper c4
+howl c4
+moonbeam
+eclipse
+meteor
+candle
+fog
+dew
+sprinkler
+streetlamp
+jukebox
+neon
+curfew c4
+insomniac m3
+porchlamp m2
+nightcrawler m3
+bullfrog
+firepit
+campfire
+glowstick
+pajamas
+moonshine
+whippoorwill m2
+katydid m2
+vigil c4
+streetsweeper m3
+cigarette
+porch
+bathrobe
+snore
+
+## coast
+tide
+seagull
+gull
+sand
+seashell
+driftwood
+buoy
+anchor
+rope
+net
+crab
+shrimp
+oyster
+clam
+jellyfish
+starfish
+seaweed
+kelp
+dune
+surfboard
+wetsuit
+sunscreen
+towel
+umbrella
+cooler
+bucket
+sandcastle
+tackle
+bait
+lure
+fishhook
+reel
+hull
+sail
+mast
+dinghy m3
+canoe
+kayak
+oar
+paddle
+lifeguard
+whistle
+sandal
+bikini
+saltwater
+foam
+spray
+wave
+undertow
+riptide
+pelican
+sandpiper m3
+dolphin
+whale
+barnacle
+dock
+ferry
+trawler m3
+fisherman
+postcard
+sunglasses
+kite
+conch m3
+pebble
+jetty m3
+breakwater m3
+shipwreck
+sunburn
+lobster
+clamshell m3
+flounder m3
+
+## winter
+snow
+snowflake
+snowplow
+snowman
+snowball
+sled
+toboggan m3
+mitten
+glove
+scarf
+beanie
+earmuffs
+parka
+boots
+icicle
+frost
+ice
+sleet
+blizzard
+snowdrift
+shovel
+salt
+chimney
+fireplace
+furnace
+radiator
+thermostat
+woodpile
+firewood
+kindling
+hearth
+quilt
+blanket
+cocoa
+eggnog
+cider
+chestnut
+ornament
+tinsel
+wreath
+garland
+stocking
+mistletoe
+sleigh
+reindeer
+snowmobile
+skate
+rink
+hockey
+puck
+chairlift m3
+ski
+snowshoe m3
+thaw c4
+slush
+windchill
+frostbite
+sweater
+cardigan
+snowbank
+snowblower
+antifreeze
+pinecone
+evergreen
+holly
+longjohns m3
+icepack
+snowsuit
+woodstove
+
+## school
+chalkboard
+chalk
+eraser
+pencil
+sharpener
+crayon
+marker
+notebook
+binder
+locker
+backpack
+lunchbox
+bus
+desk
+ruler
+protractor
+compass
+globe
+map
+textbook
+yearbook
+diploma
+tassel
+gown
+mascot
+detention c4
+glue
+scissors
+tetherball m3
+kickball
+dodgeball
+whistle
+scoreboard
+trophy
+prom
+corsage
+principal
+teacher
+janitor
+substitute
+quiz
+homework
+flashcard
+apple
+calculator
+stapler
+bell
+intercom
+paperclip
+spitball
+gradebook m2
+pushpin
+thumbtack
+easel
+notecard
+spiral m3
+cheerleader
+pompom
+playbook
+locker
+recess c4
+seesaw
+sandbox
+
+## job-site
+hardhat
+toolbelt
+hammer
+nail
+crowbar
+wrench
+drill
+sawdust
+plywood
+lumber
+rebar
+cement
+mortar
+brick
+cinderblock
+scaffold
+ladder
+bulldozer
+backhoe
+excavator
+crane
+forklift
+wheelbarrow
+jackhammer
+level
+blueprint
+foreman
+glove
+goggles
+earplugs
+vest
+cone
+barricade
+trench
+pipe
+conduit m3
+wire
+drywall
+insulation
+shingle
+tarp
+sledgehammer
+chisel
+trowel
+mallet
+toolbox
+generator
+dumpster
+timecard
+paycheck
+beam
+girder
+rivet
+welder
+blowtorch
+sawhorse
+caulk
+putty
+sandpaper
+pliers
+screwdriver
+bolt
+dust
+steamroller
+lunchpail m3
+overalls
+handsaw
+bandsaw m3
+spackle m3
+hardware
+
+## bar
+jukebox
+barstool
+coaster
+pint
+mug
+tumbler
+bottle
+bottlecap
+cork
+keg
+tap
+tab
+napkin
+peanut
+pretzel
+ashtray
+cigarette
+lighter
+matchbook
+dartboard
+dart
+cue
+chalk
+billiards
+bartender
+bouncer
+neon
+whiskey
+bourbon
+beer
+lager
+wine
+vodka
+gin
+lime
+olive
+cherry
+ice
+shaker
+corkscrew
+karaoke
+microphone
+amplifier
+doorman
+receipt
+hangover
+headache
+aspirin
+payphone
+pinball
+foosball
+fiddle
+banjo
+nightcap
+tequila
+coaster
+jigger m2
+highball m2
+barback m2
+stool
+pitcher
+bandstand
+corkboard
+
+## bedroom
+pillow
+pillowcase
+mattress
+boxspring m3
+headboard
+nightstand
+dresser
+closet
+hanger
+mirror
+blanket
+alarm
+clock
+lamp
+lampshade
+slipper
+robe
+pajamas
+diary
+journal
+photograph
+frame
+poster
+curtain
+blinds
+windowsill
+carpet
+rug
+sock
+drawer
+locket
+earring
+perfume
+cologne
+hairbrush
+comb
+teddy
+radiator
+fan
+duvet m3
+crib
+suitcase
+laundry
+hamper
+letter
+envelope
+shoebox
+keepsake
+bedspread
+footboard m3
+mothball
+hairpin
+lipstick
+makeup
+wardrobe
+vanity
+snapshot
+polaroid
+waterbed
+bedpost
+
+## garage
+wrench
+socket
+ratchet
+toolbox
+workbench
+vise m3
+pegboard
+cable
+battery
+oil
+oilcan
+funnel
+rag
+grease
+jack
+tire
+hubcap
+carburetor
+antifreeze
+gascan m3
+lawnmower
+rake
+ladder
+paint
+paintbrush
+bucket
+cord
+bulb
+fusebox
+breaker
+freezer
+boots
+bicycle
+basketball
+hoop
+skateboard
+opener
+camper
+motorcycle
+helmet
+sawhorse
+sawdust
+pliers
+screwdriver
+tape
+jar
+nail
+drill
+dipstick
+toolchest m3
+workshop
+leafblower
+weedeater m3
+spraypaint
+tackle
+shopvac m2
+dolly
+crate
+cobweb
+mousetrap
+birdhouse
+
+## farm
+tractor
+silo
+hayloft
+hay
+bale
+straw
+pitchfork
+plow
+fence
+gate
+post
+trough
+pail
+saddle
+bridle
+horseshoe
+stirrup
+hoof
+rooster
+hen
+egg
+pig
+calf
+heifer m3
+cattle
+bull
+goat
+sheep
+lamb
+mule
+horse
+pony
+feed
+sack
+seed
+corn
+wheat
+soybean
+cotton
+tobacco
+pumpkin
+scarecrow
+windmill
+well
+pump
+overalls
+bandana
+almanac
+auction
+tailgate
+manure
+mud
+tick
+flea
+grasshopper
+cicada
+honeybee
+beehive
+peach
+apple
+lantern
+barnyard
+cornstalk
+cornfield
+haystack
+fencepost
+milkcan m3
+buttermilk
+hayride
+pasture
+rabbit
+
+## city
+subway
+taxi
+cab
+bus
+traffic
+crosswalk
+sidewalk
+skyscraper
+billboard
+pigeon
+hydrant
+manhole
+sewer
+grate
+rooftop
+elevator
+escalator
+turnstile
+token
+newsstand
+headline
+pretzel
+hotdog
+vendor
+graffiti
+landlord
+doorbell
+buzzer
+intercom
+mailbox
+meter
+streetcar
+trolley
+smog
+horn
+jackhammer
+crane
+skyline
+penthouse
+doorman
+briefcase
+cubicle
+badge
+lanyard
+commuter
+pedestrian
+panhandler
+busker m3
+saxophone
+takeout
+chopsticks
+puddle
+brownstone
+stoop
+storefront
+scaffold
+cabbie m3
+pushcart
+rat
+dumpling
+noodle
+
+## motel
+dresser
+lamp
+pillow
+headboard
+sheet
+hairdryer
+bathmat
+doormat
+notepad
+telephone
+candy
+soda
+keycard
+key
+keychain
+vacancy c4
+pool
+towel
+soap
+shampoo
+bedspread
+bible
+remote
+television
+cable
+peephole
+deadbolt
+clerk
+guestbook m3
+suitcase
+luggage
+duffel
+toothbrush
+minibar m3
+coffeemaker
+brochure
+thermostat
+lampshade
+carpet
+curtain
+stain
+trucker
+doorknob
+housekeeper
+maid
+cart
+sign
+marquee
+honeymoon c4
+drifter
+salesman
+pocketknife
+icemaker m3
+nightstand
+lightbulb
+checkout
+chlorine
+lawnchair
+paperback
+mattress
+showerhead
+bathtub
+washcloth
+
+## hospital
+stretcher
+gurney
+wheelchair
+crutch
+cast
+sling
+bandage
+gauze
+syringe
+needle
+stethoscope
+thermometer
+scrubs
+gown
+wristband
+chart
+clipboard
+monitor
+pacemaker
+oxygen
+mask
+pill
+capsule
+prescription
+aspirin
+vitamin
+scalpel
+stitches
+suture m3
+nurse
+surgeon
+doctor
+orderly m3
+paramedic
+ambulance
+magazine
+jello
+pudding
+visitor
+balloon
+bouquet
+bedpan
+inhaler
+cough
+fever
+bruise
+elevator
+badge
+lanyard
+chaplain
+pager
+bassinet
+newborn
+incubator
+ultrasound
+pulse
+splint
+tourniquet m3
+icepack
+lollipop
+bedrail m3
+handrail
+painkiller
+surgery c4
+
+## -
+quarter
+dime
+nickel
+penny
+dollar
+wallet
+purse
+pocket
+button
+zipper
+thread
+coat
+jacket
+hat
+cap
+photograph
+pen
+ink
+paper
+string
+box
+basket
+bag
+bow
+window
+door
+doorframe
+hinge
+latch
+lock
+chair
+table
+shelf
+cup
+tissue
+handkerchief
+watch
+wristwatch
+ring
+necklace
+bracelet
+guitar
+harmonica
+drum
+record
+turntable
+headphones
+match
+dog
+cat
+bird
+sparrow
+crow
+cardinal
+robin
+hawk
+deer
+squirrel
+snake
+frog
+toad
+turtle
+fish
+catfish
+minnow
+spider
+ant
+beetle
+butterfly
+wasp
+hornet
+mosquito
+oak
+willow
+pine
+maple
+magnolia
+cypress
+birch
+sycamore
+dogwood
+dandelion
+clover
+ivy
+honeysuckle
+kudzu
+moss
+fern
+thistle
+cattail
+orange
+grapefruit
+plum
+pear
+watermelon
+cantaloupe
+strawberry
+blueberry
+blackberry
+coin
+marble
+domino
+puzzle
+yoyo m3
+broom
+mop
+vacuum
+trash
+garbage
+cardboard
+book
+bookmark
+page
+calendar
+phone
+receiver
+camera
+film
+scrapbook
+album
+painting
+canvas
+fountain
+envelope
+ladder
+shovel
+rope
+splinter
+feather
+nest
+acorn
+wishbone
+horseshoe
+anvil
+bucket
+thimble
+spool
+yarn
+paperweight
+snowglobe
+jewel
+pearl
+diamond
+locket
+compact
+mirror
+gum
+peppermint
+licorice
+caramel
+popcorn
+sandwich
+cheeseburger
+fries
+milkshake
+lemonade
+coffee
+tea
+sugarcube m3
+toothpick
+straw
+chopstick
+shoelace
+sneaker
+loafer
+heels
+bootlace m3
+belt
+buckle
+suspenders
+necktie
+apron
+glasses
+sunglasses
+wig
+bandaid
+cane
+crutch
+hourglass
+stopwatch
+metronome
+tuningfork m2
+capo m3
+pick
+amp
+cymbal
+trumpet
+trombone
+violin
+cello
+accordion
+ukulele
+kazoo m3
+bugle
+cassette
+vinyl
+jukebox
+shoestring
+pocketknife
+slingshot
+frisbee
+football
+baseball
+bat
+glove
+hopscotch

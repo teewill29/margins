@@ -1,0 +1,477 @@
+# Textures: a surface, material or condition (WORDS.md). Defaults: conc 4, common 4.
+@pos texture
+@default conc=4 common=4
+
+## road
+asphalt
+gravel
+chrome
+diesel
+tar
+dusty
+muddy
+rusted
+dented
+rattling
+greasy
+leather
+sunbaked m3
+potholed m3
+
+## kitchen
+sticky
+greasy
+buttery
+crumbly
+burnt
+charred
+scorched
+lukewarm
+steaming
+syrupy
+starchy
+salty
+sour
+bitter
+sweet
+tart
+stale
+moldy
+soggy
+crusty
+flaky
+doughy
+porcelain
+enamel
+cast-iron m3
+tin
+copper
+smoky
+
+## church
+velvet
+brass
+waxy
+dusty
+musty
+hushed
+polished
+gilded m3
+starched
+stained
+mahogany
+somber c3
+holy c3
+solemn c3
+
+## small-town
+chipped
+peeling
+faded
+whitewashed
+weathered
+sunbleached m3
+creaky
+splintered
+sleepy c3
+humid
+gingham
+denim
+calico m3
+
+## weather
+damp
+soggy
+muggy
+humid
+foggy
+misty
+hazy
+drizzly
+stormy
+windy
+breezy
+gusty
+icy
+frosty
+sleety
+sweltering
+scorching
+balmy
+overcast
+cloudy
+clammy
+dewy
+waterlogged
+sunburnt
+sunburned
+windblown
+rain-soaked m3
+drenched
+soaked
+parched
+cracked
+
+## body
+bony
+calloused
+bruised
+scarred
+sweaty
+clammy
+feverish
+achy
+numb
+sore
+raw
+swollen
+sunburnt
+freckled
+wrinkled
+pale
+flushed
+tender
+stiff
+hoarse
+husky
+sinewy m3
+sallow m3
+bloodshot
+
+## night
+murky
+shadowy
+inky
+pitch-black m3
+moonlit
+starlit
+smoky
+hushed
+sleepless
+groggy
+drowsy
+blurry
+fuzzy
+electric
+humming
+flickering
+silver
+silvery
+pale
+
+## coast
+sandy
+salty
+briny
+sunbleached
+barnacled m3
+slick
+slimy
+glassy
+foamy
+choppy
+windswept
+seaglass
+coral
+pearly
+tidal
+waterlogged
+sun-dried m3
+tarry
+
+## winter
+icy
+frozen
+frosted
+frostbitten
+snowy
+slushy
+brittle
+crisp
+woolen
+wool
+flannel
+fleece
+fur
+furry
+numb
+chapped
+frigid
+glacial
+bitter
+raw
+sleety
+
+## school
+chalky
+waxy
+glossy
+laminated
+inky
+smudged
+dog-eared m3
+plaid
+polyester
+lacquered
+scuffed
+squeaky
+fluorescent
+
+## job-site
+concrete
+steel
+gritty
+muddy
+grimy
+sooty
+galvanized m3
+corrugated m3
+welded
+blistered
+calloused
+hardened
+rough
+splintery
+
+## bar
+sticky
+boozy
+sudsy
+foamy
+frosty
+brassy
+oaken m3
+amber
+tipsy
+woozy
+grimy
+leather
+
+## bedroom
+silky
+satin
+flannel
+fleece
+feathery
+downy
+plush
+fuzzy
+rumpled
+wrinkled
+tangled
+unmade
+musty
+lavender
+powdery
+warm
+cozy
+lacy
+threadbare
+moth-eaten m3
+
+## garage
+oily
+rusty
+rusted
+sooty
+galvanized
+chrome
+aluminum
+rubber
+dented
+scuffed
+cluttered
+tarnished
+corroded
+leaky
+pitted
+
+## farm
+burlap
+leathery
+weathered
+sunbaked
+rawhide m3
+splintered
+barbed
+mossy
+rotted
+ripe
+overripe
+earthy
+loamy m3
+
+## city
+concrete
+asphalt
+smoggy
+glassy
+steel
+graffitied m3
+crowded
+grated
+tiled
+slick
+electric
+fluorescent
+filthy
+
+## motel
+threadbare
+stained
+mildewed
+chlorinated m3
+flickering
+paper-thin m3
+plastic
+laminate m3
+stale
+cheap
+faded
+
+## hospital
+sterile
+antiseptic
+latex
+starched
+bleached
+plastic
+rubbery
+woozy
+feverish
+stitched
+bandaged
+
+## -
+velvet
+damp
+chrome
+glass
+glassy
+papery
+burlap
+linen
+silk
+satin
+suede
+denim
+corduroy
+tweed
+gingham
+nylon
+plastic
+rubber
+clay
+ashen
+syrup
+cream
+milky
+creamy
+oily
+waxy
+gritty
+grainy
+sandy
+powdery
+chalky
+crumbly
+flaky
+brittle
+crisp
+crunchy
+chewy
+gooey
+sticky
+slick
+slippery
+slimy
+soggy
+mushy
+spongy
+squishy
+lumpy
+bumpy
+knotty
+gnarled
+jagged
+craggy
+pitted
+porous
+wavy
+curly
+frizzy
+matted
+shaggy
+bristly
+prickly
+thorny
+spiky
+fuzzy
+furry
+hairy
+feathered
+scaly
+leathery
+waxen m3
+glossy
+shiny
+dull
+matte
+faded
+bleached
+golden
+silver
+copper
+brass
+tin
+steel
+chrome
+enamel
+porcelain
+stone
+granite
+cobblestone
+gravel
+pebbled
+polished
+varnished
+painted
+lacquered
+tarnished
+rusted
+corroded
+mossy
+moldy
+mildewed
+rotten
+scorched
+singed
+charred
+smoldering
+lukewarm
+cold
+freezing
+frozen
+molten
+steamy
+sweaty
+humid
+muggy
+stuffy
+airless
+drafty
+breezy
+hollow
+heavy
+stiff
+rigid
+creaky
+squeaky
+muffled
+hushed
+echoing
+humming
+buzzing
+crackling
+fizzy
+bubbly

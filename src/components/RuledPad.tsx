@@ -1,8 +1,9 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useMemo, useRef, useState, type ReactElement } from 'react';
 import { savePageBody } from '../db/pages';
 import type { Memo } from '../db/types';
 import { labelText, lineAt, splitLines } from '../lib/pad';
 import { resolvePin } from '../lib/pins';
+import { countLine } from '../lib/syllables';
 import { isIOS } from '../platform';
 import { registerPad } from '../state/padRegistry';
 import { useToast } from '../state/toast';
@@ -14,6 +15,77 @@ interface RuledPadProps {
   memos: readonly Memo[];
   audioUrls: ReadonlyMap<string, string>;
   onMemoMenu(memo: Memo): void;
+  /** Marker highlights per line: character ranges within the line. */
+  highlights?: ReadonlyMap<number, readonly Range[]>;
+  showSyllables?: boolean;
+  onTextChange?(text: string): void;
+}
+
+export interface Range {
+  start: number;
+  end: number;
+}
+
+interface MirrorLineProps {
+  line: string;
+  /** Show the line as typed (the caret is on it), so a label shows its brackets. */
+  raw: boolean;
+  ranges: readonly Range[] | undefined;
+  syl: number | null;
+  pinned: Memo | undefined;
+  url: string | undefined;
+  onMemoMenu(memo: Memo): void;
+}
+
+const sameRanges = (a: readonly Range[] | undefined, b: readonly Range[] | undefined) =>
+  a === b || (!!a && !!b && a.length === b.length && a.every((r, i) => r.start === b[i]?.start && r.end === b[i]?.end));
+
+/** One line of the mirror. Re-renders only when its own content changes, so long pages stay fast. */
+const MirrorLine = memo(
+  function MirrorLine({ line, raw, ranges, syl, pinned, url, onMemoMenu }: MirrorLineProps) {
+    const label = labelText(line);
+    return (
+      <div className={label ? 'pad__line pad__line--label' : 'pad__line'}>
+        {syl !== null && <span className="pad__syl">{syl}</span>}
+        {label && !raw ? (
+          <>
+            <span className="pad__ghost">{line}</span>
+            <span className="pad__label">{label}</span>
+          </>
+        ) : (
+          marked(line, ranges)
+        )}
+        {pinned && (
+          <span className="pad__gutter">
+            <GutterPlay memo={pinned} url={url} onMenu={onMemoMenu} />
+          </span>
+        )}
+      </div>
+    );
+  },
+  (a, b) =>
+    a.line === b.line && a.raw === b.raw && a.syl === b.syl && a.pinned === b.pinned && a.url === b.url &&
+    a.onMemoMenu === b.onMemoMenu && sameRanges(a.ranges, b.ranges),
+);
+
+/** A line's text with marker spans. No padding on the spans: the mirror must keep the textarea's layout. */
+function marked(line: string, ranges: readonly Range[] | undefined): string | (string | ReactElement)[] {
+  if (!ranges?.length) return line || '\u200b';
+  const sorted = [...ranges].sort((a, b) => a.start - b.start);
+  const out: (string | ReactElement)[] = [];
+  let at = 0;
+  sorted.forEach((r, i) => {
+    if (r.start < at) return;
+    if (r.start > at) out.push(line.slice(at, r.start));
+    out.push(
+      <mark key={i} className="pad__mark">
+        {line.slice(r.start, r.end)}
+      </mark>,
+    );
+    at = r.end;
+  });
+  if (at < line.length) out.push(line.slice(at));
+  return out;
 }
 
 const SAVE_MS = 500;
@@ -25,7 +97,7 @@ const IOS = isIOS();
  * share every font, size, padding and wrapping rule in app.css (.pad__mirror, .pad__input).
  * The mirror sets the height; the textarea fills it and never scrolls on its own.
  */
-export function RuledPad({ pageId, initialBody, memos, audioUrls, onMemoMenu }: RuledPadProps) {
+export function RuledPad({ pageId, initialBody, memos, audioUrls, onMemoMenu, highlights, showSyllables = true, onTextChange }: RuledPadProps) {
   const [text, setText] = useState(initialBody);
   const [caretLine, setCaretLine] = useState(-1);
   const input = useRef<HTMLTextAreaElement>(null);
@@ -108,24 +180,18 @@ export function RuledPad({ pageId, initialBody, memos, audioUrls, onMemoMenu }: 
     <div className={IOS ? 'pad pad--ios' : 'pad'}>
       <div className="pad__mirror" aria-hidden="true">
         {lines.map((line, i) => {
-          const label = labelText(line);
           const pinned = pinnedAt.get(i);
           return (
-            <div key={i} className={label ? 'pad__line pad__line--label' : 'pad__line'}>
-              {label && caretLine !== i ? (
-                <>
-                  <span className="pad__ghost">{line}</span>
-                  <span className="pad__label">{label}</span>
-                </>
-              ) : (
-                line || '​'
-              )}
-              {pinned && (
-                <span className="pad__gutter">
-                  <GutterPlay memo={pinned} url={audioUrls.get(pinned.id)} onMenu={onMemoMenu} />
-                </span>
-              )}
-            </div>
+            <MirrorLine
+              key={i}
+              line={line}
+              raw={caretLine === i}
+              ranges={highlights?.get(i)}
+              syl={showSyllables ? countLine(line) : null}
+              pinned={pinned}
+              url={pinned ? audioUrls.get(pinned.id) : undefined}
+              onMemoMenu={onMemoMenu}
+            />
           );
         })}
       </div>
@@ -141,6 +207,7 @@ export function RuledPad({ pageId, initialBody, memos, audioUrls, onMemoMenu }: 
           const v = e.target.value;
           textRef.current = v;
           setText(v);
+          onTextChange?.(v);
           setCaretLine(lineAt(v, e.target.selectionStart));
           window.clearTimeout(timer.current);
           timer.current = window.setTimeout(() => void flush(), SAVE_MS);

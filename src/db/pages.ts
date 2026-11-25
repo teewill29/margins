@@ -3,12 +3,23 @@ import { splitLines } from '../lib/pad';
 import { resolvePin } from '../lib/pins';
 import { db } from './db';
 import { getSetting } from './settings';
-import type { ExerciseState, ExerciseType, Page } from './types';
+import type { ExerciseState, ExerciseType, GridState, Page } from './types';
+import { recordShown, statsMap } from './wordStats';
 
-function initialState(exercise: ExerciseType): ExerciseState {
+async function initialState(exercise: ExerciseType, id: string, date: string): Promise<ExerciseState> {
   switch (exercise) {
     case 'free':
       return {};
+    case 'grid': {
+      const [{ loadBank }, { drawDaily, drawGrid }] = await Promise.all([import('../data/bank'), import('../lib/draw')]);
+      const bank = await loadBank();
+      const [difficulty, daily] = await Promise.all([getSetting('difficulty'), getSetting('dailyGrid')]);
+      const seed = `page:${id}`;
+      const grid = daily ? drawDaily(date, bank.words) : drawGrid({ seed, difficulty, bank: bank.words, stats: await statsMap() });
+      void recordShown(grid.words);
+      const state: GridState = { seed, daily, difficulty, world: grid.world, words: grid.words, locked: [], overrides: {}, swapsUsed: 0, shuffles: 0 };
+      return state;
+    }
     default:
       throw new Error(`${exercise} pages arrive in a later phase`);
   }
@@ -16,14 +27,15 @@ function initialState(exercise: ExerciseType): ExerciseState {
 
 export async function createPage(exercise: ExerciseType, id: string = crypto.randomUUID()): Promise<Page> {
   const now = Date.now();
+  const date = localDate();
   const page: Page = {
     id,
     createdAt: now,
     updatedAt: now,
-    date: localDate(),
+    date,
     title: null,
     exercise,
-    state: initialState(exercise),
+    state: await initialState(exercise, id, date),
     body: '',
     level: await getSetting('level'),
     showSyllables: exercise !== 'object' && exercise !== 'cutup',
@@ -78,4 +90,12 @@ export async function deletePageForever(id: string): Promise<void> {
     await db.memos.bulkDelete(memoIds);
     await db.pages.delete(id);
   });
+}
+
+export async function setPageState(id: string, state: ExerciseState): Promise<void> {
+  await db.pages.update(id, { state, updatedAt: Date.now() });
+}
+
+export async function setPageLevel(id: string, level: Page['level']): Promise<void> {
+  await db.pages.update(id, { level });
 }

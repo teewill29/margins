@@ -1,13 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { hashString } from './hash';
+import { fingerprint } from './hash';
 import { base64url, challengeFor, randomVerifier } from './pkce';
 import { snapshotName, snapshotsToDelete } from './snapshots';
 
-describe('hashString', () => {
+describe('fingerprint', () => {
   it('is stable and sensitive to changes', () => {
-    expect(hashString('porch')).toBe(hashString('porch'));
-    expect(hashString('porch')).not.toBe(hashString('porch '));
-    expect(hashString('porch', 1)).not.toBe(hashString('porch'));
+    expect(fingerprint('porch')).toBe(fingerprint('porch'));
+    expect(fingerprint('porch')).not.toBe(fingerprint('porch '));
+    expect(fingerprint('porch', 1)).not.toBe(fingerprint('porch'));
   });
 });
 

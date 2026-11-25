@@ -22,7 +22,7 @@ No paid APIs, services or subscriptions. No server code. Everything runs on the 
 - vite-plugin-pwa: installable, works fully offline
 - Plain CSS with CSS custom properties (no Tailwind, no UI kit). One `tokens.css`.
 - Fonts self-hosted through `@fontsource` packages (no Google Fonts requests, so it works offline)
-- `compromise` for word roots, plus our own irregular-forms table (see DETECTION.md)
+- `compromise` for word roots, plus our own irregular-forms table (see DETECTION.md). Build-time only: `npm run bank` stores each bank word's forms in `words.json`, so it never ships to the phone.
 - `syllable` for syllable counts
 - `cmu-pronouncing-dictionary`, used only by the build script that makes the word bank (rhyme keys), never shipped to the client
 - JSZip for backup export and import
@@ -36,7 +36,7 @@ No paid APIs, services or subscriptions. No server code. Everything runs on the 
 - `npm test`: Vitest, run once. Tests run with `TZ=America/Los_Angeles` so UTC date math fails.
 - `npm run lint`: ESLint
 - `npm run icons`: renders `scripts/icon.svg` to the PNGs in `public/`. Run after changing the icon, commit the output.
-- `npm run bank` (Phase 2, not yet): rebuilds `src/data/*.json` from `scripts/bank/` sources
+- `npm run bank`: rebuilds `src/data/words.json` and `src/data/syllableFixes.json` from the lists in `scripts/bank/`, and fails if any WORDS.md check breaks. Commit its output. Source format is in the header of each list.
 
 ## How to work
 - Build one phase at a time, in the order of `docs/PHASES.md`. Don't start a phase until the previous one meets its acceptance criteria.
@@ -54,6 +54,8 @@ No paid APIs, services or subscriptions. No server code. Everything runs on the 
 - **Pinned memo placement.** SPEC puts a pinned memo's pill in its own row under its line. The pad is one `<textarea>`, which can't open an extra row between two lines without breaking caret position or native undo. Built instead: a small play button in a right-hand gutter on the pinned line (tap plays, long-press for Rename / Unpin / Delete), plus every memo listed under the pad, pinned ones marked "line 4". Keep this, or accept a riskier editor to get the in-row pill?
 - **Repeated lines and pins.** DATA_MODEL says a pin follows "the first line whose text equals pinnedText". Built: the nearest matching line, so a memo on the second chorus stays on the second chorus. When the pinned line itself is edited, the pin keeps its index and takes the new text. OK?
 - **Renamed pages on Notebook cards.** SPEC says the card shows the first lyric line. Built: a renamed page shows its name first, then the first lyric line. OK?
+- **Detection timing.** DETECTION.md says detect 150 ms after typing stops. Built: it runs on every keystroke, because it's fast enough (about 13 ms on a 2,000-word page with the CPU slowed 4×), so highlights and the count update as you type. Say if you'd rather have the pause.
+- **Syllable corrections.** The `syllable` package miscounts some compounds ("junkyard" = 3). `npm run bank` writes `syllableFixes.json`: CMU dictionary counts for the 385 bank words and forms where the two disagree. Your override table still wins. OK?
 - **Importing settings and word stats.** They have no timestamps, so import only adds keys and words that don't exist on this device. Local values always win.
 
 ## Progress log
@@ -61,4 +63,5 @@ No paid APIs, services or subscriptions. No server code. Everything runs on the 
 - 2026-11-24, Phase 0: scaffold, routes, bottom bar, PWA with offline precache (fonts included, latin subsets only). Build, test, lint pass; offline routes checked in Chromium. Deployed on Vercel (vercel.json pins Vite and `dist`); you confirmed the checks. TypeScript pinned to 6.0 because typescript-eslint doesn't support 7 yet.
 - 2026-11-25, Phase 1: Dexie v1 schema, notebook (search, swipe or long-press archive with undo, empty state, backup banner), free pages with the textarea-over-mirror pad, voice memos, settings with backup export/import and archived pages. Checked in Chromium with a fake mic: write, two memos (one pinned), lines moved, offline reload, export, wipe, import, audio plays. Still to check on your iPhone: recording in Safari, and that pad text lines up (an iOS 3px textarea inset is compensated but unverified). Four decisions in Open questions.
 - 2026-11-25, Phase 1 fix: iPhone recording. Audio stored as bytes (iOS refuses Blobs in IndexedDB), meter starts after the mic, unsaved recordings kept in a card with Save file. Confirmed working on iPhone.
-- 2026-11-25, Phase 1b (built; app key added, waiting on your first connect): Dexie v2 (audio table, sync table, migration tested), Dropbox backup with PKCE, conflict merge and restore. Tested in Chromium against a fake Dropbox: connect, upload once, conflict, merge, restore onto a wiped install.
+- 2026-11-25, Phase 1b: you connected Dropbox from the phone and confirmed backups land. Dexie v2 (audio table, sync table, migration tested), Dropbox backup with PKCE, conflict merge and restore. Tested in Chromium against a fake Dropbox: connect, upload once, conflict, merge, restore onto a wiped install.
+- 2026-11-25, Phase 2 (built; your checks pending: 5 real grids, typing feel on a long page): detection, syllables, seeded random and grid draw in `src/lib/` with every DETECTION.md and WORDS.md test (116 tests). Word bank of 2,445 hand-written words (1,236 nouns, 520 verbs, 319 textures, 212 places, 158 abstract; every world has 60+ nouns). Pad highlights and margin syllable counts; Word grid exercise with overrides, swaps, locks, bans, favorites, shuffle, difficulty and daily grid. Two browsers on the same date get the same daily grid.

@@ -9,7 +9,7 @@ import { DROPBOX_APP_KEY } from '../config';
 import { audioPath, buildBackupJson, mergeBackup, type ImportResult } from '../db/backup';
 import { db } from '../db/db';
 import { localDate } from '../lib/date';
-import { hashString } from '../lib/hash';
+import { fingerprint } from '../lib/hash';
 import { challengeFor, randomVerifier } from '../lib/pkce';
 import { snapshotName, snapshotsToDelete } from '../lib/snapshots';
 
@@ -320,7 +320,7 @@ async function runOnce(): Promise<void> {
     // 2. margins.json, only if it changed, and only over the copy we last wrote.
     const json = await buildBackupJson();
     const body = JSON.stringify(json);
-    const hash = hashString(JSON.stringify({ ...json, exportedAt: 0 }));
+    const hash = fingerprint(JSON.stringify({ ...json, exportedAt: 0 }));
     let { dataRev } = await getState();
     if (hash !== state.dataHash || !dataRev) {
       try {

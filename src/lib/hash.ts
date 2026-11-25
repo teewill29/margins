@@ -1,5 +1,5 @@
 /** cyrb53: fast 53-bit string hash. Not cryptographic. Returns a base-36 string. */
-export function hashString(str: string, seed = 0): string {
+export function fingerprint(str: string, seed = 0): string {
   let h1 = 0xdeadbeef ^ seed;
   let h2 = 0x41c6ce57 ^ seed;
   for (let i = 0; i < str.length; i++) {

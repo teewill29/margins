@@ -113,3 +113,33 @@ export const SmallMicIcon = (p: IconProps) => (
     <path d="M5 11a7 7 0 0 0 14 0" />
   </Svg>
 );
+
+export const ShuffleIcon = (p: IconProps) => (
+  <Svg size={20} {...p}>
+    <path d="M16 3h5v5" />
+    <path d="M4 20L21 3" />
+    <path d="M21 16v5h-5" />
+    <path d="M15 15l6 6" />
+    <path d="M4 4l5 5" />
+  </Svg>
+);
+
+export const LockIcon = (p: IconProps) => (
+  <Svg size={10} strokeWidth={2.4} {...p}>
+    <rect x="5" y="11" width="14" height="10" rx="2" />
+    <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+  </Svg>
+);
+
+export const TickIcon = (p: IconProps) => (
+  <Svg size={11} strokeWidth={3} {...p}>
+    <path d="M5 13l4 4L19 7" />
+  </Svg>
+);
+
+export const CrossIcon = (p: IconProps) => (
+  <Svg size={10} strokeWidth={3} {...p}>
+    <path d="M6 6l12 12" />
+    <path d="M18 6L6 18" />
+  </Svg>
+);

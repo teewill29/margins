@@ -69,7 +69,8 @@ Run it 150 ms after typing stops. It must handle a 2,000-word page in under 10 m
 `countLine(line)`: the sum of `syllable(word)` over the line's words, after the overrides below. Words are normalized as in section 1 first.
 - Hyphenated words: count each part.
 - Digits: convert to words first ("1999" → "nineteen ninety-nine"), for numbers up to 9,999. Larger: count each digit as its spoken word.
-- Override table in `src/lib/syllableOverrides.ts` for words people sing differently from how the package counts. Start it with: fire 1, hour 1, every 2, family 2, different 2, evening 2, chocolate 2, our 1, flower 2, heaven 2. Overrides win over the package.
+- Override table in `src/lib/syllableOverrides.ts` for words people sing differently from how the package counts. Start it with: fire 1, hour 1, every 2, family 2, different 2, evening 2, chocolate 2, our 1, flower 2, heaven 2. Overrides win over the package. (Added: nineteen 2, ninety 2.)
+- Then `src/data/syllableFixes.json` (written by `npm run bank`): CMU dictionary counts for bank words and their forms where the package disagrees. Order: overrides, then CMU fixes, then the package.
 - Section label lines and empty lines return `null` (no count shown).
 
 ## 8. Test cases
