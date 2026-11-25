@@ -805,3 +805,49 @@ input, textarea, select { font-size: 16px; } /* 16px so iOS doesn't zoom */
 @media (prefers-reduced-motion: reduce) {
   .switch::before, .switch__knob { transition: none; }
 }
+
+/* Exercise panels: shared bits */
+.panel-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 32px; }
+.text-btn {
+  min-height: 44px;
+  margin: -6px -6px -6px 0;
+  padding: 0 8px;
+  border: 0;
+  background: transparent;
+  font: 500 13.5px var(--font-ui);
+  color: var(--pencil);
+  cursor: pointer;
+}
+.text-btn:disabled { opacity: 0.5; }
+.prompt-serif { margin: 4px 0 0; font: 600 26px/1.1 var(--font-serif); }
+.prompt-type { margin: 6px 0 0; font: 400 17px/1.4 var(--font-type); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.chip {
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px dashed var(--dash);
+  border-radius: 18px;
+  background: transparent;
+  font: 500 13px var(--font-ui);
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.chip--on { background: var(--marker); border: 1px solid var(--marker-edge); color: var(--ink); }
+
+/* Object writing timer */
+.timer {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 4px;
+  border: 0;
+  background: transparent;
+  font: 700 16px var(--font-type);
+  color: var(--ink);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.timer__track { fill: none; stroke: var(--bar-edge); stroke-width: 3.5; }
+.timer__fill { fill: none; stroke: var(--red); stroke-width: 3.5; stroke-linecap: round; }
+.timer__over { color: var(--pencil); font-weight: 400; }

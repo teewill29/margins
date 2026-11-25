@@ -5,12 +5,14 @@ import { MemoPill, useMemoSheet } from '../components/Memos';
 import { MoreIcon } from '../components/Icons';
 import { RuledPad, type Range } from '../components/RuledPad';
 import { WordGrid } from '../components/WordGrid';
+import { ObjectPanel } from '../components/ObjectPanel';
+import { ObjectTimer } from '../components/ObjectTimer';
 import { useBank, type Bank } from '../data/bank';
 import { PromptSheet, Sheet, SheetButton } from '../components/Sheet';
 import { TopBar } from '../components/TopBar';
 import { db } from '../db/db';
-import { renamePage, setArchived, setPageLevel } from '../db/pages';
-import type { GridState, Level, Memo, Page as PageRow } from '../db/types';
+import { renamePage, setArchived, setPageLevel, setShowSyllables } from '../db/pages';
+import type { GridState, Level, Memo, ObjectState, Page as PageRow } from '../db/types';
 import { detect, detectWord, type WordResult } from '../lib/detect';
 import { useActiveTime } from '../hooks/useActiveTime';
 import { useAudioUrls } from '../state/player';
@@ -99,11 +101,15 @@ function PageView({ page, memos }: { page: PageRow; memos: Memo[] }) {
         back="/"
         backLabel="Back to notebook"
         action={
-          <button type="button" className="icon-btn" aria-label="Page options" onClick={() => setMenu('menu')}>
-            <MoreIcon />
-          </button>
+          <>
+            {page.exercise === 'object' && <ObjectTimer pageId={page.id} state={page.state as ObjectState} />}
+            <button type="button" className="icon-btn" aria-label="Page options" onClick={() => setMenu('menu')}>
+              <MoreIcon />
+            </button>
+          </>
         }
       />
+      {page.exercise === 'object' && <ObjectPanel pageId={page.id} state={page.state as ObjectState} />}
       {page.exercise === 'grid' &&
         (bank ? (
           <WordGrid pageId={page.id} date={page.date} state={page.state as GridState} bank={bank} results={results} />
@@ -143,9 +149,18 @@ function PageView({ page, memos }: { page: PageRow; memos: Memo[] }) {
       {menu === 'menu' && (
         <Sheet onClose={() => setMenu(null)}>
           <SheetButton onClick={() => setMenu('rename')}>Rename page</SheetButton>
-          {page.exercise === 'grid' && (
+          {page.exercise === 'object' && <ObjectPanel pageId={page.id} state={page.state as ObjectState} />}
+      {page.exercise === 'grid' && (
             <SheetButton onClick={() => setMenu('level')}>Detection level: {LEVELS.find((l) => l[0] === page.level)?.[1]}</SheetButton>
           )}
+          <SheetButton
+            onClick={() => {
+              void setShowSyllables(page.id, !page.showSyllables);
+              setMenu(null);
+            }}
+          >
+            Syllable counts: {page.showSyllables ? 'On' : 'Off'}
+          </SheetButton>
           <SheetButton onClick={() => void copyLyrics()}>Copy lyrics</SheetButton>
           <SheetButton onClick={() => void archive()}>Archive page</SheetButton>
         </Sheet>

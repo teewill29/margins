@@ -10,7 +10,7 @@
     "test": "vitest run",
     "lint": "eslint .",
     "icons": "node scripts/icons.mjs",
-    "bank": "tsx scripts/bank/build.ts"
+    "bank": "tsx scripts/bank/build.ts && tsx scripts/bank/content.ts"
   },
   "dependencies": {
     "@fontsource/caveat": "^5.3.0",

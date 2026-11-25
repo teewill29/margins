@@ -3,7 +3,7 @@ import { splitLines } from '../lib/pad';
 import { resolvePin } from '../lib/pins';
 import { db } from './db';
 import { getSetting } from './settings';
-import type { ExerciseState, ExerciseType, GridState, Page } from './types';
+import type { ExerciseState, ExerciseType, GridState, ObjectState, Page } from './types';
 import { recordShown, statsMap } from './wordStats';
 
 async function initialState(exercise: ExerciseType, id: string, date: string): Promise<ExerciseState> {
@@ -18,6 +18,20 @@ async function initialState(exercise: ExerciseType, id: string, date: string): P
       const grid = daily ? drawDaily(date, bank.words) : drawGrid({ seed, difficulty, bank: bank.words, stats: await statsMap() });
       void recordShown(grid.words);
       const state: GridState = { seed, daily, difficulty, world: grid.world, words: grid.words, locked: [], overrides: {}, swapsUsed: 0, shuffles: 0 };
+      return state;
+    }
+    case 'object': {
+      const [{ loadObjects }, { pickIndex }] = await Promise.all([import('../data/content'), import('../lib/pick')]);
+      const objects = await loadObjects();
+      const state: ObjectState = {
+        object: objects[pickIndex(`page:${id}:object:1`, objects.length)]?.text ?? 'A coffee mug with a chipped rim',
+        senses: [],
+        timerMs: (await getSetting('objectTimerMin')) * 60_000,
+        elapsedMs: 0,
+        running: false,
+        startedAt: null,
+        draws: 1,
+      };
       return state;
     }
     default:
@@ -94,6 +108,10 @@ export async function deletePageForever(id: string): Promise<void> {
 
 export async function setPageState(id: string, state: ExerciseState): Promise<void> {
   await db.pages.update(id, { state, updatedAt: Date.now() });
+}
+
+export async function setShowSyllables(id: string, showSyllables: boolean): Promise<void> {
+  await db.pages.update(id, { showSyllables });
 }
 
 export async function setPageLevel(id: string, level: Page['level']): Promise<void> {

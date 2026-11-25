@@ -103,6 +103,15 @@ export function Settings() {
             />
             <span className="settings-note">Root counts burned for burn. Loose also counts rusty for rust.</span>
           </div>
+          <div className="settings-field">
+            <span className="settings-field__label">Object writing timer</span>
+            <Segmented
+              label="Object writing timer"
+              value={String(settings.objectTimerMin) as '5' | '10' | '15'}
+              options={[['5', '5 min'], ['10', '10 min'], ['15', '15 min']]}
+              onChange={(v) => void setSetting('objectTimerMin', Number(v) as 5 | 10 | 15)}
+            />
+          </div>
         </section>
       )}
 

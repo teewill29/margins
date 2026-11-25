@@ -1,0 +1,366 @@
+# Objects for Object writing (WORDS.md section 6). One per line: an everyday object plus a
+# detail that places it. Every one must have a sound, smell or texture. "## world" sets worlds.
+
+## road
+A motel ice bucket
+A dashboard air freshener shaped like a pine tree
+A gas station hot dog roller
+A cassette stuck in a pickup's tape deck
+A cracked windshield with a sticker over the crack
+A bag of sunflower seeds in the cupholder
+A trucker's thermos with a dented lid
+A rest stop vending machine at four in the morning
+A map folded the wrong way in the glovebox
+A rubber dog toy rolling under the back seat
+A tollbooth basket full of quarters
+A tire swing hanging from a highway billboard
+A rusted hubcap in a roadside ditch
+A road flare burning on wet asphalt
+A bobblehead nodding on a dashboard
+A spare key taped inside a wheel well
+A hitchhiker's cardboard sign gone soft at the corners
+
+## kitchen
+A cast-iron skillet nobody is allowed to wash with soap
+A junk drawer that won't close
+A coffee can of bacon grease by the stove
+A recipe card stained with vanilla
+A ceiling fan over the kitchen table
+A kettle just before it whistles
+A colander of peaches in the sink
+A refrigerator magnet from a town nobody remembers
+A cutting board worn into a dip in the middle
+A mason jar of sweet tea sweating on the counter
+A loaf of bread cooling on a wire rack
+A wooden spoon with one burnt edge
+A dish towel hanging on the oven handle
+A sack of onions sprouting in the pantry
+A toaster that only works on one side
+A box of birthday candles half used
+A sugar bowl with a chipped lid
+
+## church
+A hymnal with a name written inside the cover
+A paper fan from a funeral parlor
+A collection plate lined with velvet
+A church parking lot cone
+A pew cushion that sighs when you sit
+A box of matches in the vestry
+A potluck casserole in a borrowed dish
+A bell rope worn smooth by hands
+A stained bulletin folded into a boat
+A candle stub in a red glass cup
+A pocket bible with a cracked spine
+A church van with the name peeling off
+A baptismal robe drying on a line
+A coffee urn in the fellowship hall
+A box of single gloves by the front door
+A plastic lily on a graveside
+A pulpit microphone that pops on every p
+
+## small-town
+A water tower with a graduation year painted on it
+A barbershop pole that stopped turning years ago
+A screen door that slaps shut behind you
+A parade float made of tissue paper
+A courthouse clock that runs five minutes fast
+A mailbox shaped like a bass
+A bench outside the feed store
+A jar of pickled eggs on a gas station counter
+A lawn chair left out all winter
+A tin can phone stretched across two yards
+A carnival goldfish in a plastic bag
+A snow cone melting down someone's wrist
+A sprinkler ticking across a dry lawn
+A rocking chair on a porch with nobody in it
+A popsicle stick with a joke on it
+A garden hose left running into the street
+A clothesline with one sock on it
+
+## weather
+A rain gauge nailed to a fence post
+A weathervane stuck pointing north
+A storm cellar door with a rusted latch
+A tin roof under the first drops of a storm
+A screen porch during a thunderstorm
+A sandbag wall in front of a laundromat
+A kite tangled in a power line
+A thermometer stuck at a hundred and four
+A puddle with an oil slick on top
+A wind chime made of old forks
+A tarp snapping on a woodpile
+A pair of galoshes by the back door
+A rain gutter full of maple seeds
+A radio crackling with a tornado warning
+A dust storm on a two-lane road
+A box fan in a bedroom window in July
+An umbrella turned inside out in a trash can
+
+## body
+A cast with three names signed on it
+A scar on a kneecap from a bike crash
+A wristwatch tan line in August
+A braid someone else did for you
+A splinter under a thumbnail
+A tooth wrapped in a napkin for the tooth fairy
+A blister from new work boots
+A sunburned neck under a collar
+A callus on a guitar player's fingertips
+A pulse in a wrist on a hot evening
+A fingernail painted in a car on the way somewhere
+A sore shoulder from carrying groceries
+A tattoo of a name with a line through it
+A freckle you never noticed until today
+A heartbeat monitor on a fingertip
+A knuckle cracked against a doorframe
+A bruise turning yellow at the edges
+
+## night
+A bug zapper humming on a porch
+A moth beating against a porch screen
+A streetlamp that flickers when you walk under it
+A drive-in screen with nothing playing
+A flashlight with dying batteries in a tent
+A glow-in-the-dark sticker on a bedroom ceiling
+A pay phone ringing in an empty lot
+A neon sign missing one letter
+A cigarette ember in a dark truck cab
+A cricket somewhere inside the house
+A campfire down to its last coals
+A telescope pointed at a neighbor's window
+A night shift time clock
+A radio station fading in and out
+A coyote howl from past the tree line
+A dog barking at something you can't see
+A laundromat dryer spinning at midnight
+
+## coast
+A plastic shovel half buried in wet sand
+A sunscreen bottle full of sand
+A conch shell on a dentist's windowsill
+A cooler of beer floating in the shallows
+A fishing pier at low tide
+A bait shop freezer full of shrimp
+A beach towel stiff with salt
+A boat engine that won't turn over
+A sand dollar in a coffee can
+A seagull stealing a french fry
+A lighthouse lamp turning in fog
+A rope swing over a brackish creek
+A crab trap tied to a dock post
+A boardwalk arcade claw machine
+A surfboard leaning on a gas station wall
+A jar of sea glass on a windowsill
+A paper umbrella in a hotel pool drink
+
+## winter
+A frozen garden hose coiled like a snake
+A snow shovel leaning against a mailbox
+A mitten on a fence post waiting for its owner
+A space heater ticking in a cold bedroom
+A windshield scraper with a cracked handle
+A snowman wearing a ballcap
+A pair of wet socks drying on a radiator
+A woodstove door that sticks
+A sled with a rusted runner
+A string of Christmas bulbs with one out
+A frozen puddle cracked by a boot
+A cup of cocoa going cold on a windowsill
+A wool hat that smells like campfire
+A thermos of coffee on a deer stand
+An icicle hanging from a gutter
+A bag of rock salt split open on the steps
+A snow globe on a truck stop counter
+
+## school
+A pencil sharpener bolted to a classroom wall
+A locker with someone else's combination
+A school bus seat with a split in the vinyl
+A chalkboard eraser clapped against the brick
+A cafeteria tray with a square of pizza
+A permission slip forged in a parking lot
+A yearbook signed by someone you forgot
+A tetherball wrapped tight around its pole
+A gym floor squeaking under sneakers
+A lunchbox with a cartoon fading off it
+A protractor in the bottom of a backpack
+A trophy case with a dusty football
+A fire drill bell in the middle of a test
+A desk carved with initials
+A marching band tuba in the back of a van
+A detention slip folded into a square
+A water fountain that barely trickles
+
+## job-site
+A hard hat with a sticker of a flag
+A lunch pail on a steel beam
+A jackhammer stopping for lunch
+A port-a-potty on a hot afternoon
+A tape measure that won't retract all the way
+A work boot with a hole in the toe
+A cooler of water on a tailgate
+A pallet of bricks wrapped in plastic
+A paycheck in a dusty truck visor
+A tarp weighed down with cinder blocks
+A cement mixer turning in a drizzle
+A radio playing classic country on a scaffold
+A pair of leather gloves stiff with sweat
+A blueprint weighted down with a coffee can
+A nail gun with a jam
+A timecard punched at five fifty-nine
+A forklift backing up and beeping
+
+## bar
+A jukebox with a quarter stuck in it
+A bar napkin with a phone number on it
+A pool table with a cigarette burn in the cloth
+A dartboard with one dart left in it
+A barstool that spins too far
+A beer sign humming over the register
+A tip jar with a dollar and a button in it
+A shot glass from a state you've never been
+A peanut shell floor
+A bathroom mirror covered in stickers
+A last call bell behind the bar
+A cocktail cherry stem tied in a knot
+A wet coaster stuck to the bottom of a glass
+A karaoke microphone wrapped in tape
+A tab nobody paid
+A neon clock that's always slow
+A bottle opener nailed to the wall
+
+## bedroom
+A nightstand drawer full of receipts
+A pillow that still smells like someone
+A mattress on the floor of a new apartment
+A closet door that won't stay shut
+A box of letters under the bed
+A ceiling stain shaped like a state
+A dresser mirror with photos tucked in the frame
+A record skipping on a turntable
+A quilt made from a dead man's shirts
+A lamp with a crooked shade
+A hairbrush full of someone else's hair
+An alarm clock blinking twelve
+A window unit dripping onto a sill
+A teddy bear missing a button
+A pair of boots kicked off by the door
+A curtain blowing in over a radiator
+A jewelry box with a ballerina that won't spin
+
+## garage
+A pegboard with outlines of missing tools
+A car battery on a sheet of cardboard
+A coffee can full of mismatched screws
+A garage door opener with a dead battery
+A workbench vise with nothing in its jaws
+A lawnmower that starts on the tenth pull
+A box of old trophies by the water heater
+A deer head in a garbage bag
+A shop rag stiff with oil
+A bicycle hanging upside down from a hook
+A cooler that smells like last summer's fish
+A calendar from a parts store, three years old
+A drip pan under a pickup
+A paint can lid hammered shut
+A fishing pole with a lure still on it
+A freezer full of venison
+A radio covered in paint drips
+
+## farm
+A feed sack sewn into a pillow
+A tractor seat with a towel over it
+A barn cat sleeping on a hay bale
+A water trough with a skin of ice
+A rusted plow in a field of clover
+A fence post with a boot on top
+A rooster crowing at the wrong time
+A bucket of eggs still warm
+A windmill creaking in a dry wind
+A horseshoe nailed over a barn door
+A pitchfork leaning against a stall
+A seed catalog on a kitchen table
+A grain silo with a ladder up the side
+A dog asleep under a pickup
+A milk can turned into a mailbox
+A scarecrow wearing a church dress
+A bale of barbed wire in the bed of a truck
+
+## city
+A subway grate breathing warm air
+A taxi with a cracked partition
+A hot dog cart umbrella
+A pigeon on a bus stop sign
+A fire escape with a tomato plant on it
+A doorman's whistle
+A buzzer with the name scratched off
+A bodega cat asleep on the bread
+A parking meter with an expired flag
+A rooftop water tank
+A shopping cart in a river
+A laundromat change machine
+A sidewalk chalk drawing washed half away
+A brownstone stoop with a pizza box
+A crosswalk button that does nothing
+A street musician's open guitar case
+A pay phone with the receiver gone
+
+## motel
+A motel keycard that never works the first time
+A Bible in a nightstand drawer
+A vacancy sign with the no burned out
+A motel pool with a leaf skimmer floating in it
+A shower that switches to cold without warning
+A bedspread with a cigarette burn
+A paper cup wrapped in plastic by the sink
+A wall unit air conditioner rattling till dawn
+A motel ice machine dropping a load at three
+A remote control bolted to the nightstand
+A do not disturb sign on a doorknob
+A complimentary map of the local attractions
+A coffee maker with someone's hair in it
+A towel folded into a swan
+A deadbolt and a chain both locked
+A curtain that doesn't quite close
+A lobby brochure rack full of caves
+
+## hospital
+A hospital vending machine
+A visitor badge stuck to a jacket for a week
+A wheelchair parked by the elevator
+A get well balloon losing air
+A hospital bracelet in a coat pocket
+A waiting room television stuck on the weather
+A cafeteria jello cup
+A heart monitor beeping down the hall
+A paper gown tied wrong
+A clipboard with a pen on a chain
+A bouquet of carnations from the gift shop
+A recliner that folds out into a bad bed
+A bedside call button
+A pharmacy bag stapled shut
+A plastic water pitcher with a straw
+A chapel with three chairs
+A parking garage ticket for six days
+
+## -
+A pocketknife from a grandfather
+A coin jar on top of a refrigerator
+A wallet with a photo of someone else's dog
+A wristwatch that stopped on a Tuesday
+A key that doesn't open anything anymore
+A shoebox of photographs with no dates
+A harmonica in the key of the wrong song
+A guitar with one string missing
+A record store bargain bin
+A pair of reading glasses on a chain
+A birthday card with a check never cashed
+A coffee mug with a chip right where you drink
+A thrift store wedding dress
+A dog leash hanging by the door with no dog
+A ceiling fan pull chain
+A box of Christmas ornaments in July
+A ring in a soap dish
+A pen that only writes upside down
+A fishing lure with a price tag on it
+A jar of buttons from a dead aunt

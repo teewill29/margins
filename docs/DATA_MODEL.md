@@ -48,6 +48,7 @@ interface LadderState {
 interface ObjectState {
   object: string; senses: string[];   // checked senses
   timerMs: number; elapsedMs: number; running: boolean; startedAt: number | null;
+  draws: number;                      // objects drawn on this page; seeds "New object" (page:<id>:object:<n>)
 }
 interface CutupState { source: string; seed: string; rechops: number; usedFragments: number[] }
 interface LineState { line: string; draws: number }           // firstLine, lastLine

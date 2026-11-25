@@ -24,6 +24,7 @@ export interface LadderState {
 export interface ObjectState {
   object: string; senses: string[];
   timerMs: number; elapsedMs: number; running: boolean; startedAt: number | null;
+  draws: number;                       // objects drawn on this page; seeds the next "New object"
 }
 export interface CutupState { source: string; seed: string; rechops: number; usedFragments: number[] }
 export interface LineState { line: string; draws: number }
