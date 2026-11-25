@@ -10,6 +10,7 @@ import { ObjectTimer } from '../components/ObjectTimer';
 import { TitlePanel } from '../components/TitlePanel';
 import { LinePanel } from '../components/LinePanel';
 import { DicePanel } from '../components/DicePanel';
+import { CharacterPanel } from '../components/CharacterPanel';
 import { loadDice, loadTitles, useContent, type DiceBank, type TitleItem } from '../data/content';
 import { chorusLines, titleInChorus, titleWords } from '../lib/titles';
 import { useBank, type Bank } from '../data/bank';
@@ -17,7 +18,7 @@ import { PromptSheet, Sheet, SheetButton } from '../components/Sheet';
 import { TopBar } from '../components/TopBar';
 import { db } from '../db/db';
 import { renamePage, setArchived, setPageLevel, setShowSyllables } from '../db/pages';
-import type { DiceState, GridState, Level, LineState, Memo, ObjectState, Page as PageRow, TitleState } from '../db/types';
+import type { CharacterState, DiceState, GridState, Level, LineState, Memo, ObjectState, Page as PageRow, TitleState } from '../db/types';
 import { detect, detectWord, type WordResult } from '../lib/detect';
 import { useActiveTime } from '../hooks/useActiveTime';
 import { useAudioUrls } from '../state/player';
@@ -148,6 +149,7 @@ function PageView({ page, memos }: { page: PageRow; memos: Memo[] }) {
       {(page.exercise === 'firstLine' || page.exercise === 'lastLine') && (
         <LinePanel pageId={page.id} kind={page.exercise === 'firstLine' ? 'first' : 'last'} state={page.state as LineState} />
       )}
+      {page.exercise === 'character' && <CharacterPanel pageId={page.id} state={page.state as CharacterState} />}
       {page.exercise === 'dice' && <DicePanel pageId={page.id} state={page.state as DiceState} bannedUses={results[0]?.matches.length ?? 0} />}
       {page.exercise === 'title' && (
         <TitlePanel
@@ -200,6 +202,7 @@ function PageView({ page, memos }: { page: PageRow; memos: Memo[] }) {
       {(page.exercise === 'firstLine' || page.exercise === 'lastLine') && (
         <LinePanel pageId={page.id} kind={page.exercise === 'firstLine' ? 'first' : 'last'} state={page.state as LineState} />
       )}
+      {page.exercise === 'character' && <CharacterPanel pageId={page.id} state={page.state as CharacterState} />}
       {page.exercise === 'dice' && <DicePanel pageId={page.id} state={page.state as DiceState} bannedUses={results[0]?.matches.length ?? 0} />}
       {page.exercise === 'title' && (
         <TitlePanel

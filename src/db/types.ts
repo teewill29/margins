@@ -30,7 +30,7 @@ export interface CutupState { source: string; seed: string; rechops: number; use
 export interface LineState { line: string; draws: number }
 export interface TitleState { title: string; draws: number }
 export interface DiceState { pov: string; tense: string; place: string; banned: string; rolls: number }
-export interface CharacterState { name: string; age: number; job: string; want: string; obstacle: string }
+export interface CharacterState { name: string; age: number; job: string; want: string; obstacle: string; rolls: number }
 export type FreeState = Record<string, never>;
 
 export type ExerciseState =

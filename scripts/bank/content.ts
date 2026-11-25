@@ -31,7 +31,7 @@ const ALLOWED_PHRASES = new Set([
   'rain gutter', 'rain gauge', 'fire escape', 'fire drill', 'fire truck', 'fire ant', 'fire station', 'fire hydrant',
   'heart monitor', 'night shift', 'porch light', 'home plate', 'home run', 'light bulb', 'night light', 'night class',
   'fly swatter', 'fall semester', 'kiss cam', 'brake light', 'traffic light', 'pilot light', 'tail light', 'dome light',
-  'stop light', 'night nurse', 'night manager', 'nursing home', 'funeral home', 'holding cell',
+  'stop light', 'night nurse', 'night manager', 'nursing home', 'funeral home', 'holding cell', 'fire hall',
 ]);
 
 const words = (text: string) =>
@@ -183,6 +183,28 @@ write('dice.json', {
   tense: die('tense').map((d) => d.text),
   place: die('place').map((d) => d.text),
   banned: die('banned').map((d) => ({ w: d.text, forms: [...formsOf(d.text)].filter((f) => f !== d.text).sort() })),
+});
+
+// ---------- Character ----------
+const people = readList('characters.txt', 'table');
+const table = (name: string) => people.filter((p) => p.tags.table === name);
+checkTexts('names', table('names'), { clicheFree: false });
+for (const t of ['jobs', 'wants', 'obstacles']) checkTexts(t, table(t));
+checkCount('names', table('names').length, 200);
+checkCount('jobs', table('jobs').length, 150);
+checkCount('wants', table('wants').length, 100);
+checkCount('obstacles', table('obstacles').length, 100);
+const PRONOUN = /\b(he|she|him|her|his|hers|himself|herself)\b/i;
+for (const p of [...table('jobs'), ...table('wants'), ...table('obstacles')]) {
+  if (PRONOUN.test(p.text)) errors.push(`${p.at}: "${p.text}" uses a gendered pronoun; write it to work for anyone`);
+  if (/^[A-Z]|[.!?]$/.test(p.text)) errors.push(`${p.at}: lowercase, no end punctuation (it's built into a sentence)`);
+}
+for (const w of table('wants')) if (!w.text.startsWith('wants ')) errors.push(`${w.at}: wants start with "wants"`);
+write('characters.json', {
+  names: table('names').map((p) => p.text),
+  jobs: table('jobs').map((p) => p.text),
+  wants: table('wants').map((p) => p.text),
+  obstacles: table('obstacles').map((p) => p.text),
 });
 
 // ---------- report ----------

@@ -892,3 +892,13 @@ input, textarea, select { font-size: 16px; } /* 16px so iOS doesn't zoom */
   text-decoration-thickness: 1.5px;
   text-underline-offset: 3px;
 }
+/* Character */
+.char-line { margin: 6px 0 0; font: 400 17px/2 var(--font-type); }
+.char-part {
+  text-decoration: underline dotted var(--dash);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 5px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.char-part:active { background: var(--marker); }

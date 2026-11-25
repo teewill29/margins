@@ -5,6 +5,7 @@ import { useLongPress } from '../hooks/useLongPress';
 import { relativeDay } from '../lib/date';
 import { exerciseName } from '../lib/exercises';
 import { previewLines } from '../lib/pad';
+import { promptOf } from '../lib/prompt';
 import { SmallMicIcon } from './Icons';
 
 const SWIPE_ARCHIVE_PX = 96;
@@ -12,8 +13,7 @@ const SWIPE_ARCHIVE_PX = 96;
 /** First lines of a page for its card, falling back to the prompt. */
 function cardLines(page: Page): [string, string] {
   const lines = previewLines(page.body, 2);
-  const s = page.state as Record<string, unknown>;
-  const prompt = [s.object, s.line, s.title].find((v): v is string => typeof v === 'string' && v.length > 0);
+  const prompt = promptOf(page.exercise, page.state);
   const first = page.title ?? lines[0] ?? prompt ?? 'Empty page';
   const second = page.title ? (lines[0] ?? '') : (lines[1] ?? '');
   return [first, second];

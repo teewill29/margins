@@ -1,0 +1,546 @@
+# Character tables (WORDS.md section 6). Wants and obstacles are written to work for anyone:
+# no he/she/his/her, so no pronoun tagging is needed.
+## names
+Dale
+Marisol
+Tiny
+June
+Okafor
+Bettina
+Earl
+Rosalind
+Hector
+Dot
+Wendell
+Lupe
+Curtis
+Ines
+Booker
+Merle
+Tamsin
+Ray
+Consuelo
+Floyd
+Shirley
+Amos
+Delphine
+Rusty
+Nadia
+Clem
+Yolanda
+Virgil
+Opal
+Teo
+Bernadette
+Lonnie
+Priya
+Gus
+Ida
+Marcus
+Loretta
+Duane
+Soledad
+Odell
+Frankie
+Hattie
+Jun
+Wilma
+Benny
+Ruthie
+Abel
+Neveah
+Cletus
+Marguerite
+Desmond
+Bea
+Hollis
+Lourdes
+Skeeter
+Agnes
+Tobias
+Coralee
+Rafael
+Nell
+Jimmy Lee
+Pearl
+Otis
+Graciela
+Dutch
+Mavis
+Sol
+Winona
+Royce
+Imani
+Cyrus
+Faye
+Luther
+Esperanza
+Buck
+Lorraine
+Mateo
+Gwen
+Elijah
+Dolores
+Harlan
+Kiki
+Thaddeus
+Verna
+Joaquin
+Etta
+Bodie
+Annalise
+Calvin
+Rosario
+Dewey
+Minnie
+Ezekiel
+Trudy
+Arlo
+Sunny
+Mordecai
+Lula
+Kwame
+Celeste
+Burl
+Pilar
+Wade
+Inga
+Leon
+Babs
+Cosmo
+Nadine
+Hank
+Ophelia
+Rico
+Vida
+Cecil
+Maribel
+Jethro
+Georgia
+Fitz
+Leilani
+Homer
+Bettye
+Santiago
+Roxie
+Lyle
+Esther
+Dashiell
+Corinne
+Tucker
+Magdalena
+Vernon
+Lottie
+Ignacio
+Darlene
+Silas
+Mercedes
+Grady
+Tallulah
+Ambrose
+Constance
+Lemuel
+Juanita
+Boone
+Zelda
+Percy
+Altagracia
+Monroe
+Della
+Augustin
+Twyla
+Clyde
+Fern
+Hosea
+Marlena
+Rocco
+Birdie
+Lazarus
+Odessa
+Emmett
+Lourdette
+Spencer
+Wren
+Thurman
+Dolly
+Ulysses
+Paloma
+Junior
+Clarice
+Moses
+Starla
+Ferris
+Nettie
+Bartholomew
+Marisela
+Chet
+Leota
+Obadiah
+Rhonda
+Isidro
+Glenda
+Woody
+Philippa
+Cash
+Arcadia
+Lonzo
+Eula
+Rafferty
+Coretta
+Bud
+Tessa
+Augie
+Velma
+Nico
+Henrietta
+Jubal
+Ramona
+Shep
+Ozzie
+Lupita
+Garland
+Sadie
+Tyrell
+Maude
+## jobs
+works overnights at a toll booth
+repossesses boats
+runs the snow cone stand
+drives the school bus and the church van
+fixes jukeboxes for half the county
+sells used tires out of a barn
+reads meters for the power company
+cuts hair in a kitchen on Saturdays
+guards a parking lot nobody uses
+paints water towers
+delivers propane
+runs the projector at the drive-in
+cleans the motel pool
+announces the high school football games
+deals blackjack on a riverboat
+keeps the books at a feed store
+drives a tow truck on the interstate
+sorts mail at the post office
+tunes pianos for churches
+works the overnight desk at a motel
+traps raccoons for a living
+manages a pawnshop
+mows the cemetery
+sells insurance door to door
+plays organ at three churches on Sunday
+welds trailer hitches
+runs a bait shop by the dam
+teaches driver's ed
+works the claw machine route
+hauls cattle across state lines
+waits tables at the only diner
+pumps septic tanks
+coaches Little League and loses every year
+cleans offices after midnight
+drives an ice cream truck in October
+runs the night shift at the paper mill
+installs satellite dishes
+deejays weddings and funerals
+sells fireworks out of a tent
+inspects bridges for the county
+works the register at a truck stop
+repairs grain silos
+bakes for the church sale and sells the extras
+stocks shelves at the dollar store
+raises bees behind a gas station
+writes obituaries for the local paper
+drives a hearse for the funeral home
+sharpens knives at the flea market
+runs the Ferris wheel at the county fair
+fixes air conditioners in July
+cooks breakfast at a truck stop
+bartends at the Legion
+shovels snow for the whole street
+works the dispatch radio for the sheriff
+paints signs by hand
+sells boots at the farm store
+cuts timber in the national forest
+fixes flats at the corner station
+drives the late bus to the casino
+collects tolls on the bridge
+runs a carwash that's always closed
+cleans gutters and tells fortunes
+plays bass in a wedding band
+sells cars on the lot by the highway
+grooms dogs out of a van
+directs traffic at the plant gate
+works the overnight shift at the hospital laundry
+operates the drawbridge
+keeps the lighthouse running for tourists
+runs the roller rink
+does taxes out of a storefront church
+picks peaches every summer
+cleans the courthouse
+reads to residents at the nursing home
+works a crab boat
+tends bar at the bowling alley
+installs fences
+shoes horses
+drives a delivery route through three counties
+buys and sells scrap metal
+runs a one-chair barbershop
+manages the town pool
+works the late shift at the gas station
+announces bingo at the fire hall
+fixes radios nobody else can
+works the ticket booth at the movie theater
+lays carpet
+runs a food truck that only sells pie
+mixes concrete
+trims trees around power lines
+deals cards at a reservation casino
+cleans fish at the marina
+sells hot tamales from a cooler
+trains bird dogs
+works the grill at the high school games
+reupholsters car seats
+drives a forklift at the warehouse
+cuts keys at the hardware store
+runs a taxidermy shop
+hangs drywall
+clerks at the county records office
+delivers newspapers before dawn
+paints houses all summer
+plays piano in a hotel lobby
+works the mail room at the prison
+repairs church bells
+drives the street sweeper
+sells encyclopedias nobody buys anymore
+runs the snack bar at the ballpark
+manages a self storage lot
+works the fryer at a fish camp
+shuttles cars for a rental lot
+repairs boat motors
+sets up tents for revivals
+cuts grass at the golf course
+fixes washing machines
+runs a dance school above the bank
+keeps bees and sells the honey at church
+mops the floors at the elementary school
+hauls hay
+installs gutters
+sells peanuts at the stockyard
+waits on the counter at the pharmacy
+runs a radio show for farmers
+drives a garbage truck
+works security at the mall
+fills potholes for the county
+teaches swimming at the lake
+works the switchboard at the hotel
+patches roofs after storms
+runs a pecan stand
+cleans chimneys
+rebuilds transmissions in a backyard
+works the pit at the barbecue joint
+stocks the vending machines at the hospital
+drives a school bus and a stock car
+sells cemetery plots
+answers phones at the radio station
+fixes bicycles for kids at no charge
+runs the copy machine at the courthouse
+sews costumes for the community theater
+## wants
+wants the phone to ring just once
+wants one more good season
+wants to see the ocean before it's too late
+wants the house paid off
+wants an apology nobody's going to give
+wants to leave town without telling anyone
+wants their kid to call on a Sunday
+wants a dog that comes when it's called
+wants to win the county fair pie contest
+wants to sing in front of people
+wants to sleep till the alarm goes off
+wants the old truck to run again
+wants a quiet table at the diner
+wants to learn to read music
+wants to quit and never look back
+wants someone to remember their birthday
+wants to buy the house on the hill
+wants an hour with nobody but the radio
+wants to win the lottery and tell no one
+wants to make it to retirement
+wants their name in the paper for something good
+wants to go back to school
+wants to fix things with a sister
+wants the rain gauge to fill up
+wants one good photograph of the old place
+wants to dance at a wedding
+wants to beat the record at the bowling alley
+wants to move somewhere it snows
+wants the bank to give them more time
+wants to see the band that played their prom
+wants a garden that survives August
+wants to drive across the country
+wants their father's watch back
+wants to stop smoking for good
+wants to say the eulogy without breaking down
+wants to be good at something
+wants their old job back
+wants to sell everything and buy a boat
+wants to keep the family farm
+wants a front porch with a swing
+wants to be on the radio
+wants to hear from an old friend
+wants the neighbor's dog to stop barking
+wants to make the varsity team at forty
+wants a real vacation
+wants to pay back what they borrowed
+wants a second chance at the choir solo
+wants to finish the song they started in high school
+wants to find the cat
+wants to be somebody's first call
+wants to get the deposit back
+wants the town to name a street after them
+wants to see their grandkids more
+wants a new pair of boots that fit
+wants to pass the driving test this time
+wants the preacher to stop mentioning them
+wants to trade shifts and get Christmas off
+wants to open a diner of their own
+wants to stop dreading Mondays
+wants one more summer at the lake
+wants their mother's recipe
+wants to get out of the trailer
+wants a job with a window
+wants the old gang back together
+wants to tell the truth about the accident
+wants a seat at the head of the table
+wants to stop acting like a guest in their own house
+wants to keep the bar open one more year
+wants a raise and a parking spot
+wants to hear the end of the story
+wants to make it to the state finals
+wants to plant a tree for each kid
+wants to see a real snowstorm
+wants to get the band back together
+wants a clean slate
+wants a reason to stay
+wants a ticket out
+wants to stop counting
+wants to be forgiven by a dog
+wants to buy back the land
+wants to retire before the knees give out
+wants to visit a grave in another state
+wants the waitress to remember their order
+wants to get married at the courthouse
+wants to break even
+wants to quit the church choir without a scene
+wants to grow the biggest pumpkin in the county
+wants to find out who keeps leaving flowers
+wants the car paid off by spring
+wants to learn to swim
+wants to win back the trophy
+wants a letter in the mailbox
+wants to sit in the front row for once
+wants their brother out of jail
+wants the river to stay in its banks
+wants to stay up past the late show
+wants to be invited
+wants to start over in a town with one stoplight
+## obstacles
+keeps missing the call
+the truck won't start
+already told everyone they quit
+owes money to a cousin
+can't swim
+the dog ran off again
+the bank called twice today
+promised to stay and meant it
+is scared of the highway
+misplaced the keys to the shop
+has a court date on Friday
+can't leave the farm in harvest
+the band broke up on stage
+nobody at church will look at them
+their knees give out on stairs
+the roof leaks over the good chair
+forgot the anniversary again
+said something that can't be unsaid
+their sister won't answer
+the boss is their ex
+the motel won't take a check
+has never left the county
+the storm took the shed
+can't read the letter
+the money's in a coffee can that's gone
+just bought a puppy
+has a cast on the right hand
+signed a lease for two years
+the river's up and the bridge is out
+is the only one who knows the combination
+the preacher already announced it
+keeps getting the night shift
+is allergic to the family horse
+the pickup's out of gas and so is the wallet
+somebody else already has the job
+their voice cracks on the high notes
+the town council voted no
+is carrying someone else's secret
+promised their mother never to sell
+the paperwork is in a language they can't read
+has a warrant in the next county
+can't stand the sound of the ocean
+gets carsick
+the stray cat had kittens in the closet
+the landlord wants it empty by Friday
+already spent the deposit
+the phone got cut off
+can't stop telling the truth
+just got out of the hospital
+nobody believes the story
+the bridge is the only way out
+the band needs a drummer
+the house smells like someone who left
+the dog won't get in the car
+has an appointment that can't be missed
+the lottery ticket went through the wash
+the bus only comes twice a day
+the waitress quit
+the old friend moved without a forwarding address
+has to work the holiday
+the boots are the wrong size and nonrefundable
+can't drive after dark
+is afraid of what the doctor will say
+the guitar has one string left
+the clock in the kitchen stopped
+gave their word to someone who's gone
+their name is spelled wrong on everything
+keeps oversleeping
+the bill came due early
+the tomato plants died in a week
+the radio station changed formats
+nobody returned the casserole dish
+is too proud to ask twice
+the cat got out during the move
+can't afford the gas to get there
+the brakes are going
+the dam is about to give
+just found out about the other family
+the photo they need went up with the house
+the trophy was never theirs to begin with
+is the last one who remembers how
+their partner snores like a chainsaw
+the forecast keeps changing
+the neighbor bought the land first
+can't find the deed
+gets nervous in front of more than three people
+the car only goes in reverse
+the plant is laying people off
+already sold the boat
+the parade route runs past the old house
+is still on probation
+has a mouth full of fillings and no insurance
+missed the last ferry
+the dog ate the ticket
+forgot how to start
+promised a kid they'd be at the game
+the diner changed hands
+keeps running into the ex at the grocery store
+has to testify on Monday
+the will left everything to the church
