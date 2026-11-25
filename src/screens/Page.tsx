@@ -7,12 +7,15 @@ import { RuledPad, type Range } from '../components/RuledPad';
 import { WordGrid } from '../components/WordGrid';
 import { ObjectPanel } from '../components/ObjectPanel';
 import { ObjectTimer } from '../components/ObjectTimer';
+import { TitlePanel } from '../components/TitlePanel';
+import { loadTitles, useContent, type TitleItem } from '../data/content';
+import { chorusLines, titleInChorus, titleWords } from '../lib/titles';
 import { useBank, type Bank } from '../data/bank';
 import { PromptSheet, Sheet, SheetButton } from '../components/Sheet';
 import { TopBar } from '../components/TopBar';
 import { db } from '../db/db';
 import { renamePage, setArchived, setPageLevel, setShowSyllables } from '../db/pages';
-import type { GridState, Level, Memo, ObjectState, Page as PageRow } from '../db/types';
+import type { GridState, Level, Memo, ObjectState, Page as PageRow, TitleState } from '../db/types';
 import { detect, detectWord, type WordResult } from '../lib/detect';
 import { useActiveTime } from '../hooks/useActiveTime';
 import { useAudioUrls } from '../state/player';
@@ -46,22 +49,40 @@ const LEVELS: [Level, string, string][] = [
   ['loose', 'Loose', 'Also near misses: rusty for rust, porchlight for porch.'],
 ];
 
-/** Detection for the page's exercise words, recomputed as the text changes. */
-function useDetection(page: PageRow, text: string, bank: Bank | null): WordResult[] {
+const DETECTS = new Set(['grid', 'title']);
+
+/** The exercise words to look for on this page, with their forms. */
+function useTargets(page: PageRow, bank: Bank | null, titles: readonly TitleItem[] | null) {
   const grid = page.exercise === 'grid' ? (page.state as GridState) : null;
-  const key = grid?.words.join(',') ?? '';
-  const words = useMemo(
-    () => (bank && key ? key.split(',').map((w) => detectWord(w, bank.byW.get(w)?.forms ?? [])) : []),
-    [bank, key],
-  );
-  return useMemo(() => detect(text, words, page.level, grid?.overrides ?? {}), [text, words, page.level, grid?.overrides]);
+  const title = page.exercise === 'title' ? (page.state as TitleState).title : null;
+  const gridKey = grid?.words.join(',') ?? '';
+  const words = useMemo(() => {
+    if (gridKey && bank) return gridKey.split(',').map((w) => detectWord(w, bank.byW.get(w)?.forms ?? []));
+    if (title) {
+      const entry = titles?.find((t) => t.text === title);
+      return entry ? entry.words.map((x) => detectWord(x.w, x.forms)) : titleWords(title).map((w) => detectWord(w, []));
+    }
+    return [];
+  }, [gridKey, title, bank, titles]);
+  return { words, overrides: grid?.overrides };
+}
+
+const NO_OVERRIDES = {};
+
+/** Detection for the page's exercise words, recomputed as the text changes. */
+function useDetection(page: PageRow, text: string, bank: Bank | null, titles: readonly TitleItem[] | null): WordResult[] {
+  const { words, overrides } = useTargets(page, bank, titles);
+  return useMemo(() => detect(text, words, page.level, overrides ?? NO_OVERRIDES), [text, words, page.level, overrides]);
 }
 
 function PageView({ page, memos }: { page: PageRow; memos: Memo[] }) {
   const [menu, setMenu] = useState<'menu' | 'rename' | 'level' | null>(null);
   const [text, setText] = useState(page.body);
   const bank = useBank();
-  const results = useDetection(page, text, page.exercise === 'grid' ? bank : null);
+  const titles = useContent(page.exercise === 'title' ? loadTitles : null);
+  const results = useDetection(page, text, page.exercise === 'grid' ? bank : null, titles);
+  const chorus = useMemo(() => (page.exercise === 'title' ? chorusLines(text) : new Set<number>()), [page.exercise, text]);
+  const titleWordsInChorus = results.filter((r) => r.matches.some((m) => chorus.has(m.line))).length;
   const highlights = useMemo(() => {
     const map = new Map<number, Range[]>();
     for (const r of results) for (const m of r.matches) map.set(m.line, [...(map.get(m.line) ?? []), { start: m.start, end: m.end }]);
@@ -110,6 +131,14 @@ function PageView({ page, memos }: { page: PageRow; memos: Memo[] }) {
         }
       />
       {page.exercise === 'object' && <ObjectPanel pageId={page.id} state={page.state as ObjectState} />}
+      {page.exercise === 'title' && (
+        <TitlePanel
+          pageId={page.id}
+          state={page.state as TitleState}
+          inChorus={titleInChorus(results, chorus) ? results.length : titleWordsInChorus}
+          total={results.length}
+        />
+      )}
       {page.exercise === 'grid' &&
         (bank ? (
           <WordGrid pageId={page.id} date={page.date} state={page.state as GridState} bank={bank} results={results} />
@@ -150,7 +179,15 @@ function PageView({ page, memos }: { page: PageRow; memos: Memo[] }) {
         <Sheet onClose={() => setMenu(null)}>
           <SheetButton onClick={() => setMenu('rename')}>Rename page</SheetButton>
           {page.exercise === 'object' && <ObjectPanel pageId={page.id} state={page.state as ObjectState} />}
-      {page.exercise === 'grid' && (
+      {page.exercise === 'title' && (
+        <TitlePanel
+          pageId={page.id}
+          state={page.state as TitleState}
+          inChorus={titleInChorus(results, chorus) ? results.length : titleWordsInChorus}
+          total={results.length}
+        />
+      )}
+      {DETECTS.has(page.exercise) && (
             <SheetButton onClick={() => setMenu('level')}>Detection level: {LEVELS.find((l) => l[0] === page.level)?.[1]}</SheetButton>
           )}
           <SheetButton

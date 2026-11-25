@@ -5,6 +5,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { WORLDS } from '../../src/lib/draw';
 import { formsOf } from '../../src/lib/forms';
+import { titleWords } from '../../src/lib/titles';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const dataDir = join(here, '..', '..', 'src', 'data');
@@ -120,6 +121,24 @@ checkTexts('objects', objects);
 checkCount('objects', objects.length, 300);
 for (const o of objects) if (!/^[A-Z]/.test(o.text) || /[.!?]$/.test(o.text)) errors.push(`${o.at}: objects start with a capital and have no end punctuation`);
 write('objects.json', objects.map((o) => ({ text: o.text, worlds: o.worlds })));
+
+/** A text's detection targets: each counted word with its other forms. */
+const targets = (text: string) =>
+  titleWords(text).map((w) => {
+    const forms = formsOf(w);
+    forms.delete(w);
+    return { w, forms: [...forms].sort() };
+  });
+
+// ---------- Titles ----------
+const titles = readList('titles.txt');
+checkTexts('titles', titles);
+checkCount('titles', titles.length, 200);
+for (const t of titles) {
+  const n = t.text.split(/\s+/).length;
+  if (n < 1 || n > 5) errors.push(`${t.at}: "${t.text}" has ${n} words (1 to 5)`);
+}
+write('titles.json', titles.map((t) => ({ text: t.text, words: targets(t.text) })));
 
 // ---------- report ----------
 console.log('Exercise banks');

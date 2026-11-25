@@ -851,3 +851,5 @@ input, textarea, select { font-size: 16px; } /* 16px so iOS doesn't zoom */
 .timer__track { fill: none; stroke: var(--bar-edge); stroke-width: 3.5; }
 .timer__fill { fill: none; stroke: var(--red); stroke-width: 3.5; stroke-linecap: round; }
 .timer__over { color: var(--pencil); font-weight: 400; }
+.panel-status { margin: 10px 0 0; font: 500 18px/1.2 var(--font-hand); color: var(--pencil); }
+.panel-status--done { color: var(--red); font-weight: 700; }

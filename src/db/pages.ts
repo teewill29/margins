@@ -2,8 +2,8 @@ import { localDate } from '../lib/date';
 import { splitLines } from '../lib/pad';
 import { resolvePin } from '../lib/pins';
 import { db } from './db';
-import { getSetting } from './settings';
-import type { ExerciseState, ExerciseType, GridState, ObjectState, Page } from './types';
+import { getSetting, setSetting } from './settings';
+import type { ExerciseState, ExerciseType, GridState, ObjectState, Page, TitleState } from './types';
 import { recordShown, statsMap } from './wordStats';
 
 async function initialState(exercise: ExerciseType, id: string, date: string): Promise<ExerciseState> {
@@ -34,6 +34,14 @@ async function initialState(exercise: ExerciseType, id: string, date: string): P
       };
       return state;
     }
+    case 'title': {
+      const [{ loadTitles }, { pickText, remember }] = await Promise.all([import('../data/content'), import('../lib/pick')]);
+      const recent = await getSetting('recentTitles');
+      const t = pickText(`page:${id}:title:1`, await loadTitles(), recent)?.text ?? 'Quarter in My Shoe';
+      await setSetting('recentTitles', remember(recent, t));
+      const state: TitleState = { title: t, draws: 1 };
+      return state;
+    }
     default:
       throw new Error(`${exercise} pages arrive in a later phase`);
   }
@@ -50,7 +58,7 @@ export async function createPage(exercise: ExerciseType, id: string = crypto.ran
     title: null,
     exercise,
     state: await initialState(exercise, id, date),
-    body: '',
+    body: exercise === 'title' ? '[Chorus]\n' : '',
     level: await getSetting('level'),
     showSyllables: exercise !== 'object' && exercise !== 'cutup',
     panelCollapsed: false,

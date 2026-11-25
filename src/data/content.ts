@@ -15,12 +15,20 @@ function lazy<T>(key: string, load: () => Promise<{ default: unknown }>): () => 
   };
 }
 
-export const loadObjects = lazy<ObjectItem[]>('objects', () => import('./objects.json'));
+export interface TitleItem {
+  text: string;
+  /** Words that must land in the chorus, with their forms (from npm run bank). */
+  words: { w: string; forms: string[] }[];
+}
 
-/** Loads a bank and returns it once ready (null until then). */
-export function useContent<T>(loader: () => Promise<T>): T | null {
+export const loadObjects = lazy<ObjectItem[]>('objects', () => import('./objects.json'));
+export const loadTitles = lazy<TitleItem[]>('titles', () => import('./titles.json'));
+
+/** Loads a bank and returns it once ready (null until then, or if `loader` is null). */
+export function useContent<T>(loader: (() => Promise<T>) | null): T | null {
   const [data, setData] = useState<T | null>(null);
   useEffect(() => {
+    if (!loader) return;
     let live = true;
     void loader().then((d) => live && setData(d));
     return () => {
