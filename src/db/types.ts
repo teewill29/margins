@@ -59,7 +59,10 @@ export interface Memo {
   label: string;
   durationMs: number;
   mimeType: string;
-  blob: Blob;
+  /** The recording's bytes. Stored as an ArrayBuffer because iOS Safari often refuses Blobs in IndexedDB. */
+  audio?: ArrayBuffer;
+  /** Older rows (before 2026-11-25) hold a Blob here instead. Read audio through memoBlob(). */
+  blob?: Blob;
   pinnedLine: number | null;
   pinnedText: string | null;
   tags: string[];

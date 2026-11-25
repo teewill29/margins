@@ -617,6 +617,7 @@ input, textarea, select { font-size: 16px; } /* 16px so iOS doesn't zoom */
 .mic-card p { margin: 0; }
 .mic-card__title { font-weight: 600; font-size: 15px; }
 .mic-card__body { margin-top: 4px !important; font-size: 13.5px; line-height: 1.4; color: var(--ink-soft); }
+.mic-card__row { display: flex; gap: 8px; margin-top: 10px; }
 
 /* Settings */
 .settings-section {

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { createBrowserRouter, Outlet, RouterProvider, useMatches } from 'react-router';
 import { BottomBar } from './components/BottomBar';
-import { MicCard } from './components/MicCard';
+import { MicCard, UnsavedCard } from './components/MicCard';
 import { RecordingDock } from './components/RecordingDock';
 import { requestPersistOnce } from './db/settings';
 import { Exercises } from './screens/Exercises';
@@ -23,6 +23,7 @@ function Frame() {
     <div className="app">
       <Outlet />
       <div className="app__foot">
+        <UnsavedCard />
         <MicCard />
         {rec.status !== 'idle' ? <RecordingDock /> : showBar && <BottomBar />}
       </div>

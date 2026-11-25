@@ -15,6 +15,7 @@ export default tseslint.config(
       ...reactHooks.configs.recommended.rules,
       // Providers and their hooks share a file on purpose; this only affects dev hot reload.
       'react-refresh/only-export-components': 'off',
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_', ignoreRestSiblings: true }],
     },
   },
   {

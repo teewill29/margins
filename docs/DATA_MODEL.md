@@ -67,7 +67,8 @@ interface Memo {
   label: string;             // "Memo 3" until renamed
   durationMs: number;
   mimeType: string;          // from MediaRecorder
-  blob: Blob;
+  audio: ArrayBuffer;        // the recording's bytes. Not a Blob: iOS Safari often refuses Blobs in IndexedDB.
+  blob?: Blob;               // legacy rows only (before 2026-11-25); read audio through memoBlob()
   pinnedLine: number | null; // line index in page.body
   pinnedText: string | null; // that line's text when pinned
   tags: string[];            // empty for now; reserved for tunings and keys later
@@ -111,7 +112,7 @@ Key-value, one row per key. Indexes: `key`
 
 ## Backup format
 Zip file `margins-backup-YYYY-MM-DD.zip`:
-- `margins.json`: `{ version: 1, exportedAt, pages, memos (without blob), wordStats, userLines, settings }`
+- `margins.json`: `{ version: 1, exportedAt, pages, memos (without audio), wordStats, userLines, settings }`
 - `audio/<memoId>.<ext>`: one file per memo. Extension from MIME type: webm → `.webm`, mp4 → `.m4a`.
 
 Import merges by id. A row replaces the stored one only if its `updatedAt` (or `createdAt` for memos and user lines) is newer. Import never deletes anything.

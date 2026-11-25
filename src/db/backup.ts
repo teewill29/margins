@@ -3,10 +3,11 @@ import { BACKUP_VERSION, backupFileName, extForMime, rowsToImport } from '../lib
 import { localDate } from '../lib/date';
 import { isIOS } from '../platform';
 import { db } from './db';
+import { memoBlob } from './memos';
 import { setSetting } from './settings';
 import type { Memo, Page, SettingRow, UserLine, WordStat } from './types';
 
-type MemoMeta = Omit<Memo, 'blob'>;
+type MemoMeta = Omit<Memo, 'blob' | 'audio'>;
 
 interface BackupJson {
   version: number;
@@ -30,9 +31,10 @@ export async function buildBackup(): Promise<File> {
   ]);
   const audio = zip.folder('audio');
   const metas: MemoMeta[] = [];
-  for (const { blob, ...meta } of memos) {
+  for (const memo of memos) {
+    const { blob: _blob, audio: _audio, ...meta } = memo;
     metas.push(meta);
-    audio?.file(`${meta.id}.${extForMime(meta.mimeType)}`, blob, { compression: 'STORE' });
+    audio?.file(`${meta.id}.${extForMime(meta.mimeType)}`, memoBlob(memo), { compression: 'STORE' });
   }
   const json: BackupJson = { version: BACKUP_VERSION, exportedAt: Date.now(), pages, memos: metas, wordStats, userLines, settings };
   zip.file('margins.json', JSON.stringify(json, null, 1), { compression: 'DEFLATE' });
@@ -41,10 +43,10 @@ export async function buildBackup(): Promise<File> {
 }
 
 /**
- * Hands the file to the user: the share sheet on iOS (so it can go to Files), a download elsewhere.
+ * Hands a file to the user: the share sheet on iOS (so it can go to Files), a download elsewhere.
  * Returns false if the user cancelled the share sheet.
  */
-export async function deliverBackup(file: File): Promise<boolean> {
+export async function deliverFile(file: File): Promise<boolean> {
   if (isIOS() && navigator.canShare?.({ files: [file] })) {
     try {
       await navigator.share({ files: [file] });
@@ -67,7 +69,7 @@ export async function deliverBackup(file: File): Promise<boolean> {
 
 export async function exportBackup(): Promise<boolean> {
   const file = await buildBackup();
-  const done = await deliverBackup(file);
+  const done = await deliverFile(file);
   if (done) await setSetting('lastBackupAt', Date.now());
   return done;
 }
@@ -118,8 +120,7 @@ export async function importBackup(file: Blob): Promise<ImportResult> {
       missingAudio++;
       continue;
     }
-    const buf = await f.async('arraybuffer');
-    memosIn.push({ ...meta, blob: new Blob([buf], { type: meta.mimeType }) });
+    memosIn.push({ ...meta, audio: await f.async('arraybuffer') });
   }
 
   const localLines = new Map((await db.userLines.toArray()).map((l) => [l.id, l]));

@@ -1,7 +1,10 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { deliverFile } from '../db/backup';
 import { saveMemo, type NewMemo } from '../db/memos';
+import { extForMime } from '../lib/backup';
 import { levelFromBytes, pickMimeType } from '../lib/media';
 import type { Pin } from '../lib/pins';
+import { isIOS } from '../platform';
 import { activePad } from './padRegistry';
 import { usePlayer } from './player';
 import { useToast } from './toast';
@@ -15,6 +18,10 @@ interface RecorderValue {
   startedAt: number;
   pin: Pin | null;
   error: RecError | null;
+  /** Recordings the database refused. Kept in memory until saved or handed out as a file. */
+  unsaved: readonly NewMemo[];
+  retryUnsaved(): Promise<void>;
+  exportUnsaved(memo: NewMemo): Promise<void>;
   /** Resolves true once the mic is live. Call straight from a tap so iOS allows audio. */
   start(pageId: string): Promise<boolean>;
   stop(): Promise<void>;
@@ -72,6 +79,7 @@ export function RecorderProvider({ children }: { children: ReactNode }) {
   const [startedAt, setStartedAt] = useState(0);
   const [pin, setPinState] = useState<Pin | null>(null);
   const [error, setError] = useState<RecError | null>(null);
+  const [unsaved, setUnsaved] = useState<NewMemo[]>([]);
 
   const setPin = useCallback((p: Pin | null) => {
     pinRef.current = p;
@@ -95,7 +103,7 @@ export function RecorderProvider({ children }: { children: ReactNode }) {
         return false;
       }
       const s: Session = {
-        pageId: id, stream: null, rec: null, chunks: [], ctx: newAudioContext(), analyser: null,
+        pageId: id, stream: null, rec: null, chunks: [], ctx: null, analyser: null,
         buf: new Uint8Array(new ArrayBuffer(512)), startedAt: 0, mime: '', wake: null, cancelled: false,
       };
       session.current = s;
@@ -103,9 +111,10 @@ export function RecorderProvider({ children }: { children: ReactNode }) {
       setPageId(id);
       setStatus('starting');
       try {
-        // Raw sound suits instruments and humming better than call-style processing.
+        // Raw sound suits instruments better than call-style processing, but iOS can return
+        // quiet or silent input with processing off, so iPhone gets its normal mic.
         s.stream = await navigator.mediaDevices.getUserMedia({
-          audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false },
+          audio: isIOS() ? true : { echoCancellation: false, noiseSuppression: false, autoGainControl: false },
         });
         if (s.cancelled) {
           cleanup(s);
@@ -117,11 +126,20 @@ export function RecorderProvider({ children }: { children: ReactNode }) {
           if (e.data.size > 0) s.chunks.push(e.data);
         };
         s.rec.start(1000);
+        // The meter's audio context starts after the mic: on iOS, turning the mic on can
+        // suspend a context that was already running, which leaves the meter flat.
+        // The meter is only a display; the recording doesn't depend on it.
+        s.ctx = newAudioContext();
         if (s.ctx) {
-          s.analyser = s.ctx.createAnalyser();
+          const ctx = s.ctx;
+          s.analyser = ctx.createAnalyser();
           s.analyser.fftSize = 512;
-          s.ctx.createMediaStreamSource(s.stream).connect(s.analyser);
-          void s.ctx.resume().catch(() => {});
+          ctx.createMediaStreamSource(s.stream).connect(s.analyser);
+          const wake = () => {
+            if (ctx.state !== 'running' && ctx.state !== 'closed') void ctx.resume().catch(() => {});
+          };
+          ctx.addEventListener('statechange', wake);
+          wake();
         }
         navigator.wakeLock
           ?.request('screen')
@@ -169,21 +187,41 @@ export function RecorderProvider({ children }: { children: ReactNode }) {
     return memo.blob.size > 0 ? memo : null;
   }, [reset]);
 
-  const retry = useRef<(m: NewMemo) => void>(() => {});
-  const save = useCallback(
-    async (memo: NewMemo) => {
+  /**
+   * Saves a recording, trying twice. If the database still refuses, the recording is never dropped:
+   * it goes to `unsaved`, shown as a card with Try again and Save file until one of them works.
+   */
+  const trySave = async (memo: NewMemo): Promise<boolean> => {
+    for (let attempt = 0; attempt < 2; attempt++) {
       try {
         const saved = await saveMemo(memo);
         toast({ text: `Saved ${saved.label}` });
-      } catch {
-        toast({ text: "Couldn't save the memo.", action: { label: 'Retry', run: () => retry.current(memo) }, ms: 30_000 });
+        return true;
+      } catch (e) {
+        console.error('Saving memo failed', e);
       }
-    },
-    [toast],
-  );
+    }
+    return false;
+  };
+  const trySaveRef = useRef(trySave);
   useEffect(() => {
-    retry.current = (m) => void save(m);
-  }, [save]);
+    trySaveRef.current = trySave;
+  });
+
+  const save = useCallback(async (memo: NewMemo) => {
+    if (!(await trySaveRef.current(memo))) setUnsaved((u) => [...u, memo]);
+  }, []);
+
+  const retryUnsaved = useCallback(async () => {
+    const left: NewMemo[] = [];
+    for (const m of unsaved) if (!(await trySaveRef.current(m))) left.push(m);
+    setUnsaved(left);
+  }, [unsaved]);
+
+  const exportUnsaved = useCallback(async (memo: NewMemo) => {
+    const name = `margins-memo-${new Date(Date.now() - memo.durationMs).toISOString().slice(0, 19).replace(/[T:]/g, '-')}.${extForMime(memo.mimeType)}`;
+    if (await deliverFile(new File([memo.blob], name, { type: memo.mimeType }))) setUnsaved((u) => u.filter((m) => m !== memo));
+  }, []);
 
   const stop = useCallback(async () => {
     const memo = await finish();
@@ -224,8 +262,8 @@ export function RecorderProvider({ children }: { children: ReactNode }) {
   const clearError = useCallback(() => setError(null), []);
 
   const value = useMemo<RecorderValue>(
-    () => ({ status, pageId, startedAt, pin, error, start, stop, discard, togglePin, level, clearError }),
-    [status, pageId, startedAt, pin, error, start, stop, discard, togglePin, level, clearError],
+    () => ({ status, pageId, startedAt, pin, error, unsaved, retryUnsaved, exportUnsaved, start, stop, discard, togglePin, level, clearError }),
+    [status, pageId, startedAt, pin, error, unsaved, retryUnsaved, exportUnsaved, start, stop, discard, togglePin, level, clearError],
   );
   return <RecorderContext.Provider value={value}>{children}</RecorderContext.Provider>;
 }

@@ -10,7 +10,15 @@ export interface NewMemo {
   pin: Pin | null;
 }
 
+/** The memo's audio as a Blob, whichever way it was stored. */
+export function memoBlob(m: Memo): Blob {
+  if (m.audio) return new Blob([m.audio], { type: m.mimeType });
+  return m.blob ?? new Blob([], { type: m.mimeType });
+}
+
 export async function saveMemo(m: NewMemo): Promise<Memo> {
+  // Read the bytes before the transaction: IndexedDB transactions close if they wait on anything else.
+  const audio = await m.blob.arrayBuffer();
   return db.transaction('rw', db.memos, db.pages, async () => {
     const count = await db.memos.where('pageId').equals(m.pageId).count();
     const memo: Memo = {
@@ -20,7 +28,7 @@ export async function saveMemo(m: NewMemo): Promise<Memo> {
       label: `Memo ${count + 1}`,
       durationMs: m.durationMs,
       mimeType: m.mimeType,
-      blob: m.blob,
+      audio,
       pinnedLine: m.pin?.line ?? null,
       pinnedText: m.pin?.text ?? null,
       tags: [],

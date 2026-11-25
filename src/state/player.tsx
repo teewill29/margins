@@ -1,4 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { memoBlob } from '../db/memos';
 import type { Memo } from '../db/types';
 
 interface PlayerValue {
@@ -46,7 +47,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     }
     el.pause();
     release();
-    url.current = URL.createObjectURL(memo.blob);
+    url.current = URL.createObjectURL(memoBlob(memo));
     currentId.current = memo.id;
     el.src = url.current;
     void el.play().catch(() => setPlayingId(null));
