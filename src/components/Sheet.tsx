@@ -1,4 +1,6 @@
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
+import { createPortal } from 'react-dom';
+import { CloseIcon } from './Icons';
 
 interface SheetProps {
   title?: string;
@@ -6,14 +8,17 @@ interface SheetProps {
   children: ReactNode;
 }
 
-/** Bottom sheet with a backdrop. Escape or a tap outside closes it. */
+/**
+ * Bottom sheet with a backdrop. Escape, the X or a tap outside closes it. Rendered into <body>
+ * through a portal: a tilted card (CSS transform) would otherwise trap the fixed backdrop inside it.
+ */
 export function Sheet({ title, onClose, children }: SheetProps) {
   const panel = useRef<HTMLDivElement>(null);
   const titleId = useId();
 
   useEffect(() => {
     const prev = document.activeElement as HTMLElement | null;
-    const first = panel.current?.querySelector<HTMLElement>('input, button');
+    const first = panel.current?.querySelector<HTMLElement>('input, button:not(.sheet__close)') ?? panel.current?.querySelector<HTMLElement>('button');
     first?.focus({ preventScroll: true });
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -25,7 +30,7 @@ export function Sheet({ title, onClose, children }: SheetProps) {
     };
   }, [onClose]);
 
-  return (
+  return createPortal(
     <div className="sheet-backdrop" onClick={onClose}>
       <div
         ref={panel}
@@ -35,14 +40,20 @@ export function Sheet({ title, onClose, children }: SheetProps) {
         aria-labelledby={title ? titleId : undefined}
         onClick={(e) => e.stopPropagation()}
       >
-        {title && (
-          <h2 id={titleId} className="sheet__title">
-            {title}
-          </h2>
-        )}
+        <div className="sheet__head">
+          {title && (
+            <h2 id={titleId} className="sheet__title">
+              {title}
+            </h2>
+          )}
+          <button type="button" className="icon-btn sheet__close" aria-label="Close" onClick={onClose}>
+            <CloseIcon />
+          </button>
+        </div>
         {children}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
 
