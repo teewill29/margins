@@ -31,4 +31,9 @@
   --app-max: 480px;
   --bar-h: 92px;
   --record-shadow: 0 6px 14px rgba(178, 58, 48, 0.35);
+  --shadow-list: 0 1px 0 rgba(36, 35, 42, 0.06), 0 4px 12px rgba(80, 60, 30, 0.08);
+  --shadow-sheet: 0 -6px 24px rgba(36, 35, 42, 0.15);
+  --shadow-float: 0 6px 18px rgba(36, 35, 42, 0.25);
+  --scrim: rgba(36, 35, 42, 0.35);
+  --selection: rgba(178, 58, 48, 0.2);
 }

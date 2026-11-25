@@ -79,3 +79,37 @@ export const ChevronIcon = (p: IconProps) => (
     <path d="M9 5l7 7-7 7" />
   </Svg>
 );
+
+export const PlayIcon = ({ size = 12, ...rest }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...rest}>
+    <path d="M7 4l13 8-13 8z" />
+  </svg>
+);
+
+export const PauseIcon = ({ size = 12, ...rest }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...rest}>
+    <rect x="6" y="4" width="4" height="16" rx="1" />
+    <rect x="14" y="4" width="4" height="16" rx="1" />
+  </svg>
+);
+
+export const SearchIcon = (p: IconProps) => (
+  <Svg size={18} {...p}>
+    <circle cx="11" cy="11" r="7" />
+    <path d="M20 20l-4-4" />
+  </Svg>
+);
+
+export const CloseIcon = (p: IconProps) => (
+  <Svg size={18} {...p}>
+    <path d="M6 6l12 12" />
+    <path d="M18 6L6 18" />
+  </Svg>
+);
+
+export const SmallMicIcon = (p: IconProps) => (
+  <Svg size={14} strokeWidth={2} {...p}>
+    <rect x="9" y="3" width="6" height="11" rx="3" />
+    <path d="M5 11a7 7 0 0 0 14 0" />
+  </Svg>
+);

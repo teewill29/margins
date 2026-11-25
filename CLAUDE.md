@@ -49,7 +49,12 @@ No paid APIs, services or subscriptions. No server code. Everything runs on the 
 
 ## Open questions
 (Add anything that needs a decision from me here instead of guessing.)
+- **Pinned memo placement.** SPEC puts a pinned memo's pill in its own row under its line. The pad is one `<textarea>`, which can't open an extra row between two lines without breaking caret position or native undo. Built instead: a small play button in a right-hand gutter on the pinned line (tap plays, long-press for Rename / Unpin / Delete), plus every memo listed under the pad, pinned ones marked "line 4". Keep this, or accept a riskier editor to get the in-row pill?
+- **Repeated lines and pins.** DATA_MODEL says a pin follows "the first line whose text equals pinnedText". Built: the nearest matching line, so a memo on the second chorus stays on the second chorus. When the pinned line itself is edited, the pin keeps its index and takes the new text. OK?
+- **Renamed pages on Notebook cards.** SPEC says the card shows the first lyric line. Built: a renamed page shows its name first, then the first lyric line. OK?
+- **Importing settings and word stats.** They have no timestamps, so import only adds keys and words that don't exist on this device. Local values always win.
 
 ## Progress log
 (One line per finished phase: date, phase, anything notable.)
-- 2026-11-24, Phase 0: scaffold, routes, bottom bar, PWA with offline precache (fonts included, latin subsets only). Build, test, lint pass; offline routes checked in Chromium. Still to confirm: Vercel deploy and iPhone home-screen install offline. Record button is a no-op until Phase 1. TypeScript pinned to 6.0 because typescript-eslint doesn't support 7 yet.
+- 2026-11-24, Phase 0: scaffold, routes, bottom bar, PWA with offline precache (fonts included, latin subsets only). Build, test, lint pass; offline routes checked in Chromium. Deployed on Vercel (vercel.json pins Vite and `dist`); you confirmed the checks. TypeScript pinned to 6.0 because typescript-eslint doesn't support 7 yet.
+- 2026-11-25, Phase 1: Dexie v1 schema, notebook (search, swipe or long-press archive with undo, empty state, backup banner), free pages with the textarea-over-mirror pad, voice memos, settings with backup export/import and archived pages. Checked in Chromium with a fake mic: write, two memos (one pinned), lines moved, offline reload, export, wipe, import, audio plays. Still to check on your iPhone: recording in Safari, and that pad text lines up (an iOS 3px textarea inset is compensated but unverified). Four decisions in Open questions.
