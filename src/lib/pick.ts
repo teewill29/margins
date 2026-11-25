@@ -22,6 +22,25 @@ export function pickText<T extends { text: string }>(seed: string, items: readon
   return items[pickIndex(seed, items.length, avoid)];
 }
 
+export type Die = 'pov' | 'tense' | 'place' | 'banned';
+export const DICE: readonly Die[] = ['pov', 'tense', 'place', 'banned'];
+
+/** Rolls the named dice (all four by default) with seed page:<id>:dice:<n>, never repeating a face. */
+export function rollDice(
+  faces: Readonly<Record<Die, readonly string[]>>,
+  seed: string,
+  current: Partial<Record<Die, string>> = {},
+  which: readonly Die[] = DICE,
+): Record<Die, string> {
+  const out = { pov: '', tense: '', place: '', banned: '', ...current } as Record<Die, string>;
+  for (const d of which) {
+    const list = faces[d];
+    const cur = list.indexOf(current[d] ?? '');
+    out[d] = list[pickIndex(`${seed}:${d}`, list.length, new Set(cur >= 0 ? [cur] : []))] ?? '';
+  }
+  return out;
+}
+
 /** Keeps the last `max` shown texts, newest last. */
 export function remember(recent: readonly string[], text: string, max = 20): string[] {
   return [...recent.filter((t) => t !== text), text].slice(-max);

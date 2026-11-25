@@ -53,7 +53,7 @@ interface ObjectState {
 interface CutupState { source: string; seed: string; rechops: number; usedFragments: number[] }
 interface LineState { line: string; draws: number }           // firstLine, lastLine
 interface TitleState { title: string; draws: number }
-interface DiceState { pov: string; tense: string; place: string; banned: string }
+interface DiceState { pov: string; tense: string; place: string; banned: string; rolls: number } // rolls seeds page:<id>:dice:<n>
 interface CharacterState { name: string; age: number; job: string; want: string; obstacle: string }
 type FreeState = Record<string, never>;
 ```

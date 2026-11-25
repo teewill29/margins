@@ -24,6 +24,8 @@ interface RuledPadProps {
 export interface Range {
   start: number;
   end: number;
+  /** "mark": a used exercise word (marker). "banned": the dice's banned word (red underline). */
+  kind?: 'mark' | 'banned';
 }
 
 interface MirrorLineProps {
@@ -38,7 +40,7 @@ interface MirrorLineProps {
 }
 
 const sameRanges = (a: readonly Range[] | undefined, b: readonly Range[] | undefined) =>
-  a === b || (!!a && !!b && a.length === b.length && a.every((r, i) => r.start === b[i]?.start && r.end === b[i]?.end));
+  a === b || (!!a && !!b && a.length === b.length && a.every((r, i) => r.start === b[i]?.start && r.end === b[i]?.end && r.kind === b[i]?.kind));
 
 /** One line of the mirror. Re-renders only when its own content changes, so long pages stay fast. */
 const MirrorLine = memo(
@@ -78,7 +80,7 @@ function marked(line: string, ranges: readonly Range[] | undefined): string | (s
     if (r.start < at) return;
     if (r.start > at) out.push(line.slice(at, r.start));
     out.push(
-      <mark key={i} className="pad__mark">
+      <mark key={i} className={r.kind === 'banned' ? 'pad__banned' : 'pad__mark'}>
         {line.slice(r.start, r.end)}
       </mark>,
     );

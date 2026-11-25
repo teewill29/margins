@@ -3,7 +3,7 @@ import { splitLines } from '../lib/pad';
 import { resolvePin } from '../lib/pins';
 import { db } from './db';
 import { getSetting, setSetting } from './settings';
-import type { ExerciseState, ExerciseType, GridState, LineState, ObjectState, Page, TitleState } from './types';
+import type { DiceState, ExerciseState, ExerciseType, GridState, LineState, ObjectState, Page, TitleState } from './types';
 import { recordShown, statsMap } from './wordStats';
 
 async function initialState(exercise: ExerciseType, id: string, date: string): Promise<ExerciseState> {
@@ -46,6 +46,12 @@ async function initialState(exercise: ExerciseType, id: string, date: string): P
     case 'lastLine': {
       const line = await drawLine(exercise === 'firstLine' ? 'first' : 'last', `page:${id}:line:1`, null);
       const state: LineState = { line, draws: 1 };
+      return state;
+    }
+    case 'dice': {
+      const [{ loadDice }, { rollDice }] = await Promise.all([import('../data/content'), import('../lib/pick')]);
+      const d = await loadDice();
+      const state: DiceState = { ...rollDice({ ...d, banned: d.banned.map((b) => b.w) }, `page:${id}:dice:1`), rolls: 1 };
       return state;
     }
     default:

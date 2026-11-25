@@ -1,0 +1,478 @@
+{
+ "pov": [
+  "I",
+  "We",
+  "You",
+  "He",
+  "She",
+  "They",
+  "You, talking to an object"
+ ],
+ "tense": [
+  "Past",
+  "Present",
+  "Future",
+  "Would (conditional)"
+ ],
+ "place": [
+  "a gas station at 2 a.m.",
+  "the back row of a wedding",
+  "a flooded basement",
+  "a hospital parking garage",
+  "the bleachers after the game",
+  "a laundromat with one dryer working",
+  "a church fellowship hall after a funeral",
+  "the cab of a parked semi",
+  "a motel pool in October",
+  "a feed store on a Saturday morning",
+  "the bed of a pickup at a drive-in",
+  "a bus station bathroom",
+  "a tollbooth on the overnight shift",
+  "a county fair after the rides shut down",
+  "a kitchen table covered in bills",
+  "a tire shop waiting room",
+  "a fishing pier at low tide",
+  "the roof of a trailer",
+  "a bowling alley on league Thursday",
+  "a dentist's waiting room",
+  "a pawnshop counter",
+  "a high school gym during prom",
+  "a hunting stand before dawn",
+  "a hardware store paint aisle",
+  "a hotel ballroom after the party",
+  "the last pew of a revival tent",
+  "a junkyard office",
+  "a truck stop shower stall",
+  "a classroom during a fire drill",
+  "a grain elevator ladder",
+  "the front desk of a cheap motel",
+  "a carwash bay",
+  "an empty swimming pool",
+  "a courthouse hallway",
+  "a cemetery on Memorial Day",
+  "a diner booth with torn vinyl",
+  "a barbershop on a Tuesday",
+  "a recording booth with bad headphones",
+  "a backstage hallway",
+  "a dorm room with the window stuck open",
+  "a parked car outside your old house",
+  "a tattoo parlor waiting area",
+  "a pharmacy line",
+  "a ferry crossing in fog",
+  "the top of a water tower",
+  "a dock with no boats",
+  "a basketball court with no nets",
+  "a thrift store dressing room",
+  "a rest stop picnic table",
+  "the shoulder of the interstate",
+  "a bait shop with a dead freezer",
+  "a radio station at sign-off",
+  "a nursing home dayroom",
+  "a hayloft in August",
+  "a rodeo arena after the crowd leaves",
+  "a pool hall bathroom mirror",
+  "a cattle auction",
+  "a grocery store at closing time",
+  "a wedding chapel in a strip mall",
+  "a storm cellar",
+  "a school bus on a field trip",
+  "a factory break room",
+  "a ticket booth at a fairground",
+  "a church parking lot on a weeknight",
+  "the passenger seat of a hearse",
+  "a hotel elevator stuck between floors",
+  "a skating rink snack bar",
+  "an airport gate after a cancelled flight",
+  "a fire escape in summer",
+  "a train platform in snow",
+  "a lifeguard stand off season",
+  "a used car lot",
+  "a tent at a flea market",
+  "a prison visiting room",
+  "a funeral home parking lot",
+  "a rooftop with a sagging lawn chair",
+  "a wheat field after harvest",
+  "a lake house nobody visits anymore",
+  "a karaoke bar on a Monday",
+  "a principal's office",
+  "a mall food court before it opens",
+  "an attic full of someone else's things",
+  "a fishing boat before the sun is up",
+  "a hospital vending machine alcove",
+  "a backyard with an empty doghouse",
+  "a closed amusement park",
+  "a florist's walk-in cooler",
+  "a county jail holding cell",
+  "a beauty salon on a Saturday",
+  "a church nursery during the sermon",
+  "a construction site at lunch",
+  "a laundromat folding table",
+  "the stairwell of an apartment building",
+  "a duck blind",
+  "a drugstore greeting card aisle",
+  "a lumberyard in a downpour",
+  "an empty movie theater",
+  "a veterinarian's waiting room",
+  "a snow-covered football field",
+  "a farm stand with an honor box"
+ ],
+ "banned": [
+  {
+   "w": "love",
+   "forms": [
+    "loved",
+    "loves",
+    "loving"
+   ]
+  },
+  {
+   "w": "heart",
+   "forms": [
+    "hearted",
+    "hearting",
+    "hearts"
+   ]
+  },
+  {
+   "w": "baby",
+   "forms": [
+    "babied",
+    "babies",
+    "babying"
+   ]
+  },
+  {
+   "w": "tonight",
+   "forms": [
+    "tonighted",
+    "tonighting",
+    "tonights"
+   ]
+  },
+  {
+   "w": "forever",
+   "forms": [
+    "forevered",
+    "forevering",
+    "forevers"
+   ]
+  },
+  {
+   "w": "fire",
+   "forms": [
+    "fired",
+    "fires",
+    "firing"
+   ]
+  },
+  {
+   "w": "rain",
+   "forms": [
+    "rained",
+    "raining",
+    "rains"
+   ]
+  },
+  {
+   "w": "soul",
+   "forms": [
+    "souled",
+    "souling",
+    "souls"
+   ]
+  },
+  {
+   "w": "dream",
+   "forms": [
+    "dreamed",
+    "dreaming",
+    "dreams",
+    "dreamt"
+   ]
+  },
+  {
+   "w": "broken",
+   "forms": [
+    "break",
+    "breaking",
+    "breaks",
+    "broke",
+    "brokened",
+    "brokening",
+    "brokens"
+   ]
+  },
+  {
+   "w": "alone",
+   "forms": [
+    "aloned",
+    "alones",
+    "aloning"
+   ]
+  },
+  {
+   "w": "feel",
+   "forms": [
+    "feeled",
+    "feeling",
+    "feels",
+    "felt"
+   ]
+  },
+  {
+   "w": "sky",
+   "forms": [
+    "skied",
+    "skies",
+    "skying"
+   ]
+  },
+  {
+   "w": "eyes",
+   "forms": [
+    "eye",
+    "eyed",
+    "eyeing",
+    "eyeses",
+    "eyessed",
+    "eyessing"
+   ]
+  },
+  {
+   "w": "night",
+   "forms": [
+    "nighted",
+    "nighting",
+    "nights"
+   ]
+  },
+  {
+   "w": "light",
+   "forms": [
+    "lighted",
+    "lighting",
+    "lights",
+    "lit"
+   ]
+  },
+  {
+   "w": "world",
+   "forms": [
+    "worlded",
+    "worlding",
+    "worlds"
+   ]
+  },
+  {
+   "w": "stars",
+   "forms": [
+    "star",
+    "starred",
+    "starring",
+    "starsed",
+    "starses",
+    "starsing"
+   ]
+  },
+  {
+   "w": "angel",
+   "forms": [
+    "angeled",
+    "angeling",
+    "angelled",
+    "angelling",
+    "angels"
+   ]
+  },
+  {
+   "w": "shine",
+   "forms": [
+    "shined",
+    "shines",
+    "shining",
+    "shone"
+   ]
+  },
+  {
+   "w": "tears",
+   "forms": [
+    "tear",
+    "tearing",
+    "tearsed",
+    "tearses",
+    "tearsing",
+    "tore",
+    "torn"
+   ]
+  },
+  {
+   "w": "goodbye",
+   "forms": [
+    "goodbyed",
+    "goodbyeing",
+    "goodbyes"
+   ]
+  },
+  {
+   "w": "cry",
+   "forms": [
+    "cried",
+    "cries",
+    "crying"
+   ]
+  },
+  {
+   "w": "kiss",
+   "forms": [
+    "kissed",
+    "kisses",
+    "kissing"
+   ]
+  },
+  {
+   "w": "hold",
+   "forms": [
+    "held",
+    "holded",
+    "holding",
+    "holds"
+   ]
+  },
+  {
+   "w": "touch",
+   "forms": [
+    "touched",
+    "touches",
+    "touching"
+   ]
+  },
+  {
+   "w": "crazy",
+   "forms": [
+    "crazied",
+    "crazies",
+    "crazying"
+   ]
+  },
+  {
+   "w": "wild",
+   "forms": [
+    "wilded",
+    "wilding",
+    "wilds",
+    "wilt"
+   ]
+  },
+  {
+   "w": "free",
+   "forms": [
+    "freed",
+    "freeing",
+    "frees"
+   ]
+  },
+  {
+   "w": "rise",
+   "forms": [
+    "rised",
+    "risen",
+    "rises",
+    "rising",
+    "rose"
+   ]
+  },
+  {
+   "w": "fly",
+   "forms": [
+    "flew",
+    "flied",
+    "flies",
+    "flown",
+    "flying"
+   ]
+  },
+  {
+   "w": "fall",
+   "forms": [
+    "falled",
+    "fallen",
+    "falling",
+    "falls",
+    "fell"
+   ]
+  },
+  {
+   "w": "lost",
+   "forms": [
+    "lose",
+    "losted",
+    "losting",
+    "losts"
+   ]
+  },
+  {
+   "w": "home",
+   "forms": [
+    "hame",
+    "homed",
+    "homeing",
+    "homes",
+    "homing"
+   ]
+  },
+  {
+   "w": "remember",
+   "forms": [
+    "remembered",
+    "remembering",
+    "remembers"
+   ]
+  },
+  {
+   "w": "inside",
+   "forms": [
+    "insided",
+    "insides",
+    "insiding"
+   ]
+  },
+  {
+   "w": "away",
+   "forms": [
+    "awayed",
+    "awaying",
+    "aways"
+   ]
+  },
+  {
+   "w": "never",
+   "forms": [
+    "nevered",
+    "nevering",
+    "nevers"
+   ]
+  },
+  {
+   "w": "always",
+   "forms": [
+    "alway",
+    "alwayed",
+    "alwaying",
+    "alwaysed",
+    "alwayses",
+    "alwaysing"
+   ]
+  },
+  {
+   "w": "nothing",
+   "forms": [
+    "noth",
+    "nothed",
+    "nothinged",
+    "nothinging",
+    "nothings",
+    "noths"
+   ]
+  }
+ ]
+}

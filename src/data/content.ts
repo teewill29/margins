@@ -28,7 +28,15 @@ export interface LineItem {
   tense: string;
 }
 
+export interface DiceBank {
+  pov: string[];
+  tense: string[];
+  place: string[];
+  banned: { w: string; forms: string[] }[];
+}
+
 export const loadObjects = lazy<ObjectItem[]>('objects', () => import('./objects.json'));
+export const loadDice = lazy<DiceBank>('dice', () => import('./dice.json'));
 export const loadLines = lazy<LineItem[]>('lines', () => import('./lines.json'));
 export const loadTitles = lazy<TitleItem[]>('titles', () => import('./titles.json'));
 

@@ -5,6 +5,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { WORLDS } from '../../src/lib/draw';
 import { formsOf } from '../../src/lib/forms';
+import { IRREGULAR_PLURALS, IRREGULAR_VERBS } from '../../src/lib/irregulars';
 import { titleWords } from '../../src/lib/titles';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -14,13 +15,23 @@ const report: string[] = [];
 
 const CLICHES = 'love heart baby tonight forever fire rain soul dream broken alone feel sky eyes night light world stars angel shine tears goodbye cry kiss hold touch crazy wild free rise fly fall lost home'.split(' ');
 const CLICHE_FORMS = new Map<string, string>();
-for (const c of CLICHES) for (const f of formsOf(c)) CLICHE_FORMS.set(f, c);
+// Forms of each cliché itself (held for hold, tear for tears, stars for star), by plain spelling
+// rules and the irregular table, but no back-formations: "broken" mustn't flag "break room".
+function clicheForms(c: string): string[] {
+  const stem = c.replace(/(es|s)$/, '');
+  const out = [c, `${c}s`, `${c}es`, `${c}d`, `${c}ed`, `${c}ing`, `${c.replace(/e$/, '')}ing`, stem, `${stem}s`];
+  if (/[^aeiou]y$/.test(c)) out.push(`${c.slice(0, -1)}ies`, `${c.slice(0, -1)}ied`);
+  for (const row of IRREGULAR_VERBS) if (row[0] === c) out.push(...row);
+  for (const row of IRREGULAR_PLURALS) if (row.includes(c)) out.push(...row);
+  return out.filter((f) => f.length > 2);
+}
+for (const c of CLICHES) for (const f of clicheForms(c)) CLICHE_FORMS.set(f, c);
 /** Concrete uses WORDS.md allows: "rain gutter is fine, rain alone isn't". */
 const ALLOWED_PHRASES = new Set([
   'rain gutter', 'rain gauge', 'fire escape', 'fire drill', 'fire truck', 'fire ant', 'fire station', 'fire hydrant',
   'heart monitor', 'night shift', 'porch light', 'home plate', 'home run', 'light bulb', 'night light', 'night class',
   'fly swatter', 'fall semester', 'kiss cam', 'brake light', 'traffic light', 'pilot light', 'tail light', 'dome light',
-  'stop light', 'night nurse', 'night manager',
+  'stop light', 'night nurse', 'night manager', 'nursing home', 'funeral home', 'holding cell',
 ]);
 
 const words = (text: string) =>
@@ -157,6 +168,22 @@ for (const l of lines) {
   if (l.tags.kind !== 'first' && l.tags.kind !== 'last') errors.push(`${l.at}: lines must be under "## first" or "## last"`);
 }
 write('lines.json', lines.map((l) => ({ text: l.text, kind: l.tags.kind, mood: l.mood, tense: l.tense })));
+
+// ---------- Constraint dice ----------
+const dice = readList('dice.txt', 'die');
+const die = (name: string) => dice.filter((d) => d.tags.die === name);
+checkTexts('dice places', die('place'));
+checkCount('dice pov', die('pov').length, 7);
+checkCount('dice tense', die('tense').length, 4);
+checkCount('dice place', die('place').length, 100);
+checkCount('dice banned', die('banned').length, 40);
+for (const d of die('banned')) if (!/^[a-z]+$/.test(d.text)) errors.push(`${d.at}: banned words are single lowercase words`);
+write('dice.json', {
+  pov: die('pov').map((d) => d.text),
+  tense: die('tense').map((d) => d.text),
+  place: die('place').map((d) => d.text),
+  banned: die('banned').map((d) => ({ w: d.text, forms: [...formsOf(d.text)].filter((f) => f !== d.text).sort() })),
+});
 
 // ---------- report ----------
 console.log('Exercise banks');

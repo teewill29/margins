@@ -9,14 +9,15 @@ import { ObjectPanel } from '../components/ObjectPanel';
 import { ObjectTimer } from '../components/ObjectTimer';
 import { TitlePanel } from '../components/TitlePanel';
 import { LinePanel } from '../components/LinePanel';
-import { loadTitles, useContent, type TitleItem } from '../data/content';
+import { DicePanel } from '../components/DicePanel';
+import { loadDice, loadTitles, useContent, type DiceBank, type TitleItem } from '../data/content';
 import { chorusLines, titleInChorus, titleWords } from '../lib/titles';
 import { useBank, type Bank } from '../data/bank';
 import { PromptSheet, Sheet, SheetButton } from '../components/Sheet';
 import { TopBar } from '../components/TopBar';
 import { db } from '../db/db';
 import { renamePage, setArchived, setPageLevel, setShowSyllables } from '../db/pages';
-import type { GridState, Level, LineState, Memo, ObjectState, Page as PageRow, TitleState } from '../db/types';
+import type { DiceState, GridState, Level, LineState, Memo, ObjectState, Page as PageRow, TitleState } from '../db/types';
 import { detect, detectWord, type WordResult } from '../lib/detect';
 import { useActiveTime } from '../hooks/useActiveTime';
 import { useAudioUrls } from '../state/player';
@@ -52,28 +53,38 @@ const LEVELS: [Level, string, string][] = [
 
 const DETECTS = new Set(['grid', 'title']);
 
+interface Banks {
+  bank: Bank | null;
+  titles: readonly TitleItem[] | null;
+  dice: DiceBank | null;
+}
+
 /** The exercise words to look for on this page, with their forms. */
-function useTargets(page: PageRow, bank: Bank | null, titles: readonly TitleItem[] | null) {
+function useTargets(page: PageRow, { bank, titles, dice }: Banks) {
   const grid = page.exercise === 'grid' ? (page.state as GridState) : null;
   const title = page.exercise === 'title' ? (page.state as TitleState).title : null;
+  const banned = page.exercise === 'dice' ? (page.state as DiceState).banned : null;
   const gridKey = grid?.words.join(',') ?? '';
   const words = useMemo(() => {
     if (gridKey && bank) return gridKey.split(',').map((w) => detectWord(w, bank.byW.get(w)?.forms ?? []));
+    if (banned) return [detectWord(banned, dice?.banned.find((b) => b.w === banned)?.forms ?? [])];
     if (title) {
       const entry = titles?.find((t) => t.text === title);
       return entry ? entry.words.map((x) => detectWord(x.w, x.forms)) : titleWords(title).map((w) => detectWord(w, []));
     }
     return [];
-  }, [gridKey, title, bank, titles]);
+  }, [gridKey, title, banned, bank, titles, dice]);
   return { words, overrides: grid?.overrides };
 }
 
 const NO_OVERRIDES = {};
 
 /** Detection for the page's exercise words, recomputed as the text changes. */
-function useDetection(page: PageRow, text: string, bank: Bank | null, titles: readonly TitleItem[] | null): WordResult[] {
-  const { words, overrides } = useTargets(page, bank, titles);
-  return useMemo(() => detect(text, words, page.level, overrides ?? NO_OVERRIDES), [text, words, page.level, overrides]);
+function useDetection(page: PageRow, text: string, banks: Banks): WordResult[] {
+  const { words, overrides } = useTargets(page, banks);
+  // The banned word is flagged in any form, whatever the page's level (SPEC: Root matching).
+  const level = page.exercise === 'dice' ? 'root' : page.level;
+  return useMemo(() => detect(text, words, level, overrides ?? NO_OVERRIDES), [text, words, level, overrides]);
 }
 
 function PageView({ page, memos }: { page: PageRow; memos: Memo[] }) {
@@ -81,14 +92,16 @@ function PageView({ page, memos }: { page: PageRow; memos: Memo[] }) {
   const [text, setText] = useState(page.body);
   const bank = useBank();
   const titles = useContent(page.exercise === 'title' ? loadTitles : null);
-  const results = useDetection(page, text, page.exercise === 'grid' ? bank : null, titles);
+  const dice = useContent(page.exercise === 'dice' ? loadDice : null);
+  const results = useDetection(page, text, { bank: page.exercise === 'grid' ? bank : null, titles, dice });
   const chorus = useMemo(() => (page.exercise === 'title' ? chorusLines(text) : new Set<number>()), [page.exercise, text]);
   const titleWordsInChorus = results.filter((r) => r.matches.some((m) => chorus.has(m.line))).length;
   const highlights = useMemo(() => {
     const map = new Map<number, Range[]>();
-    for (const r of results) for (const m of r.matches) map.set(m.line, [...(map.get(m.line) ?? []), { start: m.start, end: m.end }]);
+    const kind = page.exercise === 'dice' ? 'banned' : 'mark';
+    for (const r of results) for (const m of r.matches) map.set(m.line, [...(map.get(m.line) ?? []), { start: m.start, end: m.end, kind }]);
     return map;
-  }, [results]);
+  }, [results, page.exercise]);
   const memoSheet = useMemoSheet();
   const audioUrls = useAudioUrls(memos.map((m) => m.id));
   const toast = useToast();
@@ -135,6 +148,7 @@ function PageView({ page, memos }: { page: PageRow; memos: Memo[] }) {
       {(page.exercise === 'firstLine' || page.exercise === 'lastLine') && (
         <LinePanel pageId={page.id} kind={page.exercise === 'firstLine' ? 'first' : 'last'} state={page.state as LineState} />
       )}
+      {page.exercise === 'dice' && <DicePanel pageId={page.id} state={page.state as DiceState} bannedUses={results[0]?.matches.length ?? 0} />}
       {page.exercise === 'title' && (
         <TitlePanel
           pageId={page.id}
@@ -186,6 +200,7 @@ function PageView({ page, memos }: { page: PageRow; memos: Memo[] }) {
       {(page.exercise === 'firstLine' || page.exercise === 'lastLine') && (
         <LinePanel pageId={page.id} kind={page.exercise === 'firstLine' ? 'first' : 'last'} state={page.state as LineState} />
       )}
+      {page.exercise === 'dice' && <DicePanel pageId={page.id} state={page.state as DiceState} bannedUses={results[0]?.matches.length ?? 0} />}
       {page.exercise === 'title' && (
         <TitlePanel
           pageId={page.id}

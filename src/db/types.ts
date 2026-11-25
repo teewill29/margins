@@ -29,7 +29,7 @@ export interface ObjectState {
 export interface CutupState { source: string; seed: string; rechops: number; usedFragments: number[] }
 export interface LineState { line: string; draws: number }
 export interface TitleState { title: string; draws: number }
-export interface DiceState { pov: string; tense: string; place: string; banned: string }
+export interface DiceState { pov: string; tense: string; place: string; banned: string; rolls: number }
 export interface CharacterState { name: string; age: number; job: string; want: string; obstacle: string }
 export type FreeState = Record<string, never>;
 
